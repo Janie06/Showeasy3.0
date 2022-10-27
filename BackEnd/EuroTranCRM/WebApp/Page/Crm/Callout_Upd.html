@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="">Callout記錄</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/daterangepicker/css/daterangepicker.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" />
+    <link href="/Content/themes/red.css" rel="stylesheet" />
+    <link href="/Content/style2.0.css" rel="stylesheet" />
+    <!-- <link href="/Scripts/plugins/vanillaSelectBox-master/vanillaSelectBox.css" rel="stylesheet">
+    <script src="/Scripts/plugins/vanillaSelectBox-master/vanillaSelectBox.js"></script> -->
+    <style>
+        .jFiler-input-dragDrop {
+            margin-left: 0;
+            width: 150px;
+            height: 100px;
+            font-size: 56px;
+        }
+
+            .jFiler-input-dragDrop:hover {
+                margin-left: 0;
+                width: 150px;
+                height: 100px;
+                font-size: 56px;
+                border-color: #225067;
+                color: #225067;
+                cursor: pointer;
+            }
+
+        #TransferResult {
+            font-size: large;
+            font-weight: 900;
+        }
+
+        .edit {
+            color: #1d2ef9 !important;
+        }
+
+        .divTitle {
+            background-color: orange;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        .panel-heading {
+            background-color: #777777 !important;
+        }
+
+            .panel-heading a {
+                color: white;
+            }
+
+        .recordHeading {
+            background-color: #dddddd !important;
+        }
+
+            .recordHeading a {
+                color: black;
+            }
+
+        .panel-body .panel-body {
+            padding-Top: 0px !important;
+        }
+
+        .btn-custom {
+            background-color: white;
+        }
+
+        .bill-status li {
+            position: relative;
+            left: -20px;
+            list-style-type: none;
+        }
+
+            .bill-status li div {
+                float: left;
+                text-align: center;
+                margin-right: 20px;
+                width: 100%;
+            }
+
+        .lowIndex .select2-container {
+            z-index: 1;
+        }
+
+        .select2-container--default.select2-container--disabled .select2-selection--multiple {
+            background-color: #eee !important;
+        }
+
+        .LogTextarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <!--主作業區 Start-->
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <form id="form_main" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12"><div class="divTitle text-center"><span data-i18n="">客戶基本資料</span></div></div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									
+									<label class="col-sm-1 control-label" for="input-Default">
+										<span data-i18n="Customers_Upd.TransactionType">交易型態</span><span>：</span>
+									</label>
+									<div class="col-sm-9">
+										<div id="transactiontype"></div>
+									</div>
+									<div class="col-sm-1">
+										<button type="button" class="btn-custom blue w100p" id="btnCorrespondFormalCus" data-i18n="">對應正式客戶</button>
+									</div>
+									<div class="col-sm-1">
+										<button type="button" class="btn-custom blue w100p" id="btnSeeMore" data-i18n="">See More</button>
+									</div>
+								</div>
+							</div>
+                            <div class="form-group">
+								<div class="col-sm-12">
+									<label class="col-sm-1 control-label"><span data-i18n="">客戶名稱</span>：</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" name="CustomerCName" id="CustomerCName">
+									</div>
+									<label class="col-sm-1 control-label"><span data-i18n="">客戶英文名稱</span>：</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" name="CustomerEName" id="CustomerEName">
+									</div>
+									<label class="col-sm-1 control-label"><span data-i18n="">統一編號</span>：</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" name="UniCode" id="UniCode">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<label class="col-sm-1 control-label"><span data-i18n="">電話</span>：</label>
+									<div class="col-sm-3">
+										<input type="text" class="form-control" name="Telephone" id="Telephone">
+									</div>
+									<label class="col-sm-1 control-label"><span data-i18n="">已配合其他運輸公司</span>：</label>
+									<div class="col-sm-3 lowIndex">
+										<select class="form-control w100p" id="CoopTrasportCompany" name="CoopTrasportCompany" multiple="multiple" style="width:100%" disabled></select>
+									</div>
+									<label class="col-sm-1 control-label"><span data-i18n="">黑名單</span>：</label>
+									<div class="col-sm-1">
+										<input id="radio_0" type="radio" name="IsBlackList" value="N" checked="checked"  />
+										<label for="radio_0" data-i18n="">否</label>
+										<input id="radio_1" type="radio" name="IsBlackList" value="Y"/>
+										<label for="radio_1" data-i18n="">是</label>
+									</div>
+									<div class="col-sm-2">
+										<select class="form-control" id="BlackListReason" name="BlackListReason" disabled></select>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<label class="col-sm-1 control-label"><span data-i18n="">是否為進口商</span>：</label>
+									<div class="col-sm-2">
+										<input id="radio_2" type="radio" name="IsImporter" value="Y" />
+										<label for="radio_2" data-i18n="">是</label>
+										<input id="radio_3" type="radio" name="IsImporter" value="N" checked="checked" />
+										<label for="radio_3" data-i18n="">否</label>
+									</div>
+								</div>
+							</div>
+                            <div class="form-group">
+								<div class="col-sm-12"><div class="divTitle text-center"><span data-i18n="">聯絡人資料</span></div></div>
+								<div class="col-sm-12" style="margin-bottom:10px;margin-top:10px">
+									<div class="col-sm-1">
+										<button type="button" class="btn-custom blue w100p" id="btnChooseContactors" data-i18n="">選擇聯絡人</button>
+									</div>
+									<div class="col-sm-1">
+										<button type="button" class="btn-custom blue w100p" id="btnCreateContactor" data-i18n="">建立聯絡人</button>
+									</div>
+								</div>
+								<div class="col-sm-12"><div id="jsGrid"></div></div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6" style="border-right:1px solid #939699;padding-right:1px">
+									<div class="divTitle text-center"><span data-i18n="">Callout記錄</span>
+									</div>
+									
+									<div class="row bills-box" hidden>
+										<div class="panel-body">
+											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6" style="padding-left:1px">
+									<div class="divTitle text-center"><span data-i18n="">參展記錄</span></div>
+									<div class="row" hidden="" style="display: block;">
+										<div class="panel-body subPanel">
+											<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+												<div class="panel panel-default">
+													<div class="panel-heading collapsed" role="tab" id="headingBusinessOpportunity" data-toggle="collapse" href="#collapseBusinessOpportunity" aria-expanded="false" aria-controls="collapseBusinessOpportunity">
+														<div class="panel-title">
+															<div>
+																<a>
+																	<div class="col-sm-12"><span data-i18n="">商機</span></div>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div id="collapseBusinessOpportunity" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingBusinessOpportunity">
+														<div style="margin-bottom:5px;margin-left:10px"><button type="button" class="btn-custom blue" id="btnCreateBusinessOpportunity" data-i18n="">新增潛在商機</button>
+														</div>
+														<div class="panel-body" id="divBusinessOpportunity">
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading collapsed" role="tab" id="headingTraded" data-toggle="collapse" href="#collapseTraded" aria-expanded="false" aria-controls="collapseTraded">
+														<div class="panel-title">
+															<div>
+																<a>
+																	<div class="col-sm-12"><span data-i18n="">已交易</span></div>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div id="collapseTraded" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTraded">
+														<div class="panel-body" id="divDealExhibitionlist">
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading collapsed" role="tab" id="headingUnTraded" data-toggle="collapse" href="#collapseUnTraded" aria-expanded="false" aria-controls="collapseUnTraded">
+														<div class="panel-title">
+															<div>
+																<a>
+																	<div class="col-sm-12"><span data-i18n="">未交易</span></div>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div id="collapseUnTraded" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingUnTraded">
+														<div class="panel-body" id="divUnDealExhibitionlist">
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading collapsed" role="tab" id="headingComplaint" data-toggle="collapse" href="#collapseComplaint" aria-expanded="false" aria-controls="collapseComplaint">
+														<div class="panel-title">
+															<div>
+																<a>
+																	<div class="col-sm-12"><span data-i18n="">客訴記錄</span></div>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div id="collapseComplaint" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingComplaint">
+														<div style="margin-bottom:5px;margin-left:10px"><button type="button" class="btn-custom blue" id="btnCreateComplaint" data-i18n="">新增客訴</button>
+														</div>
+														<div class="panel-body" id="divComplaint">
+														</div>
+													</div>
+												</div>
+												<div class="panel panel-default">
+													<div class="panel-heading collapsed" role="tab" id="headingSatisfactionCase" data-toggle="collapse" href="#collapseSatisfactionCase" aria-expanded="false" aria-controls="collapseSatisfactionCase">
+														<div class="panel-title">
+															<div>
+																<a>
+																	<div class="col-sm-12"><span data-i18n="">滿意度調查</span></div>
+																</a>
+															</div>
+														</div>
+													</div>
+													<div id="collapseSatisfactionCase" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSatisfactionCase">
+														<div class="panel-body" id="divSatisfactionCase">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+                        </form>
+                    </div>
+                </div>
+                <!--主作業區 End-->
+            </div>
+        </div>
+    </div>
+	<script id="temp_ExhibitionCustomerbox" type="text/x-jsrender">
+        <div class="panel panel-default financial">
+            <div class="panel-heading collapsed bill-box-{{:ExhibitionNO}}" role="tab" id="heading{{:ExhibitionNO}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{:ExhibitionNO}}" aria-expanded="false" aria-controls="collapse{{:ExhibitionNO}}">
+                <div class="panel-title">
+                    <div>
+                        <a>
+                            <div class="col-sm-6"><span data-i18n="">展覽名稱</span><span>：{{:ExhibitionName}}</span></div>
+							<div class="col-sm-6"><span data-i18n="">填寫時間</span><span>：{{:CreateDate}}</span></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="collapse{{:ExhibitionNO}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{:ExhibitionNO}}">
+                <div class="panel-body">
+					<div class="col-md-12 bill-box-{{:ExhibitionNO}}">
+						<div class="panel panel-info">
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-1 control-label"><span data-i18n="">運輸需求</span>：</label>
+										<div class="col-sm-3 lowIndex">
+											<select class="form-control input-value" id="TransportRequire-{{:ExhibitionNO}}" data-type="select" value="{{:TransportRequire}}" style="width:100%"></select>
+										</div>
+										<label class="col-sm-1 control-label"><span data-i18n="">運輸方式</span>：</label>
+										<div class="col-sm-3 lowIndex">
+											<select class="form-control input-value" id="TransportationMode-{{:ExhibitionNO}}" data-type="select" style="width:100%"></select>
+										</div>
+										<label class="col-sm-1 control-label"><span data-i18n="">處理方式</span>：</label>
+										<div class="col-sm-3 lowIndex">
+											<select class="form-control input-value" id="ProcessingMode-{{:ExhibitionNO}}" data-type="select" value="{{:ProcessingMode}}" style="width:100%"></select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-1 control-label"><span data-i18n="">預估貨量</span>：</label>
+										<div class="col-sm-3 lowIndex">
+											<input type="text" class="form-control input-value" id="VolumeForecasting-{{:ExhibitionNO}}" maxlength="50" value="{{:VolumeForecasting}}">
+										</div>
+										<label class="col-sm-1 control-label"><span data-i18n="">攤位數</span>：</label>
+										<div class="col-sm-3">
+											<input type="text" class="form-control input-value" id="NumberOfBooths-{{:ExhibitionNO}}" maxlength="50" value="{{:NumberOfBooths}}">
+										</div>
+										<label class="col-sm-1 control-label"><span data-i18n="">攤位號</span>：</label>
+										<div class="col-sm-3">
+											<input type="text" class="form-control input-value" id="BoothNumber-{{:ExhibitionNO}}" maxlength="15" value="{{:BoothNumber}}">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-1 control-label"><span data-i18n="">潛力評估</span>：</label>
+										<div class="col-sm-3 lowIndex">
+											<select class="form-control input-value" id="Potential-{{:ExhibitionNO}}" data-type="select" value="{{:Potential}}" style="width:100%"></select>
+										</div>
+										<label class="col-sm-2 control-label"><span data-i18n="">已配合其他運輸公司</span>：</label>
+										<div class="col-sm-6 lowIndex">
+											<select class="form-control" id="CoopTrasportCompany-{{:ExhibitionNO}}" multiple="multiple" value="{{:CoopTrasportCompany}}" style="width:100%"></select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<label class="col-sm-1 control-label"><span data-i18n="">備註</span>：</label>
+										<div class="col-sm-11 lowIndex">
+											<input type="text" class="form-control input-value" id="Memo-{{:ExhibitionNO}}" maxlength="100" value="{{:Memo}}">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+                                    <div class="form-group">
+                                        <div class="col-sm-2 col-sm-offset-10">
+                                            <button type="button" class="btn-custom orange" data-i18n="" id="btnCallOutRemind-{{:ExhibitionNO}}" style="width:100%">回撥提醒</button>
+                                        </div>
+                                    </div>
+                                </div>
+								<div id="divLog-{{:ExhibitionNO}}">
+									<div class="row">
+										<hr/>
+										<div class="form-group">
+											<label class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="">聯絡人</span>：</label>
+											<div class="col-sm-3 lowIndex">
+												<select class="form-control input-value" id="Contactor-{{:ExhibitionNO}}" data-type="select2" style="width:100%"></select>
+											</div>
+											<div class="col-sm-2 col-sm-offset-6">
+												<button type="button" class="btn-custom orange" data-i18n="" id="btnCreateLog-{{:ExhibitionNO}}" style="width:100%">儲存記錄</button>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-1 control-label"><span data-i18n="">記錄</span>：</label>
+											<div class="col-sm-11">
+												<textarea name="Record" id="Record-{{:ExhibitionNO}}" class="form-control" rows="3"></textarea>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-group" id="accordion-{{:ExhibitionNO}}">
+					</div>
+                </div>
+            </div>
+        </div>
+    </script>
+	<script id="temp_Memobox" type="text/x-jsrender">
+        <div class="panel panel-default">
+			<div class="panel-heading recordHeading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion-{{:ExhibitionNO}}" href="#collapse-{{:ExhibitionNO}}-{{:Index}}">
+						{{:RowIndex}}.記錄：{{:CreateDate}}　記錄人：{{:CreateUser}}　客戶聯絡人：{{:ContactorName}}
+					</a>
+				</h4>
+			</div>
+			<div id="collapse-{{:ExhibitionNO}}-{{:Index}}" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="">
+						<textarea name="Memolog" id="Memolog" class="form-control LogTextarea" rows="3" disabled>{{:Memo}}</textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+    </script>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/lib/OutlookUtil.min.js?v=20180801"></script>
+<script src="/Scripts/pages/Crm/Callout_Upd.js"></script>

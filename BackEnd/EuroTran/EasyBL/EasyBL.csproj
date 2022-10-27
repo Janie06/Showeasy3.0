@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A113DF6-022E-4CF5-8AA2-111294283376}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EasyBL</RootNamespace>
+    <AssemblyName>EasyBL</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=18.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DLL\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\DLL\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.11.0\lib\net20\DotNetZip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.8.4.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.8.4\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JumpKick.HttpLib, Version=2.0.16.77, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HttpLib.2.0.16.77\lib\net45\JumpKick.HttpLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\DLL\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Words.NET, Version=1.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.1.0\lib\Xceed.Words.NET.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttendanceMethods.cs" />
+    <Compile Include="Base64Helper.cs" />
+    <Compile Include="BaseAuthorizeService.cs" />
+    <Compile Include="BaseExceptionWord.cs" />
+    <Compile Include="BLWording.cs" />
+    <Compile Include="ChineseStringUtility.cs" />
+    <Compile Include="Class\AttendanceRule.cs" />
+    <Compile Include="Class\CheckFlow.cs" />
+    <Compile Include="Class\IPAddressRange.cs" />
+    <Compile Include="Class\RPT\CBMVolume.cs" />
+    <Compile Include="Class\RPT\ExhibitionInfo.cs" />
+    <Compile Include="Class\RPT\ExistingCustomerInfo.cs" />
+    <Compile Include="Class\RPT\CVPFilter.cs" />
+    <Compile Include="Class\FlowInfo.cs" />
+    <Compile Include="BillLogs.cs" />
+    <Compile Include="Class\RPT\CostFeeItem.cs" />
+    <Compile Include="Class\RPT\FeeItem.cs" />
+    <Compile Include="Class\RPT\ShareCost.cs" />
+    <Compile Include="Class\RPT\ProfitInfo.cs" />
+    <Compile Include="Class\RPT\RPTEnum.cs" />
+    <Compile Include="CommonRPT.cs" />
+    <Compile Include="SuperAuditor.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="CommonService.cs" />
+    <Compile Include="ComTool.cs" />
+    <Compile Include="ConstDefinition\GlobalConstWord.cs" />
+    <Compile Include="DataTableExtensions.cs" />
+    <Compile Include="DllDynamicCall\DllCall.cs" />
+    <Compile Include="EntityBL.cs" />
+    <Compile Include="ExcelEdit.cs" />
+    <Compile Include="ExcelService.cs" />
+    <Compile Include="FileService.cs" />
+    <Compile Include="Handler\Config.cs" />
+    <Compile Include="Handler\ConfigHandler.cs" />
+    <Compile Include="Handler\CrawlerHandler.cs" />
+    <Compile Include="Handler\Handler.cs" />
+    <Compile Include="Handler\ListFileHandler.cs" />
+    <Compile Include="Handler\NotSupportedHandler.cs" />
+    <Compile Include="Handler\PathFormater.cs" />
+    <Compile Include="Handler\UploadHandler.cs" />
+    <Compile Include="HttpRuntimeCache.cs" />
+    <Compile Include="HttpWebClient.cs" />
+    <Compile Include="LanguageService.cs" />
+    <Compile Include="LogHelper.cs" />
+    <Compile Include="LogService.cs" />
+    <Compile Include="MailService.cs" />
+    <Compile Include="MessageBase.cs" />
+    <Compile Include="PdfService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QRCodeService.cs" />
+    <Compile Include="SecurityImgService.cs" />
+    <Compile Include="ServiceBase.cs" />
+    <Compile Include="SqlClr.cs" />
+    <Compile Include="SugarBll.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="WebApiUtil.cs" />
+    <Compile Include="WebApi\APISoapHeader.cs" />
+    <Compile Include="WebApi\Common\EnumExtension.cs" />
+    <Compile Include="WebApi\Common\HttpResponseExtension.cs" />
+    <Compile Include="WebApi\Common\SignExtension.cs" />
+    <Compile Include="WebApi\Common\WebSettingsConfig.cs" />
+    <Compile Include="WebApi\Enum\ApiEnum.cs" />
+    <Compile Include="WebApi\Filters\ApiSecurityFilter.cs" />
+    <Compile Include="WebApi\Helper\CompressionHelper.cs" />
+    <Compile Include="WebApi\Helper\CompressUtils.cs" />
+    <Compile Include="CSVHelper.cs" />
+    <Compile Include="WebApi\Helper\WebApiHelper.cs" />
+    <Compile Include="WebApi\Message\ErrorResponseMessage.cs" />
+    <Compile Include="WebApi\Message\FlexigridResponseMessage.cs" />
+    <Compile Include="WebApi\Message\InvalidResponseMessage.cs" />
+    <Compile Include="WebApi\Message\MessageBase.cs" />
+    <Compile Include="WebApi\Message\RequestMessage.cs" />
+    <Compile Include="WebApi\Message\ResponseMessage.cs" />
+    <Compile Include="WebApi\Message\SuccessResponseMessage.cs" />
+    <Compile Include="WebApi\Models\AApiServiceBase.cs" />
+    <Compile Include="WebApi\Models\CmdService.cs" />
+    <Compile Include="WebApi\Models\HttpResponse.cs" />
+    <Compile Include="WebApi\Models\TicketAuth.cs" />
+    <Compile Include="WebBrowserService.cs" />
+    <Compile Include="WebServiceUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyNet\EasyNet.csproj">
+      <Project>{d584b1f5-8607-4ffd-ba98-33d0ce115611}</Project>
+      <Name>EasyNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{fd4879c2-fb2b-4b97-81fb-4ec7fb58a943}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlSugar\SqlSugar.csproj">
+      <Project>{489bb790-226c-4fad-8d1e-51d72a7ff8e5}</Project>
+      <Name>SqlSugar</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

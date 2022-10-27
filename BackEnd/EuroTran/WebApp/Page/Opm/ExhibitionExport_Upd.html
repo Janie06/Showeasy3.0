@@ -1,0 +1,1615 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.ExhibitionExport_Upd">出口編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/jquery.toolbar/jquery.toolbar.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/quickQuery/jquery.autocompleter.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/vanillaSelectBox-master/vanillaSelectBox.css" rel="stylesheet">
+    <script src="/Scripts/plugins/vanillaSelectBox-master/vanillaSelectBox.js"></script>
+    <style>
+        .a-url {
+            color: #1d2ef9 !important;
+        }
+
+        .a-mailurl {
+            color: #0da73a !important;
+            text-align: center;
+            cursor: pointer;
+            margin-right: 15px;
+            text-decoration: underline !important;
+        }
+
+        .bill-status {
+            font-size: 20px;
+            color: blue;
+            font-weight: bold;
+        }
+
+        .panel-body {
+            padding: 0 0 5px 5px !important;
+        }
+
+        .table-bordered tbody tr:hover {
+            background-color: #c4e2ff;
+        }
+
+        .table-bordered thead tr th {
+            word-break: keep-all;
+        }
+
+        .table-bordered tbody tr td:last-child {
+            width: 10%;
+        }
+
+        .panel-title a {
+            margin-right: 50px;
+        }
+
+        .panel-title > div {
+            float: left;
+            width: 20%;
+        }
+
+        #tab2 {
+            padding-bottom: 60px;
+        }
+
+        .warnning-tips {
+            color: red;
+            font-size: 20px;
+        }
+
+        #litab3, #litab5 {
+            background: #f5eb82;
+        }
+
+        #litab4, #litab6 {
+            background: #a7fbb3;
+        }
+
+        .notpass-reason-box {
+            font-size: 14px;
+        }
+
+        .notpass-reason-text {
+            margin-top: 5px;
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <div role="tabpanel">
+                            <form id="form_main" class="form-horizontal">
+                                <div role="tabpanel" id="tabs">
+                                    <!-- 頁籖按鈕 Start-->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" id="litab1" class="active">
+                                            <a href="#tab1" role="tab" data-toggle="tab" data-i18n="common.BasicInformation">基本資料</a>
+                                        </li>
+                                        <li role="presentation" id="litab2">
+                                            <a href="#tab2" role="tab" data-toggle="tab" data-i18n="ExhibitionExport_Upd.ExhibitorsList">參展廠商列表</a>
+                                        </li>
+                                        <li role="presentation" id="litab3">
+                                            <a href="#tab3" role="tab" data-toggle="tab" data-i18n="common.QuoteAndPreCost">報價/預估成本</a>
+                                        </li>
+                                        <li role="presentation" id="litab5">
+                                            <a href="#tab5" role="tab" data-toggle="tab" data-i18n="common.ReturnQuoteAndPreCost">退運報價/預估成本</a>
+                                        </li>
+                                        <li role="presentation" id="litab4">
+                                            <a href="#tab4" role="tab" data-toggle="tab" data-i18n="common.ActualCost">實際成本</a>
+                                        </li>
+                                        <li role="presentation" id="litab6">
+                                            <a href="#tab6" role="tab" data-toggle="tab" data-i18n="common.ReturnActualCost">退運實際成本</a>
+                                        </li>
+                                    </ul>
+                                    <!-- 頁籖按鈕 End-->
+                                    <div class="tab-content">
+                                        <!--基本資料-->
+                                        <div role="tabpanel" class="tab-pane active" id="tab1">
+                                            <div class="form-group voidreason" hidden>
+                                                <label class="col-sm-2 control-label t-red"><span data-i18n="common.Void">作廢原因</span>：</label>
+                                                <div class="col-sm-8 t-red">
+                                                    <div id="VoidReason"></div>
+                                                </div>
+                                            </div>
+                                            <hr class="voidreason" hidden />
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.RefNumber">查詢號碼</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="RefNumber" id="RefNumber" disabled maxlength="10" placeholderid="common.AutomaticCoding" placeholder="自動編碼">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.ResponsiblePerson">負責業務</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p" id="ResponsiblePerson" name="ResponsiblePerson" data-type="select2" required data-msg="ExhibitionExport_Upd.ResponsiblePerson_required" datamsg="請選擇負責業務"></select>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.ExportBillName">展覽名稱</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p" id="ExhibitionNO" name="ExhibitionNO" data-type="select2" required data-msg="ExhibitionExport_Upd.ExportBillName_required" datamsg="請輸入活動/展覽名稱"></select>
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.ExportBillEName">英文展名</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p highlight" name="ExportBillEName" id="ExportBillEName" maxlength="500" readonly placeholderid="ExhibitionExport_Upd.Instruction_ExportBillEName" placeholder="">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="common.DateStartAndEnd">展覽日期起訖</span>：</label>
+                                                <div class="col-sm-1 specialcol_r">
+                                                    <input type="text" class="form-control w100p date" name="ExhibitionDateStart" id="ExhibitionDateStart" maxlength="10" data-msg="ExhibitionExport_Upd.ExhibitionDateStart_required" datamsg="請選擇活動日期起">
+                                                </div>
+                                                <span class="col-sm-1 connector">~</span>
+                                                <div class="col-sm-1 specialcol_l">
+                                                    <input type="text" class="form-control w100p date" name="ExhibitionDateEnd" id="ExhibitionDateEnd" maxlength="10" data-rule-compardate="compardate" data-msg-required="ExhibitionExport_Upd.ExhibitionDateEnd_required" datamsgrequired="請選擇活動日期訖" data-msg-compardate="common.ComparDate" datamsgcompardate="日期訖不能小於日期起">
+                                                </div>
+                                                <div class="col-sm-1 control-label"></div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.Organizer">組團單位</span>1：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p Organizer" id="Organizer1" data-type="select2"></select>
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.Organizer">組團單位</span>2：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p Organizer" id="Organizer2" data-type="select2"></select>
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.Organizer">組團單位</span>3：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p Organizer" id="Organizer3" data-type="select2"></select>
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.Organizer">組團單位</span>4：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p Organizer" id="Organizer4" data-type="select2"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.Agent">國外代理</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p" required id="Agent" name="Agent" data-type="select2" data-msg="ExhibitionExport_Upd.Agent_required" datamsg="請輸入國外代理"></select>
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.AgentContactor">代理聯絡人</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p" id="AgentContactor" name="AgentContactor"></select>
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.AgentTelephone">電話/手機</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="AgentTelephone" id="AgentTelephone" maxlength="20" data-keytelno="Y" placeholderid="ExhibitionExport_Upd.Instruction_AgentTelephone" placeholder="">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.AgentEamil">聯絡Email</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="AgentEamil" id="AgentEamil" maxlength="200" placeholderid="ExhibitionExport_Upd.Instruction_AgentEamil" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.ShipmentPort">起運地</span>：</label>
+                                                <div class="col-sm-1 specialcol_r">
+                                                    <input type="text" class="form-control w100p highlight quickquery-city" required name="ShipmentPortCode" id="ShipmentPortCode" maxlength="10" placeholderid="common.CityCodeInput" placeholder="請填入城市碼" data-msg="common.CityCodeInput" datamsg="請填入城市碼">
+                                                </div>
+                                                <span class="col-sm-1 connector">-</span>
+                                                <div class="col-sm-1 specialcol_l">
+                                                    <input type="text" class="form-control w100p" name="ShipmentPort" id="ShipmentPort" maxlength="50" placeholderid="common.CityNameInput" placeholder="自動帶出名稱">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.DestinationPort">目的地</span>：</label>
+                                                <div class="col-sm-1 specialcol_r">
+                                                    <input type="text" class="form-control w100p highlight quickquery-city" name="DestinationCode" id="DestinationCode" maxlength="10" required data-msg="common.DestinationCode_required" datamsg="請輸入目的地" placeholderid="common.CityCodeInput" placeholder="請填入城市碼">
+                                                </div>
+                                                <span class="col-sm-1 connector">-</span>
+                                                <div class="col-sm-1 specialcol_l">
+                                                    <input type="text" class="form-control w100p" name="Destination" id="Destination" maxlength="50" placeholderid="common.CityNameInput" placeholder="自動帶出名稱">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.CarriersNumber">承運家數</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="CarriersNumber" id="CarriersNumber" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_CarriersNumber" placeholder="">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><b class="t-red">*</b><span data-i18n="ExhibitionExport_Upd.TransportationMode">運送方式</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p" name="TransportationMode" id="TransportationMode" required data-msg="common.TransportationMode_required" datamsg="請選擇運送方式"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ShippingCompany">船公司</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="ShippingCompany" id="ShippingCompany" maxlength="50" placeholderid="ExhibitionExport_Upd.Instruction_ShippingCompany" placeholder="">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionImport_Upd.ShipAndVoyage">船名航次</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="ShipAndVoyage" id="ShipAndVoyage" maxlength="50" placeholderid="ExhibitionImport_Upd.Instruction_ShipAndVoyage" placeholder="">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.CustomsClearance">通關方式</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <select class="form-control w100p" name="CustomsClearance" id="CustomsClearance"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.BillLadNO">提單/貨櫃號碼</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="BillLadNO" id="BillLadNO" maxlength="20" data-msg="ExhibitionExport_Upd.BillLadNO_required" datamsg="請輸入提單/貨櫃號碼" placeholderid="ExhibitionExport_Upd.Instruction_BillLadNO" placeholder="">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.BillLadNOSub">分提單號碼</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="BillLadNOSub" id="BillLadNOSub" maxlength="100" placeholderid="ExhibitionExport_Upd.Instruction_BillLadNOSub" placeholder="">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ContainerNumber">貨櫃號碼</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="ContainerNumber" id="ContainerNumber" maxlength="1000">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ExportDeclarationNO">出口報單號碼</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="ExportDeclarationNO" id="ExportDeclarationNO" maxlength="50" placeholderid="ExhibitionExport_Upd.Instruction_ExportDeclarationNO" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.SitiContactor1">現場聯絡人1</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p highlight" name="SitiContactor1" id="SitiContactor1" maxlength="50" placeholderid="ExhibitionExport_Upd.Instruction_SitiContactor1" placeholder="請填寫奕達現場聯絡人姓名">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.SitiTelephone1">聯絡電話1</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p highlight" name="SitiTelephone1" id="SitiTelephone1" maxlength="20" data-keytelno="Y" placeholderid="ExhibitionExport_Upd.Instruction_SitiTelephone1" placeholder="">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.SitiContactor2">現場聯絡人2</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p highlight" name="SitiContactor2" id="SitiContactor2" maxlength="50" placeholderid="ExhibitionExport_Upd.Instruction_SitiContactor2" placeholder="請填寫奕達現場聯絡人姓名">
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.SitiTelephone2">聯絡電話2</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p highlight" name="SitiTelephone2" id="SitiTelephone2" maxlength="20" data-keytelno="Y" placeholderid="ExhibitionExport_Upd.Instruction_SitiTelephone2" placeholder="">
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.DocumentDeadline">文件截止日</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="DocumentDeadline" id="DocumentDeadline" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_DocumentDeadline" placeholder="">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ClosingDate">收貨截止日</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="ClosingDate" id="ClosingDate" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_ClosingDate" placeholder="">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ETC">ETC</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="ETC" id="ETC" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_ETC" placeholder="">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ETD">ETD</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="ETD" id="ETD" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_ETD" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ETA">ETA</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="ETA" id="ETA" maxlength="10">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ReminderAgentExecutionDate">提醒代理執行日</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="ReminderAgentExecutionDate" id="ReminderAgentExecutionDate" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_ReminderAgentExecutionDate" placeholder="">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.PreExhibitionDate">佈展日期</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="PreExhibitionDate" id="PreExhibitionDate" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_PreExhibitionDate" placeholder="">
+                                                </div>
+                                                <label for="name" class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.ExitDate">退場日期</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control date-picker w100p" name="ExitDate" id="ExitDate" maxlength="10" placeholderid="ExhibitionExport_Upd.Instruction_ExitDate" placeholder="">
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionExport_Upd.Memo">特別注意事項</span>：</label>
+                                                <div class="col-sm-8">
+                                                    <textarea name="Memo" id="Memo" class="form-control" rows="5" cols="20" placeholderid="common.Memo"></textarea>
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="ExhibitionImport_Upd.REF">REF#</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control w100p" name="REF" id="REF" maxlength="20" placeholderid="ExhibitionImport_Upd.Instruction_REF" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <div class="form-control-static" name="CreateUser" id="CreateUser" data-source="members.MemberID.MemberName"></div>
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <div class="form-control-static" name="ModifyUser" id="ModifyUser" data-source="members.MemberID.MemberName"></div>
+                                                </div>
+                                                <label class="col-sm-1 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="tab2">
+                                            <div class="form-group batch-import" hidden>
+                                                <div class="col-sm-12 wright">
+                                                    <button type="button" class="btn-custom blue" id="Batch_Import" title="批次匯入" data-i18n="common.Batch_Import">批次匯入</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group batch-mail" hidden>
+                                                <div class="col-sm-12 wright">
+                                                    <button type="button" class="btn-custom blue" id="Batch_Mail" title="批次寄送郵件" data-i18n="common.Batch_Mail">批次寄送郵件</button>
+                                                </div>
+                                            </div>
+
+                                            <div id="jsGrid"></div>
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="tab3">
+                                            <div class="row">
+                                                <fieldset>
+                                                    <legend data-i18n="common.Financial_QuoteAndPreCost">報價+預估成本</legend>
+                                                    <div class="quoteandprecost">
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-info financial">
+                                                                <div class="panel-heading col-md-2">
+                                                                    <h3 class="panel-title wcenter nfloat" data-i18n="common.Financial_Quote">報價</h3>
+                                                                </div>
+                                                                <div class="col-md-4" style="z-index:10">
+                                                                    <label class="col-sm-2 control-label w25p"><span data-i18n="common.QuotationOrBillingCurrency">報價/帳單幣別</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <select class="form-control w100p" data-type="select2" id="QuotationOrBillingCurrency" data-id="Currency"></select>
+                                                                    </div>
+                                                                    <label class="col-sm-2 control-label w20p"><span data-i18n="common.AccountingExchangeRate">匯率(會計用)</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p" id="AccountingExchangeRate" maxlength="50" onkeyup="this.value = this.value.replace(/[^\d.]/g, '').replace(/\.{2,}/g, '.').replace(/^(\-)*(\d+)\.(\d\d\d).*$/, '$1$2.$3');">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group t-red notpass-reason-box" hidden>
+                                                                        <label class="col-sm-2 control-label"><span data-i18n="common.Reason">原因</span>：</label>
+                                                                        <div class="col-sm-4">
+                                                                            <div class="notpass-reason-text"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-1 wright">
+                                                                    <div class="bill-status-box">
+                                                                        <span data-i18n="common.Status">狀態</span>：<span class="bill-status"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2 wright" style="z-index:10">
+                                                                    <button type="button" class="btn-custom blue submittoaudit" disabled id="estimated_submitaudit" data-i18n="common.Financial_SubmitAudit">提交審核</button>
+                                                                    <button type="button" class="btn-custom blue alreadyaudit" disabled id="estimated_audit" data-i18n="common.Audit">審核</button>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th data-i18n="common.Financial_Code">代號</th>
+                                                                                <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                                                                <th data-i18n="common.Financial_Currency">幣別</th>
+                                                                                <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                                                                <th data-i18n="common.Financial_Number">數量</th>
+                                                                                <th data-i18n="common.Financial_Unit">單位</th>
+                                                                                <th data-i18n="common.Financial_Amount">金額</th>
+                                                                                <th data-i18n="common.ExchangeRate">匯率</th>
+                                                                                <th class="QuotationAmountTiltle" data-i18n="common.MainCurrencyNontaxedAmountV2">台幣金額</th><!--or 未稅金額:ForeignCurrencyNontaxedAmountV2-->
+                                                                                <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                                                                <th data-i18n="common.Financial_Tax">稅額</th>
+                                                                                <th data-i18n="common.Action">操作</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody data-id="quote-box"></tbody>
+                                                                    </table>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group QuotationForeignCurrency" style="display: none;">
+                                                                            <label class="col-sm-1 control-label"><span class="QuotationForeignCurrencySubuntaxtotal" data-i18n="common.ForeignCurrencyNontaxedAmount">外幣未稅</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group QuotationMainCurrency">
+                                                                            <label class="col-sm-1 control-label"><span class="QuotationMainCurrencySubuntaxtotal" data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅</span>：</label><!--or SG為: 人民幣幣未稅-->
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p msubtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p mtaxtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p mboxtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                                                            <div class="col-sm-11">
+                                                                                <textarea data-id="Memo" class="form-control col-md-8 input-value quoteboxmemo" data-source="quote" rows="5" cols="20"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2 wright">
+                                                                        <button type="button" class="btn-custom importfeeitem blue" data-type="quote" title="匯入費用項目"><i class="glyphicon glyphicon-import"></i></button>
+                                                                        <button type="button" class="btn-custom copyfeeitem blue" data-type="quote" title="複製費用項目"><i class="fa fa-copy"></i></button>
+                                                                        <button type="button" class="btn-custom plusfeeitem blue" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                                                        <button type="button" class="btn-custom plusfeeitemstar blue" title="批次新增&收藏"><i class="icon-star"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-info financial">
+                                                                <div class="panel-heading col-md-2">
+                                                                    <h3 class="panel-title wcenter nfloat" data-i18n="common.Financial_EstimatedCost">預估成本</h3>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                </div>
+                                                                <div class="col-md-2 wright" style="z-index:10">
+                                                                    <button type="button" class="btn-custom blue synquote" disabled id="estimated_synquote" data-i18n="common.SynQuote">同步報價</button>
+                                                                </div>
+                                                                <div class="panel-body">
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th data-i18n="common.Financial_Code">代號</th>
+                                                                                <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                                                                <th data-i18n="common.Financial_Currency">幣別</th>
+                                                                                <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                                                                <th data-i18n="common.Financial_Number">數量</th>
+                                                                                <th data-i18n="common.Financial_Unit">單位</th>
+                                                                                <th data-i18n="common.Financial_Amount">金額</th>
+                                                                                <th data-i18n="common.ExchangeRate">匯率</th>
+                                                                                <th data-i18n="common.MainCurrencyNontaxedAmountV2">台幣金額</th><!--or 未稅金額:ForeignCurrencyNontaxedAmountV2-->
+                                                                                <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                                                                <th data-i18n="common.Financial_Tax">稅額</th>
+                                                                                <th data-i18n="common.Action">操作</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody data-id="estimatedcost-box"></tbody>
+                                                                    </table>
+                                                                    <div class="col-md-10">
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                                                            <div class="col-sm-3">
+                                                                                <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                                                            <div class="col-sm-11">
+                                                                                <textarea data-id="Memo" class="form-control col-md-8 input-value estimatedcostboxmemo" data-source="estimatedcost" rows="5" cols="20"></textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2 wright">
+                                                                        <button type="button" class="btn-custom importfeeitem blue" data-type="estimatedcost" title="匯入費用項目"><i class="glyphicon glyphicon-import"></i></button>
+                                                                        <button type="button" class="btn-custom blue plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            <div id="topshow_box" hidden>
+                                                <div class="layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui layer-anim sum-box" style="z-index: 100;  left: 15px; top:125px; width: 45%;">
+                                                    <div class="layui-layer-content">
+                                                        <label class="col-sm-3 control-label"><span data-i18n="common.Financial_EstimatedCost_NoTax">預估成本(未稅)</span>：</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="text" class="form-control w100p estimatedcostsum" data-type="money" readonly value="0">
+                                                        </div>
+                                                        <label class="col-sm-3 control-label"><span data-i18n="common.BillAmount_NoTax">帳單金額(未稅)</span>：</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="text" class="form-control w100p amountsum" data-type="money" readonly value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row bills-box" hidden>
+                                                <fieldset>
+                                                    <legend data-i18n="common.Financial_DebitNote">帳單</legend>
+                                                    <div class="panel panel-white">
+                                                        <div class="panel-body">
+                                                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="tab5">
+                                            <div class="row return-quote-box">
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="row returnquote-add" hidden>
+                                                    <div class="col-md-12 wcenter">
+                                                        <button type="button" class="btn-custom blue" id="returnquote_add" disabled data-i18n="common.Financial_AddQuote">新增報價</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="topshow_box_return" hidden>
+                                                <div class="layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui layer-anim sum-box" style="z-index: 100;  left: 15px; top:125px; width: 45%;">
+                                                    <div class="layui-layer-content">
+                                                        <label class="col-sm-3 control-label"><span data-i18n="common.Financial_EstimatedCost_NoTax">預估成本(未稅)</span>：</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="text" class="form-control w100p return_estimatedcostsum" data-type="money" readonly value="0">
+                                                        </div>
+                                                        <label class="col-sm-3 control-label"><span data-i18n="common.BillAmount_NoTax">帳單金額(未稅)</span>：</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="text" class="form-control w100p return_amountsum" data-type="money" readonly value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="tab4">
+                                            <div class="row">
+                                                <div id="warnning_tips" hidden>
+                                                    <div class="layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui layer-anim" style="position:absolute;z-index: 100;  left:33%; top:55px; width: 35%;background-color: rgba(219, 211, 211, 0.24);">
+                                                        <div class="layui-layer-content" style="padding:4px 20px;">
+                                                            <span class="warnning-tips" disabled data-i18n="common.Financial_Warnning_Tips">提示：實際成本已經大於預估成本</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-info financial">
+                                                        <div class="panel-heading col-md-2">
+                                                            <h3 class="panel-title wcenter nfloat" data-i18n="common.Financial_EstimatedCost">預估成本</h3>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>#</th>
+                                                                        <th data-i18n="common.Financial_Code">代號</th>
+                                                                        <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                                                        <th data-i18n="common.Financial_Currency">幣別</th>
+                                                                        <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                                                        <th data-i18n="common.Financial_Number">數量</th>
+                                                                        <th data-i18n="common.Financial_Unit">單位</th>
+                                                                        <th data-i18n="common.Financial_Amount">金額</th>
+                                                                        <th data-i18n="common.ExchangeRate">匯率</th>
+                                                                        <th data-i18n="common.Financial_TWAmount">台幣金額</th>
+                                                                        <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                                                        <th data-i18n="common.Financial_Tax">稅額</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody data-id="actualcost-pre-box"></tbody>
+                                                            </table>
+                                                            <div class="col-md-10">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                                                    </div>
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                                                    </div>
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                                                    <div class="col-sm-11">
+                                                                        <span class="span-text estimatedcost-memo"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 ">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="panel panel-info financial">
+                                                        <div class="panel-heading col-md-2">
+                                                            <h3 class="panel-title wcenter nfloat" data-i18n="common.ActualCost">實際成本</h3>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <div class="layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui layer-anim topshowsum" style="position:absolute;z-index: 100;  left: 29%; top:0; width: 45%;">
+                                                                <div class="layui-layer-content" style="padding:4px 20px;">
+                                                                    <label class="col-sm-3 control-label"><span data-i18n="common.ActualCost_NoTax">實際成本(未稅)</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p actualsum" data-type="money" readonly value="0">
+                                                                    </div>
+                                                                    <label class="col-sm-3 control-label"><span data-i18n="common.BillAmount_NoTax">帳單金額(未稅)</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p amountsum" data-type="money" readonly value="0">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <table class="table table-bordered">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>#</th>
+                                                                        <th data-i18n="common.Financial_Code">代號</th>
+                                                                        <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                                                        <th data-i18n="common.Financial_Currency">幣別</th>
+                                                                        <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                                                        <th data-i18n="common.Financial_Number">數量</th>
+                                                                        <th data-i18n="common.Financial_Unit">單位</th>
+                                                                        <th data-i18n="common.Financial_Amount">金額</th>
+                                                                        <th data-i18n="common.ExchangeRate">匯率</th>
+                                                                        <th data-i18n="common.Financial_TWAmount">台幣金額</th>
+                                                                        <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                                                        <th data-i18n="common.Financial_Tax">稅額</th>
+                                                                        <th data-i18n="common.Financial_AddBillPayer">帳單付款人信息</th>
+                                                                        <th data-i18n="common.Action">操作</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody data-id="actualcost-box"></tbody>
+                                                            </table>
+                                                            <div class="col-md-10">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                                                    </div>
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                                                    </div>
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                                                    <div class="col-sm-3">
+                                                                        <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                                                    <div class="col-sm-11">
+                                                                        <textarea data-id="Memo" class="form-control col-md-8 input-value actualcostboxmemo" data-source="actualcost" rows="5" cols="20"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 wright">
+                                                                <button type="button" class="btn-custom importfeeitem blue" data-type="actualcost" title="匯入費用項目"><i class="glyphicon glyphicon-import"></i></button>
+                                                                <button type="button" class="btn-custom blue plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div role="tabpanel" class="tab-pane" id="tab6">
+                                            <div class="row return-actualcost-box">
+                                            </div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <input type="file" class="import-file hidden" name="file" id="importfile" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="temp_billbox" type="text/x-jsrender">
+        <div class="panel panel-default financial">
+            <div class="panel-heading collapsed bill-box-{{:BillNO}}" role="tab" id="heading{{:BillNO}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{:BillNO}}" aria-expanded="false" aria-controls="collapse{{:BillNO}}">
+                <div class="panel-title">
+                    <div>
+                        <a>
+                            <span>{{:~setSupplierName(SupplierName,SupplierEName)}}</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a>
+                            <span data-i18n="common.Financial_DebitNote">帳單號碼</span>：{{:BillNO}}
+                        </a>
+                    </div>
+                    <div>
+                        <a>
+                            <span data-i18n="common.Financial_BillDate_Create">帳單創建日期</span>：{{:BillCreateDate}}
+                        </a>
+                    </div>
+                    <div>
+                        <a>
+                            <span data-i18n="common.Financial_BillDate_Check">帳單審核日期</span>：<span class="bill-chewckdate">{{:BillCheckDate}}</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a>
+                            <span data-i18n="common.Status">狀態</span>：<span class="status-font"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="collapse{{:BillNO}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{:BillNO}}">
+                <div class="panel-body">
+                    <fieldset>
+                        <legend><span data-i18n="common.Financial_DebitNote">帳單</span>{{:Index}}</legend>
+                        <div class="col-md-12 bill-box-{{:BillNO}}">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_BillNumber">帳單號碼</span>：</label>
+                                                <div class="col-sm-2 w14p">
+                                                    <span class="span-text bill-no">{{:BillNO}}</span>
+                                                </div>
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_BillDate_Create">帳單創建日期</span>：</label>
+                                                <div class="col-sm-2 w14p">
+                                                    <span class="span-text bill-createdate">{{:BillCreateDate}}</span>
+                                                </div>
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_BillDate_Check">帳單審核日期</span>：</label>
+                                                <div class="col-sm-2 w14p">
+                                                    <span class="span-text bill-chewckdate">{{:BillCheckDate}}</span>
+                                                </div>
+                                                <label class="col-sm-1 control-label w10p"><b class="t-red">*</b><span data-i18n="ExhibitionImport_Upd.Payer">付款人</span>:</label>
+                                                <div class="col-sm-2 w14p">
+                                                    <select class="form-control w100p input-value" data-id="Payer" data-type="select2" value="{{:Payer}}"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="col-sm-6">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="bill-status-box">
+                                                        <span data-i18n="common.Status">狀態</span>：<span class="bill-status"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <div class="OnlyForAccounting">
+                                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_Bill_Currency">帳單幣別</span>：</label>
+                                                    <div class="col-sm-2 w14p">
+                                                        <select class="form-control w100p input-value" data-id="Currency"></select>
+                                                    </div>
+                                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.AccountingExchangeRate">匯率(會計用)</span>：</label>
+                                                    <div class="col-sm-2 w14p">
+                                                        <input type="text" class="form-control w100p input-value" data-id="ExchangeRate" maxlength="50" onkeyup="this.value = this.value.replace(/[^\d.]/g, '').replace(/\.{2,}/g, '.').replace(/^(\-)*(\d+)\.(\d\d\d).*$/, '$1$2.$3');">
+                                                    </div>
+                                                </div>
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="common.Contactor">聯絡人</span>：</label>
+                                                <div class="col-sm-2 w14p">
+                                                    <select class="form-control w100p input-value" data-id="Contactor" data-type="select2"></select>
+                                                </div>
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="common.Telephone">聯絡電話/手機</span>：</label>
+                                                <div class="col-sm-2 w14p">
+                                                    <input type="text" class="form-control w100p input-value" data-id="Telephone" maxlength="50">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="ExhibitionImport_Upd.BoxNo">件數</span>：</label>
+                                                <div class="col-sm-1 w14p">
+                                                    <input type="text" class="form-control w100p input-value" data-id="Number" data-keyint='Y' maxlength="20">
+                                                </div>
+                                                <span class="col-sm-1 connector">/</span>
+                                                <div class="col-sm-1 w14p">
+                                                    <input type="text" class="form-control w100p input-value" data-id="Unit" maxlength="10" onchange="fnKeyUnit(this);" placeholderid="common.UnitInput" placeholder="件數單位">
+                                                </div>
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="common.Weight">重量</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control w100p input-value" data-id="Weight" data-keyintp3='Y' maxlength="20">
+                                                        <span class="input-group-addon cusgroup-addon">
+                                                            KG
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <label class="col-sm-1 control-label w10p"><span data-i18n="ExhibitionImport_Upd.Volume">材積(CBM)</span>：</label>
+                                                <div class="col-sm-2">
+                                                    <div class="input-group input-append">
+                                                        <input type="text" class="form-control w100p input-value" data-id="Volume" data-keyintp2="Y" maxlength="50">
+                                                        <span class="input-group-addon cusgroup-addon">
+                                                            CBM
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="BillOrganizers">
+                                                    <label for="name" class="col-sm-3 control-label w10p"><span data-i18n="ExhibitionExport_Upd.Organizer">組團單位</span>：</label>
+                                                    <div class="col-sm-2">
+                                                        <select class="form-control w100p" data-id="BillOrganizer" data-type="select2"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 wright">
+                                            <div class="form-group">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn-custom blue dropdown-toggle bills-print" data-toggle="dropdown" disabled aria-expanded="false">
+                                                        <span data-i18n="common.Toolbar_Print">列印</span> <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="javascript:void(0);" class="bill-print" data-action="Print_Bill" data-i18n="common.Financial_Print">列印帳單</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="javascript:void(0);" class="bill-print" data-action="Print_Receipt" data-i18n="common.Financial_Print_Receipt">列印收據</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="javascript:void(0);" class="bill-print" data-action="Download_Bill" data-i18n="common.Financial_DownLoad_Bill">下載帳單（Word）</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="javascript:void(0);" class="bill-print" data-action="Download_BatchBill" data-i18n="common.Batch_BillsDownLoad">批次下載帳單（Word）</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="javascript:void(0);" class="bill-print" data-action="Download_Receipt" data-i18n="common.Financial_DownLoad_Receipt">下載收據（Word）</a></li>
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="btn-custom blue submittoaudit" disabled data-id="bill_submitaudit" data-i18n="common.Financial_SubmitAudit">提交審核</button>
+                                                <button type="button" class="btn-custom blue alreadyaudit" disabled data-id="bill_audit" data-i18n="common.Audit">審核</button>
+                                                <button type="button" class="btn-custom blue cancelaudi" disabled data-id="bill_cancelaudit" data-i18n="common.Financial_CancelAudit">取消審核</button>
+                                                <button type="button" class="btn-custom blue reedit" disabled data-id="bill_reedit" data-i18n="common.Financial_ReEdit">抽單</button>
+                                                <button type="button" class="btn-custom blue cancelreedit" disabled data-id="bill_cancelreedit" data-i18n="common.Financial_CancelReEdit">取消抽單</button>
+                                                <button type="button" class="btn-custom blue billpost" disabled data-id="bill_post" data-i18n="common.Financial_Post">過帳</button>
+                                                <button type="button" class="btn-custom blue cancelpost" disabled data-id="bill_cancelpost" data-i18n="common.Financial_CancelPost">取消過帳</button>
+                                                <button type="button" class="btn-custom blue writeoff" disabled data-id="bill_writeoff" data-i18n="common.Financial_WriteOff">銷帳</button>
+                                                <button type="button" class="btn-custom blue canceloff" disabled data-id="bill_canceloff" data-i18n="common.Financial_CancelWriteOff">取消銷帳</button>
+                                                <button type="button" class="btn-custom blue billvoid" disabled data-id="bill_void" data-i18n="common.Toolbar_Void">作廢</button>
+                                                <button type="button" class="btn-custom blue billdelete" disabled data-id="bill_delete" data-i18n="common.Toolbar_Del">刪除</button>
+                                            </div>
+                                            <div class="form-group t-red notpass-reason-box" hidden>
+                                                <label class="col-sm-2 control-label"><span data-i18n="common.Reason">原因</span>：</label>
+                                                <div class="col-sm-10">
+                                                    <div class="notpass-reason-text"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th data-i18n="common.Financial_Code">代號</th>
+                                                <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                                <th data-i18n="common.Financial_Currency">幣別</th>
+                                                <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                                <th data-i18n="common.Financial_Number">數量</th>
+                                                <th data-i18n="common.Financial_Unit">單位</th>
+                                                <th data-i18n="common.Financial_Amount">金額</th>
+                                                <th data-i18n="common.ExchangeRate">匯率</th>
+                                                <th class="BillAmountTiltle " data-i18n="common.MainCurrencyNontaxedAmountV2">台幣金額</th> <!--or 未稅金額:ForeignCurrencyNontaxedAmountV2-->
+                                                <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                                <th data-i18n="common.Financial_Tax">稅額</th>
+                                                <th data-i18n="common.Action">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-id="bill_fees_{{:BillNO}}" data-billno="{{:BillNO}}"></tbody>
+                                    </table>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="BillForeignCurrency" style="display: none;">
+                                                <label class="col-sm-1 control-label w5p"><span data-i18n="common.ForeignCurrencyPrePaid">外幣預收</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p prepay input-value" value="0" data-type="money" data-name="int" data-id="Advance" disabled maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Amount">金額</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Sum">合計</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalReceivable">總應收</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p paytotal" value="0" data-type="money" readonly maxlength="50">
+                                                </div>
+                                                <div class="col-md-1 w15p wright">
+                                                    <button type="button" class="btn-custom blue plusfeeitem" data-id="plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="BillMainCurrency">
+                                                <label class="col-sm-1 control-label w5p"><span data-i18n="common.MainCurrencyPrePaid">台幣預收</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p mprepay input-value" value="0" data-type="money" data-name="int" data-id="mAdvance" disabled maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalExcudeTax">未稅</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p msubtotal" data-type="money" value="0" readonly maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p mtaxtotal" data-type="money" value="0" readonly maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalIncludedTax">總計</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p mboxtotal" data-type="money" value="0" readonly maxlength="50">
+                                                </div>
+                                                <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalReceivable">總應收</span>：</label>
+                                                <div class="col-sm-1 w11p">
+                                                    <input type="text" class="form-control w100p mpaytotal" data-type="money" value="0" readonly maxlength="50">
+                                                </div>
+                                                <div class="col-md-1 w15p wright BillMainCurrencyAdd">
+                                                    <button type="button" class="btn-custom blue plusfeeitem" data-id="plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <label class="col-sm-1 control-label w8_5p"><span data-i18n="common.Memo">備註</span>：</label>
+                                                <div class="col-sm-10">
+                                                    <textarea data-id="Memo" class="form-control col-md-8 input-value" rows="5" cols="20"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 wright">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label"><span data-i18n="common.Financial_InvoiceNumber">發票號碼</span>：</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control w100p input-value checkauditdate" data-id="InvoiceNumber" maxlength="10">
+                                                </div>
+                                                <label class="col-sm-2 control-label"><span data-i18n="common.Financial_ReceiptNumber">收據號碼</span>：</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control w100p" readonly data-id="ReceiptNumber" maxlength="50">
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <button type="button" class="btn-custom blue receiptnumberbtn" data-id="createreceiptnumber" data-i18n="common.Financial_CreateReceiptNumber">產生收據號碼</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label"><span data-i18n="common.Financial_InvoiceDate">發票日期</span>：</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control date-picker w100p input-value checkauditdate" data-id="InvoiceDate" maxlength="10">
+                                                </div>
+                                                <label class="col-sm-2 control-label"><span data-i18n="common.Financial_ReceiptDate">收據日期</span>：</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control date-picker w100p input-value checkauditdate" data-id="ReceiptDate" maxlength="10">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script id="temp_return_quote_box" type="text/x-jsrender">
+        <fieldset class="fieldset-{{:guid}}">
+            <legend><span data-i18n="common.Returns">退運</span>{{:index}}</legend>
+            <div class="quoteandprecost">
+                <div class="col-md-12">
+                    <div class="panel panel-info financial">
+                        <div class="panel-heading col-md-2">
+                            <h3 class="panel-title wcenter nfloat" data-i18n="common.Financial_Quote">報價</h3>
+                        </div>
+                        <div class="col-md-4" style="z-index:10">
+                            <label class="col-sm-2 control-label w25p"><span data-i18n="common.QuotationOrBillingCurrency">報價/帳單幣別</span>：</label>
+                            <div class="col-sm-3">
+                                <select class="form-control w100p input-value" name="ReturnQuotationOrBillingCurrency-{{:guid}}" id="ReturnQuotationOrBillingCurrency-{{:guid}}" data-id="Currency"></select>
+                            </div>
+                            <label class="col-sm-2 control-label w20p"><span data-i18n="common.AccountingExchangeRate">匯率(會計用)</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p input-value" name="ReturnAccountingExchangeRate-{{:guid}}" id="ReturnAccountingExchangeRate-{{:guid}}" maxlength="50" onkeyup="this.value = this.value.replace(/[^\d.]/g, '').replace(/\.{2,}/g, '.').replace(/^(\-)*(\d+)\.(\d\d\d).*$/, '$1$2.$3');">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group t-red notpass-reason-box" hidden>
+                                <label class="col-sm-2 control-label"><span data-i18n="common.Reason">原因</span>：</label>
+                                <div class="col-sm-4">
+                                    <div class="notpass-reason-text"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 wright">
+                            <div class="bill-status-box">
+                                <span data-i18n="common.Status">狀態</span>：<span class="bill-status"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-2 wright" style="z-index:10">
+                            <button type="button" class="btn-custom blue submittoaudit estimated_submitaudit" disabled data-i18n="common.Financial_SubmitAudit">提交審核</button>
+                            <button type="button" class="btn-custom blue alreadyaudit estimated_audit" disabled data-i18n="common.Audit">審核</button>
+                            <button type="button" class="btn-custom blue estimated_addreturnbills" disabled data-i18n="common.Financial_AddBill">新增帳單</button>
+                        </div>
+                        <div class="panel-body" data-id="box_quote">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th data-i18n="common.Financial_Code">代號</th>
+                                        <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                        <th data-i18n="common.Financial_Currency">幣別</th>
+                                        <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                        <th data-i18n="common.Financial_Number">數量</th>
+                                        <th data-i18n="common.Financial_Unit">單位</th>
+                                        <th data-i18n="common.Financial_Amount">金額</th>
+                                        <th data-i18n="common.ExchangeRate">匯率</th>
+                                        <th class="ReturnQuotationAmountTiltle-{{:guid}}" data-i18n="common.MainCurrencyNontaxedAmountV2">台幣金額</th><!--or 未稅金額:ForeignCurrencyNontaxedAmountV2-->
+                                        <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                        <th data-i18n="common.Financial_Tax">稅額</th>
+                                        <th data-i18n="common.Action">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-id="quote-box"></tbody>
+                            </table>
+                            <div class="col-md-10">
+                                <div class="form-group ReturnQuotationForeignCurrency" style="display: none;">
+                                    <label class="col-sm-1 control-label"><span class="ReturnQuotationForeignCurrencySubuntaxtotal-{{:guid}}" data-i18n="common.ForeignCurrencyNontaxedAmount">外幣未稅</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group ReturnQuotationMainCurrency">
+                                    <label class="col-sm-1 control-label"><span class="ReturnQuotationMainCurrencySubuntaxtotal-{{:guid}}" data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p msubtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p mtaxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p mboxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                    <div class="col-sm-11">
+                                        <textarea data-id="Memo" data-source="quote" class="form-control col-md-8 input-value" rows="5" cols="20"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 wright">
+                                <button type="button" class="btn-custom importfeeitem blue" data-type="quote" title="匯入費用項目"><i class="glyphicon glyphicon-import"></i></button>
+                                <button type="button" class="btn-custom copyfeeitem blue" data-type="quote" title="複製費用項目"><i class="fa fa-copy"></i></button>
+                                <button type="button" class="btn-custom plusfeeitem blue" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                <button type="button" class="btn-custom plusfeeitemstar blue" title="批次新增&收藏"><i class="icon-star"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="panel panel-info financial">
+                        <div class="panel-heading col-md-2">
+                            <h3 class="panel-title wcenter nfloat" data-i18n="common.Financial_EstimatedCost">預估成本</h3>
+                        </div>
+                        <div class="col-md-8">
+                        </div>
+                        <div class="col-md-2 wright" style="z-index:10">
+                            <button type="button" class="btn-custom blue synquote estimated_synquote" disabled data-i18n="common.SynQuote">同步報價</button>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th data-i18n="common.Financial_Code">代號</th>
+                                        <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                        <th data-i18n="common.Financial_Currency">幣別</th>
+                                        <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                        <th data-i18n="common.Financial_Number">數量</th>
+                                        <th data-i18n="common.Financial_Unit">單位</th>
+                                        <th data-i18n="common.Financial_Amount">金額</th>
+                                        <th data-i18n="common.ExchangeRate">匯率</th>
+                                        <th data-i18n="common.MainCurrencyNontaxedAmountV2">台幣金額</th><!--or 未稅金額:ForeignCurrencyNontaxedAmountV2-->
+                                        <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                        <th data-i18n="common.Financial_Tax">稅額</th>
+                                        <th data-i18n="common.Action">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-id="estimatedcost-box"></tbody>
+                            </table>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅 </span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                    <div class="col-sm-11">
+                                        <textarea data-id="Memo" data-source="estimatedcost" class="form-control col-md-8 input-value" rows="5" cols="20"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 wright">
+                                <button type="button" class="btn-custom importfeeitem blue" data-type="estimatedcost" title="匯入費用項目"><i class="glyphicon glyphicon-import"></i></button>
+                                <button type="button" class="btn-custom blue plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="return-bill-{{:guid}}">
+            </div>
+        </fieldset>
+    </script>
+    <script id="temp_return_actualcost_box" type="text/x-jsrender">
+        <fieldset class="fieldset-{{:guid}}">
+            <legend><span data-i18n="common.Returns">退運</span>{{:index}}</legend>
+            <div>
+                <div class="col-md-12">
+                    <div class="panel panel-info financial">
+                        <div class="panel-heading col-md-2">
+                            <h3 class="panel-title wcenter nfloat" data-i18n="common.Financial_EstimatedCost">預估成本</h3>
+                        </div>
+                        <div class="layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui layer-anim warnningtips" style="position:absolute;z-index: 100;  left: 33%; top:0px; width: 35%;background-color: rgba(219, 211, 211, 0.24);" hidden>
+                            <div class="layui-layer-content" style="padding:5px 20px;">
+                                <span class="warnning-tips" disabled data-i18n="common.Financial_Warnning_Tips">提示：實際成本已經大於預估成本</span>
+                            </div>
+                        </div>
+                        <div class="panel-body" data-id="box_estimated">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th data-i18n="common.Financial_Code">代號</th>
+                                        <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                        <th data-i18n="common.Financial_Currency">幣別</th>
+                                        <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                        <th data-i18n="common.Financial_Number">數量</th>
+                                        <th data-i18n="common.Financial_Unit">單位</th>
+                                        <th data-i18n="common.Financial_Amount">金額</th>
+                                        <th data-i18n="common.ExchangeRate">匯率</th>
+                                        <th data-i18n="common.Financial_TWAmount">台幣金額</th>
+                                        <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                        <th data-i18n="common.Financial_Tax">稅額</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-id="actualcost-pre-box"></tbody>
+                            </table>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                    <div class="col-sm-11">
+                                        <span class="span-text estimatedcost-memo"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="panel panel-info financial returntype">
+                        <div class="panel-heading col-md-2">
+                            <h3 class="panel-title wcenter nfloat" data-i18n="common.ActualCost">實際成本</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui layer-anim topshowsum" style="position:absolute;z-index: 100;  left: 29%; top:0; width: 45%;">
+                                <div class="layui-layer-content" style="padding:4px 20px;">
+                                    <label class="col-sm-3 control-label"><span data-i18n="common.ActualCost_NoTax">實際成本(未稅)</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p actualsum" data-type="money" readonly value="0">
+                                    </div>
+                                    <label class="col-sm-3 control-label"><span data-i18n="common.BillAmount_NoTax">帳單金額(未稅)</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p amountsum" data-type="money" readonly value="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th data-i18n="common.Financial_Code">代號</th>
+                                        <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                        <th data-i18n="common.Financial_Currency">幣別</th>
+                                        <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                        <th data-i18n="common.Financial_Number">數量</th>
+                                        <th data-i18n="common.Financial_Unit">單位</th>
+                                        <th data-i18n="common.Financial_Amount">金額</th>
+                                        <th data-i18n="common.ExchangeRate">匯率</th>
+                                        <th data-i18n="common.Financial_TWAmount">台幣金額</th>
+                                        <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                        <th data-i18n="common.Financial_Tax">稅額</th>
+                                        <th data-i18n="common.Financial_AddBillPayer">帳單付款人信息</th>
+                                        <th data-i18n="common.Action">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody data-id="actualcost-box"></tbody>
+                            </table>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.MainCurrencyNontaxedAmount">台幣未稅</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Financial_Total">總計</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                    <div class="col-sm-11">
+                                        <textarea data-id="Memo" data-source="actualcost" class="form-control col-md-8 input-value" rows="5" cols="20"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 wright">
+                                <button type="button" class="btn-custom importfeeitem blue" data-type="actualcost" title="匯入費用項目"><i class="glyphicon glyphicon-import"></i></button>
+                                <button type="button" class="btn-custom blue plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </script>
+    <script id="temp_returnbillbox" type="text/x-jsrender">
+        <div class="col-md-12">
+            <div class="panel-heading col-md-6">
+                <h3 class="panel-title wleft nfloat"><span data-i18n="common.Financial_DebitNote">帳單</span> [{{:~setSupplierName(SupplierName,SupplierEName)}}]</h3>
+            </div>
+            <div class="col-md-12 bill-box-{{:BillNO}}">
+                <div class="panel panel-info financial">
+                    <div class="panel-body">
+                        <div class="layui-layer layui-layer-dialog layui-layer-border layui-layer-msg layui-layer-hui layer-anim topshowsum" style="position:absolute;z-index: 100;  left: 51%; top:-47.5px; width: 50%;" hidden>
+                            <div class="layui-layer-content" style="padding:4px 20px;">
+                                <label class="col-sm-3 control-label"><span data-i18n="common.Financial_EstimatedCost_NoTax">預估成本(未稅)</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p estimatedcostsum" data-type="money" readonly value="0">
+                                </div>
+                                <label class="col-sm-3 control-label"><span data-i18n="common.BillAmount_NoTax">帳單金額(未稅)</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p amountsum" data-type="money" readonly value="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_BillNumber">帳單號碼</span>：</label>
+                                    <div class="col-sm-2 w14p">
+                                        <span class="span-text bill-no">{{:BillNO}}</span>
+                                    </div>
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_BillDate_Create">帳單創建日期</span>：</label>
+                                    <div class="col-sm-2 w14p">
+                                        <span class="span-text bill-createdate">{{:BillCreateDate}}</span>
+                                    </div>
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_BillDate_Check">帳單審核日期</span>：</label>
+                                    <div class="col-sm-2 w14p">
+                                        <span class="span-text bill-chewckdate">{{:BillCheckDate}}</span>
+                                    </div>
+                                    <label class="col-sm-1 control-label w10p"><b class="t-red">*</b><span data-i18n="ExhibitionImport_Upd.Payer">付款人</span>:</label>
+                                    <div class="col-sm-2 w14p">
+                                        <select class="form-control w100p input-value" data-id="Payer" data-type="select2" value="{{:Payer}}"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="col-sm-6 control-label"><span data-i18n="common.ReturnFlow">退運流程</span>：</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control w100p input-value" data-id="ReFlow" value="{{:ReFlow}}">
+                                                <option value="">請選擇...</option>
+                                                <option value="ReImport">退運回台-展後回運</option>
+                                                <option value="TranserThird">轉運其他地區</option>
+                                                <option value="ReImportFour">轉運其他地區-展後回運</option>
+                                                <option value="TransferFour">出貨至第四地</option>
+                                                <option value="ReImportFive">出貨至第四地-展後回運</option>
+                                                <option value="TransferFive">出貨至第五地</option>
+                                                <option value="ReImportSix">出貨至第五地-展後回運</option>
+                                                <option value="TransferSix">出貨至第六地</option>
+                                                <option value="PartThird">部份轉運其他地區;部份退運回台-轉運其他地區</option>
+                                                <option value="PartReImport">部份轉運其他地區;部份退運回台-轉運其他地區</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="bill-status-box">
+                                            <span data-i18n="common.Status">狀態</span>：<span class="bill-status"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <div class="OnlyForAccounting">
+                                        <label class="col-sm-1 control-label w10p"><span data-i18n="common.Financial_Bill_Currency">帳單幣別</span>：</label>
+                                        <div class="col-sm-2 w14p">
+                                            <select class="form-control w100p input-value" data-id="Currency" data-source="bill"></select>
+                                        </div>
+                                        <label class="col-sm-1 control-label w10p"><span data-i18n="common.AccountingExchangeRate">匯率(會計用)</span>：</label>
+                                        <div class="col-sm-2 w14p">
+                                            <input type="text" class="form-control w100p input-value" data-id="ExchangeRate" data-source="bill" maxlength="50" onkeyup="this.value = this.value.replace(/[^\d.]/g, '').replace(/\.{2,}/g, '.').replace(/^(\-)*(\d+)\.(\d\d\d).*$/, '$1$2.$3');">
+                                        </div>
+                                    </div>
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.Contactor">聯絡人</span>：</label>
+                                    <div class="col-sm-2 w14p">
+                                        <select class="form-control w100p input-value" data-id="Contactor" data-type="select2"></select>
+                                    </div>
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.Telephone">聯絡電話/手機</span>：</label>
+                                    <div class="col-sm-2 w14p">
+                                        <input type="text" class="form-control w100p input-value" data-id="Telephone" maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="ExhibitionImport_Upd.BoxNo">件數</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p input-value" data-id="Number" data-keyint='Y' maxlength="20">
+                                    </div>
+                                    <span class="col-sm-1 connector">/</span>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p input-value" data-id="Unit" maxlength="10" onchange="fnKeyUnit(this);" placeholderid="common.UnitInput" placeholder="件數單位">
+                                    </div>
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="common.Weight">重量</span>：</label>
+                                    <div class="col-sm-2">
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control w100p input-value" data-id="Weight" data-keyintp3='Y' maxlength="20">
+                                            <span class="input-group-addon cusgroup-addon">
+                                                KG
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <label class="col-sm-1 control-label w10p"><span data-i18n="ExhibitionImport_Upd.Volume">材積(CBM)</span>：</label>
+                                    <div class="col-sm-2">
+                                        <div class="input-group input-append">
+                                            <input type="text" class="form-control w100p input-value" data-id="Volume" data-keyintp2="Y" maxlength="50">
+                                            <span class="input-group-addon cusgroup-addon">
+                                                CBM
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 wright">
+                                <div class="form-group">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn-custom blue dropdown-toggle bills-print" data-toggle="dropdown" disabled aria-expanded="false">
+                                            <span data-i18n="common.Toolbar_Print">列印</span> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu bill-print-menu" role="menu">
+                                            <li><a href="javascript:void(0);" class="bill-print" data-action="Print_Bill" data-i18n="common.Financial_Print">列印帳單</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="javascript:void(0);" class="bill-print" data-action="Print_Receipt" data-i18n="common.Financial_Print_Receipt">列印收據</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="javascript:void(0);" class="bill-print" data-action="Download_Bill" data-i18n="common.Financial_DownLoad_Bill">下載帳單（Word）</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="javascript:void(0);" class="bill-print" data-action="Download_BatchBill" data-i18n="common.Batch_BillsDownLoad">下載帳單「批次」（Word）</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="javascript:void(0);" class="bill-print" data-action="Download_Receipt" data-i18n="common.Financial_DownLoad_Receipt">下載收據（Word）</a></li>
+                                        </ul>
+                                    </div>
+                                    <button type="button" class="btn-custom blue submittoaudit" disabled data-id="bill_submitaudit" data-i18n="common.Financial_SubmitAudit">提交審核</button>
+                                    <button type="button" class="btn-custom blue alreadyaudit" disabled data-id="bill_audit" data-i18n="common.Audit">審核</button>
+                                    <button type="button" class="btn-custom blue cancelaudi" disabled data-id="bill_cancelaudit" data-i18n="common.Financial_CancelAudit">取消審核</button>
+                                    <button type="button" class="btn-custom blue reedit" disabled data-id="bill_reedit" data-i18n="common.Financial_ReEdit">抽單</button>
+                                    <button type="button" class="btn-custom blue cancelreedit" disabled data-id="bill_cancelreedit" data-i18n="common.Financial_CancelReEdit">取消抽單</button>
+                                    <button type="button" class="btn-custom blue billpost" disabled data-id="bill_post" data-i18n="common.Financial_Post">過帳</button>
+                                    <button type="button" class="btn-custom blue cancelpost" disabled data-id="bill_cancelpost" data-i18n="common.Financial_CancelPost">取消過帳</button>
+                                    <button type="button" class="btn-custom blue writeoff" disabled data-id="bill_writeoff" data-i18n="common.Financial_WriteOff">銷帳</button>
+                                    <button type="button" class="btn-custom blue canceloff" disabled data-id="bill_canceloff" data-i18n="common.Financial_CancelWriteOff">取消銷帳</button>
+                                    <button type="button" class="btn-custom blue billvoid" disabled data-id="bill_void" data-i18n="common.Toolbar_Void">作廢</button>
+                                    <button type="button" class="btn-custom blue billdelete" disabled data-id="bill_delete" data-i18n="common.Toolbar_Del">刪除</button>
+                                </div>
+                                <div class="form-group t-red notpass-reason-box" hidden>
+                                    <label class="col-sm-2 control-label"><span data-i18n="common.Reason">原因</span>：</label>
+                                    <div class="col-sm-10">
+                                        <div class="notpass-reason-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th data-i18n="common.Financial_Code">代號</th>
+                                    <th data-i18n="common.Financial_CostStatement">費用說明</th>
+                                    <th data-i18n="common.Financial_Currency">幣別</th>
+                                    <th data-i18n="common.Financial_UnitPrice">單價</th>
+                                    <th data-i18n="common.Financial_Number">數量</th>
+                                    <th data-i18n="common.Financial_Unit">單位</th>
+                                    <th data-i18n="common.Financial_Amount">金額</th>
+                                    <th data-i18n="common.ExchangeRate">匯率</th>
+                                    <th class="ReturnBillAmountTiltle-{{:guid}}" data-i18n="common.MainCurrencyNontaxedAmountV2">台幣金額</th><!--or 未稅金額:ForeignCurrencyNontaxedAmountV2-->
+                                    <th data-i18n="common.Financial_TaxRate">稅率</th>
+                                    <th data-i18n="common.Financial_Tax">稅額</th>
+                                    <th data-i18n="common.Action">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody data-id="bill_fees_{{:BillNO}}" data-billno="{{:BillNO}}"></tbody>
+                        </table>
+                        <div class="panel-body">
+                            <div class="col-md-12">
+                                <div class="form-group ReturnBillForeignCurrency" style="display: none;">
+                                    <label class="col-sm-1 control-label w5p"><span data-i18n="common.ForeignCurrencyPrePaid">外幣預收</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p prepay input-value" value="0" data-type="money" data-name="int" data-id="Advance" disabled maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Amount">金額</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p subtotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p taxtotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Sum">合計</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p boxtotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalReceivable">總應收</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p paytotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <div class="col-md-1 w15p wright">
+                                        <button type="button" class="btn-custom blue plusfeeitem" data-id="plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="form-group ReturnBillMainCurrency">
+                                    <label class="col-sm-1 control-label w5p"><span data-i18n="common.MainCurrencyPrePaid">台幣預收</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p mprepay input-value" value="0" data-type="money" data-name="int" data-id="mAdvance" disabled maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalExcudeTax">未稅</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p msubtotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.Financial_Tax">稅額</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p mtaxtotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalIncludedTax">總計</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p mboxtotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <label class="col-sm-1 control-label w6p"><span data-i18n="common.TotalReceivable">總應收</span>：</label>
+                                    <div class="col-sm-1 w11p">
+                                        <input type="text" class="form-control w100p mpaytotal" value="0" data-type="money" readonly maxlength="50">
+                                    </div>
+                                    <div class="col-md-1 w15p wright ReturnBillMainCurrencyAdd">
+                                        <button type="button" class="btn-custom blue plusfeeitem" data-id="plusfeeitem" title="新增費用項目"><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label w8_5p"><span data-i18n="common.Memo">備註</span>：</label>
+                                    <div class="col-sm-10">
+                                        <textarea data-id="Memo" data-source="bill" class="form-control col-md-8 input-value" rows="5" cols="20"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 wright">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span data-i18n="common.Financial_InvoiceNumber">發票號碼</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p input-value checkauditdate" data-id="InvoiceNumber" data-source="bill" maxlength="10">
+                                    </div>
+                                    <label class="col-sm-2 control-label"><span data-i18n="common.Financial_ReceiptNumber">收據號碼</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control w100p" readonly data-id="ReceiptNumber" maxlength="50">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <button type="button" class="btn-custom blue receiptnumberbtn" data-id="createreceiptnumber" data-i18n="common.Financial_CreateReceiptNumber">產生收據號碼</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span data-i18n="common.Financial_InvoiceDate">發票日期</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control date-picker w100p input-value checkauditdate" data-id="InvoiceDate" data-source="bill" maxlength="10">
+                                    </div>
+                                    <label class="col-sm-2 control-label"><span data-i18n="common.Financial_ReceiptDate">收據日期</span>：</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control date-picker w100p input-value checkauditdate" data-id="ReceiptDate" data-source="bill" maxlength="10">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+</body>
+</html>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js"></script>
+<!--<script src="/Scripts/pages/Opm/ExhibitionExport_Upd.js"></script>-->
+
+<script type="text/javascript">
+    $(function () {
+        $("head").append("<script type='text/javascript' src='/Scripts/pages/Opm/ExhibitionExport_Upd.js'>");
+    })
+</script>

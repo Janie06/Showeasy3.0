@@ -1,0 +1,131 @@
+.pagebar {
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%
+}
+
+.m_pagebar {
+    position: relative;
+    text-align: center;
+    margin: 20px auto 0;
+    height: 100px
+}
+
+#pager_info {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 14px
+}
+
+.m_pagebar #pager_info {
+    left: 10px;
+    position: inherit
+}
+
+.m_pagebar .light-theme {
+    max-width: 390px;
+    margin: 20px auto 0
+}
+
+.light-theme li {
+    display: inline-block;
+    margin-bottom: 15px
+}
+
+.light-theme a, .light-theme span {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    min-width: 12px;
+    color: #828282;
+    padding: 0 3px;
+    margin: 0 6px 10px;
+    border-bottom: 3px solid #FFF;
+    text-decoration: none
+}
+
+.m_pagebar .light-theme a, .m_pagebar .light-theme span {
+    font-size: 12px;
+    line-height: 15px;
+    padding: 2px 6px
+}
+
+.light-theme a:hover, .light-theme a.active, .light-theme a:focus {
+    color: #1fc9be
+}
+
+.light-theme .current {
+    border-color: #ee7624;
+    color: #434343;
+    font-weight: 500;
+    padding: 0 3px;
+    margin: 0 6px
+}
+
+.active .prev, .active .next {
+    display: none
+}
+
+.prev, .next {
+    color: #000 !important;
+    border-color: #FFF !important;
+    margin: 0 20px !important
+}
+
+    .prev:hover, .next:hover {
+        color: #ee7624 !important;
+        border-color: #ee7624
+    }
+
+.m_pagebar .prev, .m_pagebar .next {
+    margin: 0 10px !important
+}
+
+.light-theme .ellipse {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-weight: 700;
+    cursor: default
+}
+
+/*------------pager--------------*/
+#pager {
+    color: #666;
+    overflow: auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+    #pager span, #pager li {
+        /*display: inline-block;*/
+        margin: 0 6px 6px 0;
+    }
+
+        #pager span a, #pager li a {
+            color: #333;
+            display: block;
+            text-decoration: none;
+            padding: 3px 10px;
+            border: solid 1px #e0e0e0;
+            background: #f5f5f5;
+            border-radius: 3px;
+        }
+
+            #pager span a:hover, #pager li a:hover {
+                background: #FFF;
+                box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2);
+            }
+
+        #pager span.current a, #pager span.current a:hover, #pager li.current a, #pager li.current a:hover {
+            background: none;
+            color: #666;
+            border: none;
+            box-shadow: none;
+        }

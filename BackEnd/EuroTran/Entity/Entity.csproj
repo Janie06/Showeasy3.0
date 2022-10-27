@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD4879C2-FB2B-4B97-81FB-4EC7FB58A943}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entity</RootNamespace>
+    <AssemblyName>Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="EntityHelper.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetMap.cs" />
+    <Compile Include="SqlCommand.cs" />
+    <Compile Include="Sugar\OTB_SYS_Currency.cs" />
+    <Compile Include="Sugar\OVW_OPM_ALLExps.cs" />
+    <Compile Include="Sugar\OTB_CRM_Customers.cs" />
+    <Compile Include="Sugar\OTB_EIP_LeaveRequest.cs" />
+    <Compile Include="Sugar\OTB_CRM_CustomersMST.cs" />
+    <Compile Include="Sugar\OTB_CRM_CustomersTransfer.cs" />
+    <Compile Include="Sugar\OTB_CRM_CustomersTransferBak.cs" />
+    <Compile Include="Sugar\OTB_CRM_ImportCustomers.cs" />
+    <Compile Include="Sugar\OTB_EIP_Attendance.cs" />
+    <Compile Include="Sugar\OTB_EIP_AttendanceDiff.cs" />
+    <Compile Include="Sugar\OTB_EIP_BillChangeApply.cs" />
+    <Compile Include="Sugar\OTB_EIP_BusinessTravel.cs" />
+    <Compile Include="Sugar\OTB_EIP_CheckFlow.cs" />
+    <Compile Include="Sugar\OTB_EIP_InvoiceApplyInfo.cs" />
+    <Compile Include="Sugar\OTB_EIP_Leave.cs" />
+    <Compile Include="Sugar\OTB_EIP_LeaveSet.cs" />
+    <Compile Include="Sugar\OTB_EIP_OverTime.cs" />
+    <Compile Include="Sugar\OTB_EIP_TravelExpense.cs" />
+    <Compile Include="Sugar\OTB_EIP_WenZhong.cs" />
+    <Compile Include="Sugar\OTB_OPM_BillInfo.cs" />
+    <Compile Include="Sugar\OTB_OPM_Bills.cs" />
+    <Compile Include="Sugar\OTB_OPM_BillsBak.cs" />
+    <Compile Include="Sugar\OTB_OPM_Exhibition.cs" />
+    <Compile Include="Sugar\OTB_OPM_ExhibitionsTransfer.cs" />
+    <Compile Include="Sugar\OTB_OPM_ExhibitionsTransferBak.cs" />
+    <Compile Include="Sugar\OTB_OPM_ExportExhibition.cs" />
+    <Compile Include="Sugar\OTB_OPM_ImportExhibition.cs" />
+    <Compile Include="Sugar\OTB_OPM_OtherExhibition.cs" />
+    <Compile Include="Sugar\OTB_OPM_OtherExhibitionTG.cs" />
+    <Compile Include="Sugar\OTB_SYS_Announcement.cs" />
+    <Compile Include="Sugar\OTB_SYS_Announcement_Read.cs" />
+    <Compile Include="Sugar\OTB_SYS_ArgumentClass.cs" />
+    <Compile Include="Sugar\OTB_SYS_Arguments.cs" />
+    <Compile Include="Sugar\OTB_SYS_ArgumentsRelated.cs" />
+    <Compile Include="Sugar\OTB_SYS_Authorize.cs" />
+    <Compile Include="Sugar\OTB_SYS_AuthorizeForDept.cs" />
+    <Compile Include="Sugar\OTB_SYS_AuthorizeForMember.cs" />
+    <Compile Include="Sugar\OTB_SYS_Calendar.cs" />
+    <Compile Include="Sugar\OTB_SYS_ClockTips.cs" />
+    <Compile Include="Sugar\OTB_SYS_ClockTipsBak.cs" />
+    <Compile Include="Sugar\OTB_SYS_Departments.cs" />
+    <Compile Include="Sugar\OTB_SYS_Document.cs" />
+    <Compile Include="Sugar\OTB_SYS_Email.cs" />
+    <Compile Include="Sugar\OTB_SYS_Files.cs" />
+    <Compile Include="Sugar\OTB_SYS_ForgetPassword.cs" />
+    <Compile Include="Sugar\OTB_SYS_Holidays.cs" />
+    <Compile Include="Sugar\OTB_SYS_Jobtitle.cs" />
+    <Compile Include="Sugar\OTB_SYS_Language.cs" />
+    <Compile Include="Sugar\OTB_SYS_LogInfo.cs" />
+    <Compile Include="Sugar\OTB_SYS_LoginLog.cs" />
+    <Compile Include="Sugar\OTB_SYS_MaxNumber.cs" />
+    <Compile Include="Sugar\OTB_SYS_Members.cs" />
+    <Compile Include="Sugar\OTB_SYS_MembersToRule.cs" />
+    <Compile Include="Sugar\OTB_SYS_ModuleForProgram.cs" />
+    <Compile Include="Sugar\OTB_SYS_ModuleList.cs" />
+    <Compile Include="Sugar\OTB_SYS_OfficeTemplate.cs" />
+    <Compile Include="Sugar\OTB_SYS_OnlineUsers.cs" />
+    <Compile Include="Sugar\OTB_SYS_Organization.cs" />
+    <Compile Include="Sugar\OTB_SYS_OuterUsers.cs" />
+    <Compile Include="Sugar\OTB_SYS_Profiles.cs" />
+    <Compile Include="Sugar\OTB_SYS_ProgramList.cs" />
+    <Compile Include="Sugar\OTB_SYS_Rules.cs" />
+    <Compile Include="Sugar\OTB_SYS_SystemSetting.cs" />
+    <Compile Include="Sugar\OTB_SYS_Task.cs" />
+    <Compile Include="Sugar\OTB_SYS_TaskReply.cs" />
+    <Compile Include="Sugar\OTB_SYS_TicketAuth.cs" />
+    <Compile Include="Sugar\OTB_SYS_Tips.cs" />
+    <Compile Include="Sugar\OTB_SYS_TipsBak.cs" />
+    <Compile Include="Sugar\OTB_WSM_ExhibitionRules.cs" />
+    <Compile Include="Sugar\OTB_WSM_News.cs" />
+    <Compile Include="Sugar\OTB_WSM_PackingOrder.cs" />
+    <Compile Include="Sugar\OTB_WSM_TrackingLog.cs" />
+    <Compile Include="Sugar\OTB_WSM_WebSiteFiles.cs" />
+    <Compile Include="Sugar\OTB_WSM_WebSiteMailLog.cs" />
+    <Compile Include="Sugar\OTB_WSM_WebSiteSetting.cs" />
+    <Compile Include="Sugar\OVW_CRM_ImportCustomers.cs" />
+    <Compile Include="Sugar\OVW_OPM_BillInfo.cs" />
+    <Compile Include="Sugar\OVW_SYS_Rules.cs" />
+    <Compile Include="Sugar\OVW_OPM_Bills.cs" />
+    <Compile Include="Sugar\OTB_OPM_BillChangeLog.cs" />
+    <Compile Include="T4\SugarTemplate2.cs">
+      <DependentUpon>SugarTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Token.cs" />
+    <Compile Include="ViewModels\View_CRM_ImportCustomers.cs" />
+    <Compile Include="ViewModels\View_EIP_AttendanceDiff.cs" />
+    <Compile Include="ViewModels\View_EIP_BillChangeApply.cs" />
+    <Compile Include="ViewModels\View_EIP_BusinessTravel.cs" />
+    <Compile Include="ViewModels\View_EIP_CheckFlow.cs" />
+    <Compile Include="ViewModels\View_EIP_LeaveRequest.cs" />
+    <Compile Include="ViewModels\View_EIP_Leave.cs" />
+    <Compile Include="ViewModels\View_EIP_OverTime.cs" />
+    <Compile Include="ViewModels\View_EIP_TravelExpense.cs" />
+    <Compile Include="ViewModels\View_OPM_BillIReport.cs" />
+    <Compile Include="ViewModels\View_OPM_BillInfo.cs" />
+    <Compile Include="ViewModels\View_OPM_Exhibition.cs" />
+    <Compile Include="ViewModels\View_OPM_ImportExhibition.cs" />
+    <Compile Include="ViewModels\View_OPM_ExportExhibition.cs" />
+    <Compile Include="ViewModels\View_OPM_OtherExhibitionTG.cs" />
+    <Compile Include="ViewModels\View_OPM_OtherExhibition.cs" />
+    <Compile Include="ViewModels\View_SYS_ArgumentClass.cs" />
+    <Compile Include="ViewModels\View_SYS_Arguments.cs" />
+    <Compile Include="ViewModels\View_SYS_Departments.cs" />
+    <Compile Include="ViewModels\View_SYS_Members.cs" />
+    <Compile Include="ViewModels\View_SYS_ModuleList.cs" />
+    <Compile Include="ViewModels\View_SYS_ProgramList.cs" />
+    <Compile Include="ViewModels\View_SYS_Task.cs" />
+    <Compile Include="ViewModels\View_WSM_News.cs" />
+    <Compile Include="ViewModels\View_WSM_TrackingLog.cs" />
+    <Compile Include="ViewModels\View_WSM_ExhibitionRules.cs" />
+    <Compile Include="ViewModels\View_WSM_GroupTrackingLog.cs" />
+    <Compile Include="ViewModels\View_EIP_InvoiceApplyInfo.cs" />
+    <Compile Include="ViewModels\View_WSM_PackingOrder.cs" />
+    <Compile Include="ViewModels\View_WSM_WebSiteSetting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="T4\SugarTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SugarTemplate2.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SqlSugar\SqlSugar.csproj">
+      <Project>{489bb790-226c-4fad-8d1e-51d72a7ff8e5}</Project>
+      <Name>SqlSugar</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

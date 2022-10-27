@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.ModuleMaintain_Upd">系統模組編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/Spectrum/spectrum.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page-inner">
+        <!--程式名稱及Toobar區 Start -->
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <!--程式名稱及Toobar區 End -->
+        <div id="main-wrapper">
+            <div class="row">
+                <!-- 頁面內容區域 Start -->
+                <div class="panel-body">
+                    <form id="form_main" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.ModuleID">模組代號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ModuleID" id="ModuleID" maxlength="10" data-keyinteng="Y" required data-msg="ModuleMaintain_Upd.ModuleID_required" datamsg="請輸入模組代號">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.ModuleName">模組名稱</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ModuleName" id="ModuleName" maxlength="100" required data-msg="ModuleMaintain_Upd.ModuleName_required" datamsg="請輸入模組名稱">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="ModuleMaintain_Upd.BackgroundCSS">項目顏色</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control color-picker" name="BackgroundCSS" id="BackgroundCSS" value="#000000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ModuleMaintain_Upd.ParentID">上層模組</span>：</label>
+                            <div class="col-sm-3">
+                                <select class="form-control w100p" id="ParentID" name="ParentID"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="common.OrderByValue">排序</span>：</label>
+                            <div class="col-sm-3">
+                                <select class="form-control w100p" id="OrderByValue" name="OrderByValue" required data-msg="common.OrderByValue_required" datamsg="請選擇排序欄位"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ShowInList">顯示於選單</span>：</label>
+                            <div class="col-sm-8">
+                                <input id="ShowInList_0" type="radio" name="ShowInList" value="Y" checked="checked" />
+                                <label for="ShowInList_0" data-i18n="ProgramMaintain_Upd.listitemvalueyes">顯示</label>
+                                <input id="ShowInList_1" type="radio" name="ShowInList" value="N" />
+                                <label for="ShowInList_1" data-i18n="ProgramMaintain_Upd.listitemvalueno">不顯示</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ShowInHome">顯示於首頁</span>：</label>
+                            <div class="col-sm-8">
+                                <input id="ShowInHome_0" type="radio" name="ShowInHome" value="Y" checked="checked" />
+                                <label for="ShowInHome_0" data-i18n="ProgramMaintain_Upd.listitemvalueyes">顯示</label>
+                                <input id="ShowInHome_1" type="radio" name="ShowInHome" value="N" />
+                                <label for="ShowInHome_1" data-i18n="ProgramMaintain_Upd.listitemvalueno">不顯示</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ShowTop">是否顯示於頂層</span>：</label>
+                            <div class="col-sm-8">
+                                <input type="checkbox" id="ShowTop" name="ShowTop">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                            <div class="col-sm-8">
+                                <textarea name="Memo" id="Memo" class="form-control" rows="5" cols="20"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="CreateUserName" id="CreateUserName"></div>
+                            </div>
+                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="ModifyUserName" id="ModifyUserName"></div>
+                            </div>
+                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- 頁面內容區域 End -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/pages/Sys/ModuleMaintain_Upd.js?v=20180801"></script>

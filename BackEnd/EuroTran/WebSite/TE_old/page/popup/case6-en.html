@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .ekko-lightbox-nav-overlay {
+            display: block !important;
+        }
+
+        .glyphicon-chevron-left, .glyphicon-chevron-right {
+            font: normal normal normal 14px/1 FontAwesome;
+        }
+
+            .glyphicon-chevron-left:before {
+                content: "\f053";
+            }
+
+            .glyphicon-chevron-right:before {
+                content: "\f054";
+                right: 20px;
+            }
+
+        .popup-detail {
+            background: #FFF;
+        }
+        /*.ng-scope-list{
+            width: 100%;
+            padding: 0;
+            border: none;
+            background: transparent;}
+        .notebook_ul{
+            overflow: auto;
+            zoom: 1;
+            margin:5px 0 50px 30px
+            }*/
+        .ng-scope {
+            /*float: left;
+            clear: left;*/
+            width: 100%;
+            margin: 0.2em 0;
+            padding: 0.5em 0.8em;
+            list-style: none;
+            background-color: #ffebdd;
+            border-left: 5px solid #ec681e;
+            cursor: pointer;
+            color: #333;
+            position: relative;
+            z-index: 2;
+            font-size: 15px;
+            text-align: left;
+            border-radius: 0 5px 5px 0;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+            .ng-scope span {
+                width: 100%;
+                display: inline-block;
+                padding-left: 2%;
+                font-size: 14px;
+                font-weight: normal;
+                text-transform: uppercase;
+            }
+
+                .ng-scope span span {
+                    color: #888;
+                    margin-left: 5px;
+                }
+
+        @media (max-width: 600px) {
+            .ng-scope span {
+                width: 100%;
+            }
+        }
+
+        .experience {
+            position: absolute;
+            left: -70px;
+            font-size: 20px;
+            text-align: right;
+            top: 2em;
+            color: #ababab;
+            font-weight: bold;
+            font-family: 'Maven Pro', sans-serif,'微軟正黑體';
+            transform: rotate(-90deg);
+            z-index: 1;
+            transform: rotate(0deg);
+            left: 0;
+            top: 0;
+            position: relative;
+            text-align: left;
+            margin-bottom: 0px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="popup-page">
+            <div class="popup-banner">
+                <div class="popup-title">
+                    <div class="container">
+                        <div class="row">
+                            <div class="title">
+                                <h2 style="text-transform: inherit;">Arts, Crafts and Hazardous Articles</h2>
+                                <h5>CLASSIC CASES</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="../img/case06.jpg" /> <img class="white-clip-path" src="../img/white-clip-path.png" />
+            </div>
+            <div class="container popup-detail">
+                <div class="row">
+                    <div class="col-xs-12" style="position:relative">
+                        <p class="experience">Experience.</p>
+                        <div class="ng-scope">
+                            <span>Antiquities transport</span>
+                            <span>Class 1 Explosives and dangerousgoods transport</span>
+                            <span>International Defence Exhibition</span>
+                        </div>
+                        <p>Art, crafts and hazardous articles are typically of high value and fragile. Items such as chemical powder or gunpowder are flammable and perilous. To handle the transport of such hazardous articles, engineers and technicians must be well equipped with specialized knowledge and abundant experience before they initiate the task, and they must strictly abide by international rules and regulations. </p>
+                        <!--figure> <img style="width:100%" src="../img/case6-1-2.jpg" />
+                           <figcaption>藝術品及危險品</figcaption>
+                        </figure-->
+                        <p>In order to protect the fragility of arts and crafts items, Eurotran provides tailored-made services for our clients. For example, to transport an antique oil-painting, Eurotran would vacuum-pack the painting and order a customized metal box to store the painting. The painting would be packaged in such a way that is shock-proof and anti-moisture, then delivered by a low-temperature vehicle. </p>
+                        <p>Hazardous articles are listed at the highest grade (Class 1) in terms of danger in transportation. In order to safeguard them in the process of delivery, the transport of hazardous articles should strictly follow international rules to avoid any jeopardy caused by unexpected factors. Eurotran has accumulated years of experience in transporting various kinds of hazardous articles and is a licensed forwarder of hazardous articles. We are able to fulfill the strictest standards set forth by the Material Safely Data Sheet (MSDS), Declaration of Hazardous Article, and other regulations. Whether delivering via land, sea, or air, Eurotran's meticulous preparation and deep expertise ensure we meet our clients' needs.</p>
+                        <figure>
+                            <img style="width:100%" src="../img/case6-1-1.jpg" />
+                            <figcaption　style ="text-transform: inherit;">Arts, Crafts and Hazardous Articles</figcaption>
+                        </figure>
+                        <figure>
+                            <img style="width:100%" src="../img/case6-1-3.jpg" />
+                            <figcaption　style ="text-transform: inherit;">Arts, Crafts and Hazardous Articles</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">CL<i class="fa fa-times-circle-o" aria-hidden="true"></i>SE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

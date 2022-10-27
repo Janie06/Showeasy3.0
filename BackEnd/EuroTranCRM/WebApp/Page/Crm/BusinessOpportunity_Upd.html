@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n=""></title>
+
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/file.theme.list.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/daterangepicker/css/daterangepicker.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        .control-label {
+            padding-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-inner">
+        <div class="row">
+            <div class="panel-info">
+                <div class="panel-body">
+                    <form id="form_main" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">狀態</span>：</label>
+                            <div class="col-sm-5" id="EffectiveStatusDiv">
+                                <input id="Effective_1" type="radio" name="Effective" value="1" />
+                                <label for="Effective_1" data-i18n="已處理">已處理</label>
+                                <input id="Effective_2" type="radio" name="Effective" value="2" checked />
+                                <label for="Effective_2" data-i18n="未處理">未處理</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="btn-custom w100p blue" id="BtnExhibitionCode" data-i18n="">對應展覽</button>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="btn-custom w100p red" id="CreateExhibition" data-i18n="">新建展覽</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">年份</span>：</label>
+                            <div class="col-sm-4">
+                                <select class="form-control " id="Year" name="Year" placeholderid="" placeholder="">
+
+                                </select>
+                            </div>
+                            <label for="input-Default" class="col-sm-1 control-label"><span data-i18n="">日期</span>：</label>
+                            <div class="col-sm-4">
+                                <!--<input type="text" class="form-control date-picker" name="Date" id="Date" maxlength="10">-->
+                                <input type="text" class="form-control daterange-picker" name="Date" id="Date" maxlength="23" data-msg="" datamsg="請選擇日期" placeholderid="" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">展覽簡稱</span>：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control " name="ExhibitionShotName" id="ExhibitionShotName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">展覽中文名</span>：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control " name="ExhibitionName" id="ExhibitionName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">展覽英文名</span>：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control " name="ExhibitionName_EN" id="ExhibitionName_EN">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">國家</span>：</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="State" name="State" placeholderid="" placeholder=""></select>
+                            </div>
+                            <label for="input_Default" class="col-sm-1 control-label"><span data-i18n="">產業別</span>：</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="Industry" name="Industry" placeholderid="" placeholder=""></select>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">*公司名稱</span>：</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="CustomerName" id="CustomerName" required data-msg="請輸入公司名稱" datamsg="請輸入公司名稱">
+                            </div>
+                            <label for="input_Default" class="col-sm-1 control-label"><span data-i18n="">部門</span>：</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="Department" id="Department">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">*聯絡人</span>：</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="Contactor" id="Contactor" required data-msg="請輸入聯絡人" datamsg="請輸入聯絡人">
+                            </div>
+                            <label for="input_Default" class="col-sm-1 control-label"><span data-i18n="">職稱</span>：</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="JobTitle" id="JobTitle">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">電子郵件1</span>：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control " name="Email1" id="Email1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">電子郵件2</span>：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="Email2" id="Email2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">電話1</span>：</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="Telephone1" id="Telephone1">
+                            </div>
+                            <label for="input_Default" class="col-sm-1 control-label"><span data-i18n="">電話2</span>：</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="Telephone2" id="Telephone2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">創建人</span>：</label>
+                            <div class="col-sm-4">
+                                <label id="labelCreateUser"></label>
+                            </div>
+                            <label for="input_Default" class="col-sm-1 control-label"><span data-i18n="">最新修改人</span>：</label>
+                            <div class="col-sm-4">
+                                <label id="labelModifyUser"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_Default" class="col-sm-1 control-label col-sm-offset-1"><span data-i18n="">創建時間</span>：</label>
+                            <div class="col-sm-4">
+                                <label id="labelCreateDate"></label>
+                            </div>
+                            <label for="input_Default" class="col-sm-1 control-label"><span data-i18n="">最修改時間</span>：</label>
+                            <div class="col-sm-4">
+                                <label id="labelModifyDate"></label>
+                            </div>
+                        </div>
+                        <hr />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/lib/OutlookUtil.min.js?v=20180801"></script>
+<script src="/Scripts/pages/Crm/BusinessOpportunity_Upd.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var postArray = [];
+        let array = [
+            'Call', 'ContactorName', 'NickName', 'Birthday', 'MaritalStatus',
+            'PersonalMobilePhone', 'PersonalEmail', 'LINE', 'WECHAT', 'Personality',
+            'Preferences', 'PersonalAddress', 'Memo', 'CustomerCName', 'JobTitle',
+            'Department', 'ImmediateSupervisor', 'Email1', 'Email2', 'Telephone1',
+            'Telephone2', 'ChoseReason'
+        ];
+        $.each(array, function (index, value) {
+            $(".radioClass_" + value).on('click', function () {
+                let strUncheck = "1";
+                if ($(".radioClass_" + value + ":checked").val() == "1") {
+                    strUncheck = "2";
+                }
+                $("#" + value + strUncheck).attr('', true);
+                $("#" + value + $(".radioClass_" + value + ":checked").val()).attr('', false);
+            })
+        });
+
+    });
+
+</script>

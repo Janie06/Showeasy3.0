@@ -1,0 +1,448 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.Customers_Upd">客戶編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+    <style>
+        .a-url {
+            color: #1d2ef9 !important;
+        }
+
+        .table > tbody > tr > td {
+            padding: 5px 2px !important;
+        }
+
+            .table > tbody > tr > td:first-child {
+                padding-top: 12px !important;
+            }
+
+            .table > tbody > tr > td:last-child {
+                padding: 12px 25px 0 25px !important;
+            }
+
+        #transactiontype label {
+            margin-right: 10px;
+        }
+
+        [for="TransactionType"] {
+            display: none;
+        }
+
+        #AuditReason {
+            font-size: large;
+            font-weight: 900;
+        }
+		
+		.divTitle{
+			background-color:orange;
+			font-weight:bold;
+		}
+		
+		.bill-status li {
+            position: relative;
+            left: -20px;
+            list-style-type: none;
+        }
+		
+		.bill-status li div{
+			float: left;
+			text-align: center;
+			margin-right: 20px;
+			width: 100%;
+		}
+		.select2-container--default.select2-container--disabled .select2-selection--multiple{
+		    background-color: #eee!important;
+		}
+    </style>
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <!--主作業區 Start-->
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <form id="form_main" class="form-horizontal">
+                            <div role="tabpanel" id="tabs">
+                                <!-- 頁籖按鈕 Start-->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" id="litab1" class="active">
+                                        <a href="#tab1" role="tab" data-toggle="tab" data-i18n="common.BasicInformation">基本資料</a>
+                                    </li>
+                                    <!-- <li role="presentation" id="litab2">
+                                        <a href="#tab2" role="tab" data-toggle="tab" data-i18n="common.ExhibitionList">參與展覽列表</a>
+                                    </li> -->
+									
+									<li role="presentation" id="litab3">
+                                        <a href="#tab3" role="tab" data-toggle="tab" data-i18n="">聯絡人列表</a>
+                                    </li>
+									<li role="presentation" id="litab2">
+                                        <a href="#tab2" role="tab" data-toggle="tab" data-i18n="">參與展覽</a>
+                                    </li>
+									<li role="presentation" id="litab4">
+                                        <a href="#tab4" role="tab" data-toggle="tab" data-i18n="">Callout記錄</a>
+                                    </li>
+									<li role="presentation" id="litab5">
+                                        <a href="#tab5" role="tab" data-toggle="tab" data-i18n="">客訴</a>
+                                    </li>
+									<li role="presentation" id="litab6">
+                                        <a href="#tab6" role="tab" data-toggle="tab" data-i18n="">滿意度</a>
+                                    </li>
+                                </ul>
+                                <!-- 頁籖按鈕 End-->
+                                <!-- 頁籖內容 Tab panes Start -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                                        <div class="form-group NotPassReason" hidden>
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.Audit_Status">審核狀態</span>：</label>
+                                            <div class="col-sm-3 t-red">
+                                                <div id="AuditReason"></div>
+                                            </div>
+											<label class="col-sm-2 control-label wright"><span data-i18n="common.Status">狀態</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input id="radio_0" type="radio" name="Effective" value="Y" checked="checked" />
+                                                <label for="radio_0" data-i18n="common.Effective">有效</label>
+                                                <input id="radio_1" type="radio" name="Effective" value="N" />
+                                                <label for="radio_1" data-i18n="common.Invalid">無效</label>
+                                            </div>
+                                        </div>
+                                        <hr class="voidreason" hidden />
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Customers_Upd.TransactionType">交易型態</span>：</label>
+                                            <div class="col-sm-8">
+                                                <div id="transactiontype">
+                                                </div>
+                                                <label for="TransactionType" class="error" data-i18n="Customers_Upd.TransactionType_required">請選擇交易類型</label>
+                                            </div>
+                                        </div>
+										<div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Customers_Upd.CustomerNO">客戶編號</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" disabled name="CustomerNO" id="CustomerNO" maxlength="7" placeholderid="common.AutomaticCoding" placeholder="自動編碼">
+                                            </div>
+											<label class="col-sm-2 control-label"><span data-i18n="">潛力評估</span>：</label>
+                                            <div class="col-sm-3">
+                                                <select class="form-control w100p" id="Potential" name="Potential" data-type="select" disabled></select>
+												<!-- <input type="text" class="form-control w100p" disabled name="Potential" id="Potential" placeholderid="" placeholder=""> -->
+                                            </div>
+                                        </div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label wright"><span data-i18n="">是否為組團單位</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input id="radio_0" type="radio" name="IsGroupUnit" value="Y"/>
+                                                <label for="radio_0" data-i18n="">是</label>
+                                                <input id="radio_1" type="radio" name="IsGroupUnit" value="N" checked="checked"  />
+                                                <label for="radio_1" data-i18n="">否</label>
+                                            </div>
+											<label class="col-sm-2 control-label wright"><span data-i18n="">黑名單</span>：</label>
+											<div class="col-sm-1">
+												<input id="radio_2" type="radio" name="IsBlackList" value="N" checked="checked"  />
+                                                <label for="radio_2" data-i18n="">否</label>
+												<input id="radio_3" type="radio" name="IsBlackList" value="Y"/>
+                                                <label for="radio_3" data-i18n="">是</label>
+											</div>
+											<div class="col-sm-2">
+												<select class="form-control" id="BlackListReason" name="BlackListReason" disabled></select>
+											</div>
+                                        </div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label wright"><span data-i18n="">是否為進口商</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input id="radio_4" type="radio" name="IsImporter" value="Y"/>
+                                                <label for="radio_4" data-i18n="">是</label>
+                                                <input id="radio_5" type="radio" name="IsImporter" value="N" checked="checked"  />
+                                                <label for="radio_5" data-i18n="">否</label>
+                                            </div>
+                                        </div>
+										<hr>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Customers_Upd.CustomerShotCName">客戶簡稱</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="CustomerShotCName" id="CustomerShotCName" _maxlength="12" required data-msg="Customers_Upd.CustomerShotCName_required" datamsg="請輸入客戶簡稱" placeholderid="Customers_Upd.Instruction_CustomerShotCName" placeholder="最多限（6個中文字）或（12個英文字）">
+                                            </div>
+                                            <label class="col-sm-2 control-label unicode-box"><b class="t-red innercol">*</b><span data-i18n="Customers_Upd.UniCode">統一編號</span>：</label>
+                                            <div class="col-sm-3 unicode-box">
+                                                <input type="text" class="form-control w100p" name="UniCode" id="UniCode" maxlength="8" data-msg-unicoderequired="Customers_Upd.UniCode_required" datamsgunicoderequired="請輸入統一編號" data-rule-unicoderequired="unicoderequired" placeholderid="Customers_Upd.Instruction_UniCode" placeholder="國內廠商不可以為空">
+                                            </div>
+                                            <div class="col-sm-2 APIImport" hidden>
+                                                <button type="button" class="btn-custom blue" id="APIImport" data-i18n="Customers_Upd.APIImport">通過政府官網導入</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red CustomerCName">*</b><span data-i18n="Customers_Upd.CustomerCName">客戶中文名稱</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="CustomerCName" id="CustomerCName" _maxlength="60" data-msg-customercnamerequired="Customers_Upd.CustomerCName_required" datamsgcustomercnamerequired="請輸入公司中文名稱" data-rule-customercnamerequired="customercnamerequired" placeholderid="Customers_Upd.Instruction_CustomerCName" placeholder="非國外廠商不可以為空">
+                                            </div>
+                                            <label class="col-sm-2 control-label"><b class="t-red CustomerEName">*</b><span data-i18n="Customers_Upd.CustomerEName">客戶英文名稱</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="CustomerEName" id="CustomerEName" _maxlength="60" data-msg-customerenamerequired="Customers_Upd.CustomerEName_required" datamsgcustomerenamerequired="請輸入公司英文名稱" data-rule-customerenamerequired="customerenamerequired" data-msg-customerenamecus="Customers_Upd.CustomerENameFirstChart_required" datamsgcustomerenamecus="公司英文名稱第一個字符格式不正確" data-rule-customerenamecus="customerenamecus" placeholderid="Customers_Upd.Instruction_CustomerEName" placeholder="須以英文字母開頭（國內可以為空）">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red telephone">*</b><span data-i18n="common.Telephone">電話</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="Telephone" id="Telephone" data-keytelno="Y" maxlength="20" required data-msg="Customers_Upd.Telephone_required" datamsg="請輸入電話" placeholderid="common.Instruction_Telephone" placeholder="範例：+86-123456789（國外） 或 02-1234567（國內）">
+                                            </div>
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.Email">郵箱</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="Email" id="Email" maxlength="200" placeholderid="common.Instruction_Email" placeholder="範例：aaa@gmail.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.FAX">傳真</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="FAX" id="FAX" data-keytelno="Y" maxlength="20" placeholderid="common.Instruction_FAX" placeholder="範例：+86-123456789（國外） 或 02-1234567（國內）">
+                                            </div>
+											<label class="col-sm-2 control-label"><span data-i18n="">產業別（展覽統計）</span><span>：</span></label>
+											<div class="col-sm-3">
+												<select class="form-control w100p" id="IndustryStatistics" name="IndustryStatistics" multiple="multiple" disabled></select>
+											</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.State">國家</span>：</label>
+                                            <div class="col-sm-3">
+                                               <select class="form-control w100p" id="State" name="State" data-type="select2"  required data-msg="Exhibition_Upd.State_required" datamsg="請選擇國家"></select>
+                                            </div>
+											<label class="col-sm-2 control-label"><span data-i18n="Exhibition_Upd.Industry">產業別</span><span>：</span></label>
+											<div class="col-sm-3">
+												<select class="form-control w100p" id="Industry" name="Industry" multiple="multiple"></select>
+											</div>
+                                        </div>
+                                        <div class="form-group sg-box" hidden>
+                                            <label class="col-sm-2 control-label"><b class="t-red innercol">*</b><span data-i18n="Customers_Upd.BankName">開戶銀行名稱</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control w100p" name="BankName" id="BankName" maxlength="100" placeholderid="Customers_Upd.Instruction_BankName" required data-msg="Customers_Upd.BankName_required" datamsg="請輸入開戶銀行名稱" placeholder="請輸入開戶銀行名稱">
+                                            </div>
+                                        </div>
+                                        <div class="form-group sg-box" hidden>
+                                            <label class="col-sm-2 control-label"><b class="t-red innercol">*</b><span data-i18n="Customers_Upd.BankAcount">開戶銀行帳號</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="BankAcount" id="BankAcount" data-keyint="Y" maxlength="50" placeholderid="Customers_Upd.Instruction_BankAcount" required data-msg="Customers_Upd.BankAcount_required" datamsg="請輸入開戶銀行帳號" placeholder="請輸入開戶銀行帳號">
+                                            </div>
+                                            <label class="col-sm-2 control-label"><b class="t-red innercol">*</b><span data-i18n="Customers_Upd.TaxpayerOrgID">納稅人組織號</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="TaxpayerOrgID" id="TaxpayerOrgID" maxlength="100" placeholderid="Customers_Upd.Instruction_TaxpayerOrgID" required data-msg="Customers_Upd.TaxpayerOrgID_required" datamsg="請輸入納稅人識別號" placeholder="請輸入納稅人組織號">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red address">*</b><span data-i18n="Customers_Upd.Address">公司地址</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control w100p" name="Address" id="Address" maxlength="500" placeholderid="Customers_Upd.Instruction_Address" placeholder="請輸入公司地址" required data-msg="Customers_Upd.Address_required" datamsg="請輸入公司地址">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="Customers_Upd.InvoiceAddress">發票地址</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control w100p" name="InvoiceAddress" id="InvoiceAddress" maxlength="500" placeholderid="Customers_Upd.Instruction_InvoiceAddress" placeholder="發票地址">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.WebsiteAdress">官網地址</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control w100p" name="WebsiteAdress" id="WebsiteAdress" maxlength="500" placeholderid="common.Instruction_WebsiteAdress" placeholder="例如：http://www.eurotran.com">
+                                            </div>
+                                        </div>
+										<div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="">已配合其他運輸公司</span>：</label>
+                                            <div class="col-sm-8">
+												<select class="form-control w100p" id="CoopTrasportCompany" name="CoopTrasportCompany" multiple="multiple" disabled></select>
+												<!-- style="display:none;" -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label class="col-sm-2 control-label wright"><span data-i18n="common.Status">狀態</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input id="radio_0" type="radio" name="Effective" value="Y" checked="checked" />
+                                                <label for="radio_0" data-i18n="common.Effective">有效</label>
+                                                <input id="radio_1" type="radio" name="Effective" value="N" />
+                                                <label for="radio_1" data-i18n="common.Invalid">無效</label>
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.Contactor">聯絡人</span>：</label>
+                                            <div class="col-sm-8">
+                                                <div>
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th data-i18n="common.FullName">姓名</th>
+                                                                <th data-i18n="common.JobtitleName">職稱</th>
+                                                                <th data-i18n="common.TEL1">聯絡電話1</th>
+                                                                <th data-i18n="common.TEL2">聯絡電話2</th>
+                                                                <th data-i18n="common.FAX">傳真</th>
+                                                                <th data-i18n="common.Email">Email</th>
+                                                                <th data-i18n="common.Memo">備註</th>
+                                                                <th>順序</th>
+                                                                <th data-i18n="common.Action">操作</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="table_box"></tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-12 wright">
+                                                    <button type="button" class="btn-custom plustemplkey blue" title="新增參數"><i class="fa fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="Memo" id="Memo" class="form-control" rows="6" cols="20"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="CreateUserName" id="CreateUserName"></div>
+                                            </div>
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="ModifyUserName" id="ModifyUserName"></div>
+                                            </div>
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+									<div role="tabpane" class="tab-pane" id="tab3">
+										<div class="row form-group">
+                                            <button type="button" class="btn-custom orange" id="InsertContactor" title="新增" data-i18n="">新增聯絡人</button>
+                                        </div>
+                                        <div class="row">
+                                            <div id="jsGrid2"></div>
+                                        </div>
+                                    </div>
+                                    <!-- <div role="tabpanel" class="tab-pane" id="tab2">
+										<div class="row form-group">
+                                            <button type="button" class="btn-custom orange" id="InsertExhibitionList" title="新增" data-i18n="">新增至展覽名單</button>
+                                        </div>
+                                        <div class="row">
+                                            <div id="jsGrid"></div>
+                                        </div>
+                                    </div> -->
+									
+									<div role="tabpanel" class="tab-pane" id="tab2">
+                                        <div class="row form-group">
+                                            <button type="button" class="btn-custom orange" id="InsertExhibitionList" title="新增" data-i18n="">新增至展覽名單</button>
+                                        </div>
+                                        <div class="row form-group">
+											<div class="divTitle text-center"><span data-i18n="">已成交</span></div>
+                                            <div id="jsGrid"></div>
+                                        </div>
+										<div class="row form-group">
+											<div class="divTitle text-center"><span data-i18n="">未成交</span></div>
+                                            <div id="jsGrid1"></div>
+                                        </div>
+                                    </div>
+									
+									
+									
+									<div role="tabpane" class="tab-pane" id="tab4">
+                                        <div class="row">
+                                            <div id="jsGrid3"></div>
+                                        </div>
+                                    </div>
+									<div role="tabpane" class="tab-pane" id="tab5">
+										<div class="row form-group">
+                                            <button type="button" class="btn-custom orange" id="InsertComplaint" title="新增" data-i18n="" >新增客訴</button>
+                                        </div>
+                                        <div class="row">
+                                            <div id="jsGrid4"></div>
+                                        </div>
+                                    </div>
+									<div role="tabpane" class="tab-pane" id="tab6">
+                                        <div class="row">
+                                            <div id="jsGrid5"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 頁籖內容 Tab panes End -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--主作業區 End-->
+            </div>
+        </div>
+    </div>
+    <!-- CopySync -->
+    <div class="modal fade" id="CopySync" tabindex="-1" role="dialog" aria-labelledby="CopySyncModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CopySyncModalLabel"><span data-i18n="Customers_Upd.CopySync">複製同步</span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label style="font-size:18px;" OrgID="TE">
+                            <input type="checkbox" id="chkTE_CopySync" name="chkTE_CopySync" />
+                            <span>
+                                TE-台灣奕達
+                            </span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label style="font-size:18px;" OrgID="TG">
+                            <input type="checkbox" id="chkTG_CopySync" name="chkTG_CopySync" />
+                            <span>
+                                TG-台北駒譯
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="CopySycnOK" class="btn btn-success" data-dismiss="modal">OK</button>
+                    <button type="button" id="CopySycnCancel" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/lib/PY.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("head").append("<script type='text/javascript' src='/Scripts/loadjs.min.js'>");
+        $("head").append("<script type='text/javascript' src='/Scripts/JSLoader.js'>");
+        $("head").append("<script type='text/javascript' src='/Scripts/pages/Crm/Customers_Upd.js'>");
+    });
+</script>

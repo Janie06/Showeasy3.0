@@ -1,0 +1,302 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="駒驛、Ｇ-Yi、展覽品、佈展、拆裝箱、堆高機、展場服務、展品定位、展品運輸、展品物流、展品倉儲、展品報關">
+    <meta name="description" content="">
+    <title>Online Inquiry - G-Yi Logistics</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link href="../../Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.css" rel="stylesheet" />
+    <link href="../../Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="../../Content/toastr.min.css" rel="stylesheet" />
+    <link href="../css/main.css?v=20180730" rel="stylesheet">
+    <link href="../css/en.css" rel="stylesheet" type="text/css">
+    <link href="../css/inquiry.css" rel="stylesheet">
+    <style>
+
+        .select2-container, .select2-selection--single, .select2-selection__rendered, .select2-selection__arrow {
+            height: 40px !important;
+        }
+
+        .select2-container, .select2-selection__rendered {
+            min-width: 70px;
+            max-width: 600px;
+        }
+
+        .select2-selection__placeholder, .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 40px;
+        }
+
+        .isDisabled {
+            color: currentColor;
+            cursor: not-allowed;
+            opacity: 0.5;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div id="headerWrapper">
+            <h1><a href="index_en.html">G-YI</a></h1>
+            <ul id="language">
+                <li class="en"><a href="inquiry.html">中</a></li>
+            </ul>
+            <h4>Menu</h4>
+            <ul id="menu">
+                <li id="index"><a href="index_en.html">Home</a></li>
+                <li id="about"><a href="about_en.html">About G-Yi</a></li>
+                <li id="service"><a href="service_en.html">Our Services</a></li>
+                <li id="inquiry"><a href="inquiry_en.html">Get a Quote</a></li>
+                <li id="contact"><a href="contact_en.html">Contact Us</a></li>
+                <li id="download"><a href="download_en.html">Downloads</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- header end -->
+    <!--------------------- article --------------------->
+    <div class="article">
+        <h1 class="addBG">Online Inquiry</h1>
+        <p>&nbsp;</p>
+        <h3 class="bold">
+            * For On-Site Service inquiry only.  If you want to check the freight or
+            other services offer, please <a href="contact_en.html">contact us.</a> Thank you!
+        </h3>
+        <p>&nbsp;</p>
+        <h2>Exhibition Info</h2>
+        <p>&nbsp;</p>
+        <ul id="expoSort">
+            <li>
+                <p class="formTitle">Country</p>
+                <select class="textStyle expo-search" id="area">
+                    <option value="">Select</option>
+                </select>
+            </li>
+            <li>
+                <p class="formTitle">Date</p>
+                <select class="textStyle expo-search" id="year">
+                    <option value="">Year</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                </select>
+                <select class="textStyle expo-search" id="month">
+                    <option value="">Month</option>
+                    <option value="01-03">01-03</option>
+                    <option value="04-06">04-06</option>
+                    <option value="07-09">07-09</option>
+                    <option value="10-12">10-12</option>
+                </select>
+            </li>
+            <li>
+                <p class="formTitle">Exhibition</p>
+                <select class="textStyle maxText" id="expo">
+                    <option>Select</option>
+                </select>
+            </li>
+        </ul>
+        <p>&nbsp;</p>
+        <h2>Get a Quote</h2>
+        <p>&nbsp;</p>
+        <!--------------------- inquiryNo --------------------->
+        <form id="form_inquiry">
+            <dl id="inquiryNo">
+                <dd>
+                    <h4 class="orange">Add Another Load</h4>
+                    <span class="add">add</span>
+                </dd>
+            </dl>
+            <input type="hidden" name="Total" />
+        </form>
+        <!--------------------- inquiryNo end --------------------->
+        <p>&nbsp;</p>
+        <!--------------------- SUM --------------------->
+        <h3 class="align_r">Total: NT$ <span class="red totaltext">0</span> (Tax Included)</h3>
+        <p>&nbsp;</p>
+        <p class="align_r">
+            <a href="javascript:void(0);" id="inquiryIntro">Instructions</a> &nbsp;
+            <a href="javascript:void(0);" id="goappoint" class="btn btnStyle">Online Booking</a>
+        </p>
+        <p>&nbsp;</p>
+        <div id="CostInstruction">
+        </div>
+    </div>
+    <!--------------------- article end --------------------->
+    <!--------------------- footer --------------------->
+    <footer>
+        <div id="footer">
+            <img src="../images/logoFooter.png">
+            <ul>
+                <li>10F., No.457, Chongyang Rd., Nangang Dist., Taipei, Taiwan</li>
+                <li>+886-2-2785-7900</li>
+                <li><a href="mailto:info@g-yi.com">info@g-yi.com</a></li>
+            </ul>
+            <p>Copyright &copy; G-YI INT'L LOGISTICS CO., LTD.</p>
+        </div>
+    </footer>
+    <div id="toTop">TOP</div>
+    <div id="money" class="NoShowInMobile"><a href="inquiry_en.html"></a></div>
+    <!--------------------- footer end --------------------->
+    <script id="temp_costdoc" type="text/x-jsrender">
+        <h2>Fee </h2>
+        <p>&nbsp;</p>
+        <h4>1. Forklift Service</h4>
+        <p>&nbsp;</p>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableDisplay">
+            <tbody>
+                <tr>
+                    <th>Weight</th>
+                    <th>Cost (In NT$, Tax Included) </th>
+                </tr>
+                {{for CostRules}}
+                <tr>
+                    <td align="center">
+                        {{if Weight_Min!=0}}{{:Weight_Min}} {{if Weight_Min==1}}Ton{{else}}Tons{{/if}} to {{:Weight_Max}} Tons{{else}}Under{{:Weight_Max}}Ton{{/if}}
+                    </td>
+                    <td align="center">{{:~setMoney(Price)}}  /{{if PricingMode=="T"}}ton{{else}}package{{/if}}</td>
+                </tr>
+                {{/for}}
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <ol class="dot">
+            <li> Includes one-time removal from the truck and transport to your booth during move-in, and from your booth onto the truck during move-out. </li>
+            <li>Please consult the cost table if you require further transport or assembly services after your exhibit has been installed.</li>
+            <li>Call us if you require crane services for your goods or container dismantling services. </li>
+            
+        </ol>
+        <p>&nbsp;</p>
+        <h4>2. Packing and Unpacking Services </h4>
+        <p>&nbsp;</p>
+        <p>
+            {{:CurrencyName_EN}}{{:~setMoney(PackingPrice)}} NTD/CBM
+            {{if HasPackingRequiredMinCBM }}(minimum charge of {{:PackingRequiredMinCBM}} CBM ){{/if}}{{:PackingMinCBMModeText}}(tax  included)
+        </p>
+        <p>&nbsp;</p>
+        <h4>3. Empty Crate Transport and Storage During the Exhibition</h4>
+        <p>&nbsp;</p>
+        <p>
+            {{:CurrencyName_EN}}{{:~setMoney(FeedingPrice)}} NTD/CBM
+            {{if HasFeedingRequiredMinCBM }}(minimum charge of {{:FeedingRequiredMinCBM}} CBM ){{/if}}{{:FeedingMinCBMModeText}}(tax  included)
+        </p>
+        <p>&nbsp;</p>
+        <div>
+            {{:CostInstruction_EN}}
+        </div>
+        <!--<p>&nbsp;</p>
+        <h3><strong>Service description</strong></h3>
+        <p>&nbsp;</p>
+        <div>
+            {{:ServiceInstruction_EN}}
+        </div>-->
+        <p>
+            &nbsp;
+        </p>
+        {{if Files.length>0 }}
+        <h3><strong>Download Exhibit Transport Service Booking Form</strong></h3>
+        <p>&nbsp;</p>
+        <ul class="download">
+            {{for Files}}
+            <li><a href="javascript:void(0);" filename="{{:~getFileName(FileName)}}" filepath="{{:FilePath}}">{{:~getFileName(FileName)}}</a></li>
+            {{/for}}
+        </ul>
+        {{/if}}
+    </script>
+
+    <script id="temp_costinfo" type="text/x-jsrender">
+        <dd id="PackingInfo{{:Index}}">
+            <ul class="inquiryProd">
+                <li class="enTitle">
+                    <h4>Exhibit Info</h4>
+                </li>
+                <li>
+                    Packaging：
+                    <select class="textStyle expotype" name="PackingInfo{{:Index}}[ExpoType]">
+                        <option value="01">Unwrapped</option>
+                        <option value="02">Wooden Crate</option>
+                        <option value="03">Bulk Cargo</option>
+                        <option value="04">Pallet</option>
+                        <option value="05">Other</option>
+                    </select>
+                </li>
+                <li>
+                    Dimensions：
+                    <input type="text" name="PackingInfo{{:Index}}[ExpoLen]" class="textStyle smallText inputnumber" data-type="money" data-name="int" placeholder="L" value="{{:ExpoLen}}" />
+                    <input type="text" name="PackingInfo{{:Index}}[ExpoWidth]" class="textStyle smallText inputnumber" data-type="money" data-name="int" placeholder="W" value="{{:ExpoWidth}}" />
+                    <input type="text" name="PackingInfo{{:Index}}[ExpoHeight]" class="textStyle smallText inputnumber" data-type="money" data-name="int" placeholder="H" value="{{:ExpoHeight}}" />
+                    CM
+                </li>
+                <li>
+                    Weight：
+                    <input type="text" class="textStyle smallText inputnumber" data-type="money" data-name="int" name="PackingInfo{{:Index}}[ExpoWeight]" placeholder="Weight" value="{{:ExpoWeight}}" />
+                    KG
+                </li>
+                <li>
+                    Quantity：
+                    <input type="number" min="0" class="textStyle smallText" name="PackingInfo{{:Index}}[ExpoNumber]" placeholder="Quantity" value="{{:ExpoNumber}}" />
+                </li>
+                <p class="clear"></p>
+            </ul>
+            <p class="divider">&nbsp;</p>
+            <p class="count align_r">Shipment Subtotal：<span class="subtext">{{:~setSubtext(SubText)}}</span></p>
+            <p class="divider">&nbsp;</p>
+            <input type="hidden" name="PackingInfo{{:Index}}[SubTotalNumber]" value="{{:SubTotalNumber}}" />
+            <input type="hidden" name="PackingInfo{{:Index}}[TotalCBM]" value="{{:TotalCBM}}" />
+            <input type="hidden" name="PackingInfo{{:Index}}[TotalWeight]" value="{{:TotalWeight}}" />
+            <ul class="inquiryProd">
+                <li class="enTitle">
+                    <h4>Services Required</h4>
+                </li>
+                <li>
+                    <input type="checkbox" class="largeItem" id="ExpoStack{{:Index}}" name="PackingInfo{{:Index}}[ExpoStack]" {{:~setCheck(ExpoStack)}}>
+                    <label for="ExpoStack{{:Index}}">Forklift</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="largeItem packing" id="ExpoSplit{{:Index}}" name="PackingInfo{{:Index}}[ExpoSplit]" {{:~setCheck(ExpoSplit)}}>
+                    <label for="ExpoSplit{{:Index}}">Unpacking</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="largeItem packing" id="ExpoPack{{:Index}}" name="PackingInfo{{:Index}}[ExpoPack]" {{:~setCheck(ExpoPack)}}>
+                    <label for="ExpoPack{{:Index}}">Packing</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="largeItem single-packing" id="ExpoFeed{{:Index}}" name="PackingInfo{{:Index}}[ExpoFeed]" {{:~setCheck(ExpoFeed)}}>
+                    <label for="ExpoFeed{{:Index}}">Empty Crate Transport and Storage During the Exhibition</label>
+                </li>
+                <p class="clear"></p>
+            </ul>
+            <p class="divider">&nbsp;</p>
+            <p class="count align_r">Estimated Subtotal (Tax Included)：<span class="subtotal">{{:~setMoney(SubTotal,true)}}</span></p>
+            <span class="delete"></span>
+            <input type="hidden" class="subtotalval" name="PackingInfo{{:Index}}[SubTotal]" value="{{:SubTotal}}" />
+        </dd>
+    </script>
+</body>
+</html>
+<script src="../../Scripts/jquery-1.11.3.min.js"></script>
+<script src="../../Scripts/i18next.min.js"></script>
+<script src="../../Scripts/jquery.indexeddb.min.js"></script>
+<script src="../../Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.js"></script>
+<script src="../../Scripts/3rd/select2/js/select2.min.js"></script>
+<script src="../../Scripts/format-number.min.js"></script>
+<script src="../../Scripts/toastr.min.js"></script>
+<script src="../../Scripts/jquery.serialize-object.js"></script>
+<script src="../../Scripts/jsrender.min.js"></script>
+<script src="../../Scripts/jquery.blockUI.js"></script>
+<script src="../../Scripts/lib/base64.js"></script>
+<script src="../../Scripts/lib/Util.min.js?v=20180730"></script>
+<script src="../js/menu.js?v=20180730"></script>
+<script src="../js/inquiry.js?v=20190131"></script>
+<!--Global site tag(gtag.js) - Google Analytics-->
+<script>
+    if ('www.g-yi.com'.indexOf(window.location.hostname) > -1) {
+        document.write('<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120713824-1"><\x2Fscript><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "UA-120713824-1");<\x2Fscript>');
+    }
+</script>

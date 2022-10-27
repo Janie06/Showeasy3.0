@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* CSS Document */
+
+#hidden-categories {
+	display: none;
+	width: 800px;
+}
+
+#hidden-countries {
+	display: none;
+	width: 800px;
+}
+
+.disabledText{
+	color:#999999;
+	font-size:13px;
+}
+
+#expoSearchFilter a,a:hover{
+	color:#333;
+	text-decoration:none;
+}
+#expoSearchFilter{
+	background:#EDEDED;
+	padding:10px 15px;
+	border-radius:10px;
+}
+
+#expoSearchFilter input[type="text"]{
+	border:none;
+	background:none;
+	height:21px;
+	padding:0;
+}
+.tags li{
+	float:left;
+	padding:2px 5px;
+	border:solid 1px #ccc;
+	border-radius:5px;
+	margin-right:3px;
+	margin-bottom:3px;
+	font-size:13px;
+	background:#FFFFFF;
+	
+}
+
+/*-----------------------for PC-----------------------*/
+@media screen and (min-width:801px) {
+.ExpoSearchItem{
+	float:left;
+	margin-right:15px;
+	width:19%;
+}
+
+.ExhibitCategory li{
+	display: inline-block;
+	width:32%;
+}
+
+.catselect, .countryselect{
+	display:block;
+	width:100%;
+}
+
+.datepicker{
+	width:85px;
+	border:solid 1px #ccc;
+}
+
+.ExpoList li{
+	border-bottom:solid 1px #e0e0e0;
+	padding:15px;
+}
+
+.ExpoList li div.left{
+    float: left;
+    position: relative;
+	margin-right:15px;
+	width:230px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height:230px;
+}
+
+.ExpoList li div.right {
+    width: auto;
+    min-height: 210px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.ExpoList li h2{
+	font-weight:bold;
+}
+
+.ExpoList li div.right a.inquire{
+	position:absolute;
+	right:0;
+	background:#00387b;
+	padding:15px;
+	top:75px;
+	color:#FFFFFF;
+	font-size:17px;
+}
+.ExpoList li div.right a.inquire:hover{
+	background:#325AA2;
+}
+
+
+
+}
+
+/*------------------for mobile------------------------*/
+@media screen and (max-width:800px) {
+.ExpoSearchItem{
+	float:left;
+	width:49%;
+	margin-left:1%;
+}
+.ExpoSearchItem:last-child{
+	margin-left:0;
+}
+#expoSearchFilter input[type="text"].datepicker{
+	width:70px;
+}
+#expoSearchFilter input{
+	font-size:13px;
+}
+.catselect, .countryselect{
+	font-size:13px;
+}
+.ExhibitCategory li{
+	display: inline-block;
+	width:49%;
+	font-size:13px;
+}
+.ExpoList li{
+	border-bottom:solid 1px #ccc;
+	padding:15px;
+}
+
+.ExpoList li div.left img{
+	display: block;
+	margin: 0 auto;
+}
+
+.ExpoList li div.right {
+    width: auto;
+    min-height: 200px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.ExpoList li h2{
+	font-weight:bold;
+}
+
+.ExpoList li div.right a.inquire{
+	position:relative;
+	background:#00387b;
+	color:#FFFFFF;
+	font-size:13px;
+	padding: 8px 15px;
+	line-height: 100%;
+	width:85px;
+	text-align:center;
+	margin: 0 auto;
+	margin-top:10px;
+}
+.ExpoList li div.right a.inquire:hover{
+	background:#325AA2;
+}
+
+}

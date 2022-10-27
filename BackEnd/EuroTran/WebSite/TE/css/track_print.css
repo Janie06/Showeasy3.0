@@ -1,0 +1,44 @@
+﻿@media print {
+    .progress li {
+        position: relative;
+        text-align: center;
+        width: 16%;
+        float: left;
+    }
+
+        .progress li.active div {
+            width: 100%;
+            height: 20px;
+            background-color: #EC681E;
+            filter: #EC681E;
+            border: 1px solid #ff6a00;
+        }
+        .progress li div {
+            width: 100%;
+            height: 20px;
+            background-color: #ddd;
+            filter: #ddd;
+            border: 1px solid #808080;
+        }
+        .progress li span {
+            position: absolute;
+            bottom: 0px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            /*background-image: url(../images/progress_print.png);*/
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 20;
+        }
+            .progress li span img {
+                display: normal;
+            }
+    .css-table .th {
+        border: 1px solid #ddd;
+        background-color: #ddd;
+    }
+    input[type=button]{
+        display:none;
+    }
+}

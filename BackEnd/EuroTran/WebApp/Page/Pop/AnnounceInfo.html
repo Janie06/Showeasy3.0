@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        .ann-body {
+            font-family: Arial, "微軟正黑體";
+        }
+
+        .ann-header {
+            height: 24px;
+        }
+
+        .ann-table {
+            /*border: 1px solid #000000;*/
+            background: #ffffff;
+            max-width: 630px;
+        }
+
+        .ann-title {
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .content {
+            /*text-indent: 2em;*/
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .ann-content {
+            max-height: 700px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="ann-body">
+    <div class="ann-content">
+        <table class="ann-table" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><div class="content slimscroll" style="">{{:Description}}</div></td>
+            </tr>
+            <tr>
+                <td><div style="float:right;margin-right:70px;">{{:CreateUserName}}</div></td>
+            </tr>
+            <tr>
+                <td><div style="float:right;margin:5px 45px 10px 20px;">{{:CreateDate}}</div></td>
+            </tr>
+        </table>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

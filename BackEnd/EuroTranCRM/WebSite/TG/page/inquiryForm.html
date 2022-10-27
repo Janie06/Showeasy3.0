@@ -1,0 +1,280 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="content-language" content="zh-TW">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>線上預約服務 - G-Yi 駒驛物流</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link href="../../Scripts/3rd/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../../Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.css" rel="stylesheet" />
+    <link href="../../Content/toastr.min.css" rel="stylesheet" />
+    <link href="../../Content/font-awesome.css" rel="stylesheet" />
+    <link href="../css/main.css?v=20180730" rel="stylesheet">
+    <link href="../css/en.css" rel="stylesheet" type="text/css">
+    <link href="../css/member.css" rel="stylesheet" type="text/css">
+    <link href="../css/inquiry.css" rel="stylesheet">
+    <style>
+        td {
+            font-family: "微軟正黑體";
+            font-size: 15px;
+            line-height: 24px;
+            word-break: break-all;
+        }
+
+        .border {
+            border: 1px solid rgb(255, 218, 182);
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div id="headerWrapper">
+            <h1><a href="index.html">駒驛</a></h1>
+            <ul id="language">
+                <!--<li class="cn"><a href="#">简</a></li>-->
+                <li class="en"><a href="inquiryForm_en.html">EN</a></li>
+            </ul>
+            <h4>Menu</h4>
+            <ul id="menu">
+                <li id="index"><a href="index.html">首頁</a></li>
+                <li id="about"><a href="about.html">關於駒驛</a></li>
+                <li id="service"><a href="service.html">服務項目</a></li>
+                <li id="inquiry"><a href="inquiry.html">線上詢價</a></li>
+                <li id="contact"><a href="contact.html">聯絡駒驛</a></li>
+                <li id="download"><a href="download.html">資料下載</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- header end -->
+    <!--------------------- article --------------------->
+    <div class="article">
+        <h1 class="addBG">線上預約服務 <span>| Online Inquiry |</span></h1>
+        <p>&nbsp;</p>
+        <h3 class="orange">服務明細</h3>
+        <p>&nbsp;</p>
+        <div class="css-table">
+            <!-- thead -->
+            <div class="thead">
+                <div class="tr">
+                    <div class="th center">包裝</div>
+                    <div class="th center">長寬高(CM)</div>
+                    <div class="th center">重量(KG)</div>
+                    <div class="th center">數量</div>
+                    <div class="th center">服務</div>
+                    <div class="th center">費用</div>
+                </div>
+            </div>
+            <!-- thead end -->
+            <!-- tbody -->
+            <div class="tbody" id="Servicebox">
+            </div>
+            <!-- tbody end -->
+        </div>
+        <p class="divider">&nbsp;</p>
+        <h4 class="align_r">費用總計(新台幣含稅)：NT$ <span class="red" id="Total">0</span></h4>
+        <p>&nbsp;</p>
+        <h3 class="orange">聯絡資訊</h3>
+        <p>&nbsp;</p>
+
+        <form id="form_inquiry">
+            <!--------------------- inquiryLeft --------------------->
+            <div class="inquiryLeft">
+                <p class="formTitle">公司名稱(全稱) <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle midText" name="CompName" required placeholder="請填寫全稱" />
+                </p>
+                <p>&nbsp;</p>
+                <p class="formTitle">攤位號碼 <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle midText" name="MuseumMumber" required />
+                </p>
+                <p>&nbsp;</p>
+                <p class="formTitle">預約者姓名 <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle midText" name="AppointUser" required />
+                </p>
+                <p>&nbsp;</p>
+                <p class="formTitle">預約者電話 <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle midText" name="AppointTel" required />
+                </p>
+                <p>&nbsp;</p>
+                <p class="formTitle">預約者Email <span class="red">*</span></p>
+                <p>
+                    <input type="email" class="textStyle midText" name="AppointEmail" required />
+                </p>
+            </div>
+            <!--------------------- inquiryRight --------------------->
+            <div class="inquiryRight">
+                <p class="formTitle">現場聯絡人 <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle midText" name="Contactor" required />
+                </p>
+                <p>&nbsp;</p>
+                <p class="formTitle">現場聯絡手機 <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle midText" name="ContactTel" required />
+                </p>
+                <p>&nbsp;</p>
+                <p class="formTitle">進場時間 <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle datepicker" name="ApproachTime" placeholder="請選擇日期" required> &nbsp;
+                    <select class="textStyle tinyText" name="ApproachTime_Hour">
+                        <option value="00">00</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                    </select> 時 &nbsp;
+                    <select class="textStyle tinyText" name="ApproachTime_Min">
+                        <option value="00">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select> 分
+                </p>
+                <p>&nbsp;</p>
+                <p class="formTitle">退場時間 <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle datepicker" name="ExitTime" placeholder="請選擇日期" required> &nbsp;
+                    <select class="textStyle tinyText" name="ExitTime_Hour">
+                        <option value="00">00</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                    </select> 時 &nbsp;
+                    <select class="textStyle tinyText" name="ExitTime_Min">
+                        <option value="00">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select> 分
+                </p>
+                <!--<p>&nbsp;</p>
+                <p class="formTitle">Verification Required <span class="red">*</span></p>
+                <p>
+                    <input type="text" class="textStyle smallText" required />
+                    <img src="../images/validcode.jpg" align="absmiddle" class="validcode" /> <a href="#">Refresh Code</a>
+                </p>-->
+            </div>
+        </form>
+        <p class="clear"></p>
+        <p>&nbsp;</p>
+        <p class="align_c">
+            <a href="inquiry.html" id="goback"><< 回上頁修改</a>&nbsp;&nbsp;
+            <a href="javascript:void(0);" class="btn btnStyle confappoint">確定預約</a>
+        </p>
+    </div>
+    <!--------------------- article end --------------------->
+    <!--------------------- footer --------------------->
+    <footer>
+        <div id="footer">
+            <img src="../images/logoFooter.png">
+            <ul>
+                <li>台北市南港區重陽路457號10樓</li>
+                <li>02-2785-7900</li>
+                <li><a href="mailto:info@g-yi.com">info@g-yi.com</a></li>
+            </ul>
+            <p>Copyright &copy; 駒驛物流</p>
+        </div>
+    </footer>
+    <div id="toTop">TOP</div>
+    <div id="money" class="NoShowInMobile"><a href="inquiry.html"></a></div>
+    <!--------------------- footer end --------------------->
+    <!-- hidden-content -->
+    <div class="conf-content">
+        <div id="comfirm">
+            <h3 class="align_c orange">確定預約</h3>
+            <p>&nbsp;</p>
+            <p>本委運書經回傳後，視貴公司同意委託本公司負責本次參展展覽品進出場期間搬運事宜，並願意依本公司所訂之收費標準付費。</p>
+            <p>&nbsp;</p>
+            <p class="align_c"><input type="submit" id="comfirmBtn" class="btn btnStyle" value="確定傳送"></p>
+        </div>
+    </div>
+    <div class="suss-content">
+        <div id="complete">
+            <h3 class="align_c orange">預約成功！</h3>
+            <p>&nbsp;</p>
+            <p>恭喜預約成功！預約資訊已發送到suhaoyu@chanchao.com.tw信箱，如未收到確認信，請來電02-2785-7900洽詢</p>
+            <p class="align_c"><input type="submit" id="close" class="btn btnStyle" value="確認"></p>
+        </div>
+    </div>
+    <!-- hidden-content end -->
+    <script id="temp_service" type="text/x-jsrender">
+        <div class="tr">
+            <div class="td center"><span>包裝：</span>{{:~setExpoType(ExpoType)}}</div>
+            <div class="td center"><span>長寬高(CM)：</span>{{:~setMoney(ExpoLen)}}*{{:~setMoney(ExpoWidth)}}*{{:~setMoney(ExpoHeight)}}</div>
+            <div class="td center"><span>重量(KG)：</span>{{:~setMoney(ExpoWeight)}}</div>
+            <div class="td center"><span>數量：</span>{{:ExpoNumber}}</div>
+            <div class="td left"><span>服務：</span>{{:~setService(ExpoStack,ExpoSplit,ExpoPack,ExpoFeed,ExpoStorage,ExpoDays)}}</div>
+            <div class="td right"><span>費用：</span>NT${{:~setMoney(SubTotal)}}</div>
+        </div>
+    </script>
+</body>
+</html>
+<script src="../../Scripts/jquery-1.11.3.min.js"></script>
+<script src="../../Scripts/3rd/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../Scripts/i18next.min.js"></script>
+<script src="../../Scripts/jquery.blockUI.js"></script>
+<script src="../../Scripts/jquery.validate.min.js"></script>
+<script src="../../Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.js"></script>
+<script src="../../Scripts/jquery.serialize-object.min.js"></script>
+<script src="../../Scripts/toastr.min.js"></script>
+<script src="../../Scripts/jsrender.min.js"></script>
+<script src="../../Scripts/lib/base64.js"></script>
+<script src="../../Scripts/lib/Util.min.js?v=20180730"></script>
+<script src="../js/menu.js?v=20180730"></script>
+<script src="../js/inquiryForm.js?v=20180730"></script>
+<!--Global site tag(gtag.js) - Google Analytics-->
+<script>
+    if ('www.g-yi.com'.indexOf(window.location.hostname) > -1) {
+        document.write('<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120713824-1"><\x2Fscript><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "UA-120713824-1");<\x2Fscript>');
+    }
+</script>

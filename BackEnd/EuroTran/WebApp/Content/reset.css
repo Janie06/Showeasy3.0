@@ -1,0 +1,59 @@
+﻿body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote
+/*, th, td*/
+{
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    color: #000;
+    font-weight: normal;
+    font-family: Verdana, Arial, sans-serif, "新細明體";
+}
+#Divshowwaiting{
+    color:orange;
+}
+img
+{
+    border: none;
+}
+/*
+table, th
+{
+    border-collapse: collapse;
+    border-spacing: 1;
+    border: 1;
+}*/
+fieldset, img
+{
+    border: 0px;
+}
+address, caption, cite, code, dfn, em, strong, th, var
+{
+    font-style: normal;
+    font-weight: normal;
+    border: none;
+}
+ol, ul
+{
+    list-style: none;
+}
+caption, th
+{
+    text-align: left;
+}
+/*h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal;
+}*/
+q:before, q:after
+{
+    content: '';
+    border: none;
+}
+abbr, acronym
+{
+    border: 0;
+}
+a
+{
+    text-decoration: none;
+}

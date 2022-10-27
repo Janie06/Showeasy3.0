@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document */
+/*-----------------------progress----------------------*/
+.progress {
+	margin-bottom: -10px;
+}
+.progress li.active div {
+	background: #EC681E;
+}
+.progress li.bluePro div {
+	background: #003A70;
+}
+h6 {
+	font-size: 15px;
+	color: #BDBDBD;
+}
+h6 span {
+	display: inline-block;
+	width: 60px;
+	border-top: 1px solid #BDBDBD;
+	height: 5px;
+	margin-right: 5px;
+}
+h6 span[data-i18n] {
+	border-top: 0px solid #BDBDBD;
+}
+/*-----------------------css table----------------------*/
+.css-table {
+	display: table;
+	width: 100%;
+}
+.css-table .thead {
+	display: table-header-group;
+}
+.css-table .tbody {
+	display: table-row-group;
+}
+.css-table .tr {
+	display: table-row;
+}
+.css-table .th, .css-table .td {
+	display: table-cell;
+	padding: 10px 5px;
+	/*border-bottom: 1px solid #e0e0e0;*/
+	vertical-align: middle;
+	line-height: 120%;
+}
+.css-table .th {
+	background: #E1E1E1;
+}
+.css-table .center {
+	text-align: center;
+}
+.css-table .tr:nth-child(even) .td {
+	background: #F3F3F3;
+}
+
+/*-----------------------for PC-----------------------*/
+@media screen and (min-width:801px) {
+.trackInfo {
+	background: #FFEBDD;
+	padding: 15px;
+	font-size: 17px;
+}
+.trackInfo li {
+	display: inline-block;
+}
+.trackInfo li:last-child {
+	margin-left: 10px;
+	border-left: 1px solid #f60;
+	padding-left: 10px;
+}
+.trackDivider {
+	width: 100%;
+	height: 10px;
+	margin: 25px 0;
+	background: url(../images/dividerBG.png) repeat-x;
+}
+/*-----------------------progress----------------------*/
+.progress li {
+	position: relative;
+	text-align: center;
+	width: 16.6%;
+	float: left;
+}
+.progress li p {
+	margin-bottom: 5px;
+}
+.progress li div {
+	width: 100%;
+	height: 20px;
+	background: #ddd;
+}
+.progress li span {
+	position: absolute;
+	bottom: 0px;
+	right: -10px;
+	width: 20px;
+	height: 20px;
+	background-image: url(../images/progress.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 20;
+}
+.progress li .entab {
+	position: absolute;
+	bottom: -1px;
+	right: -11px;
+	width: 30px;
+	height: 25px;
+	background-image: url(../images/progress.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 20;
+}
+.tWarpper h6 {
+	display: none;
+}
+}
+
+/*------------------for mobile------------------------*/
+@media screen and (max-width:800px) {
+/*-----------------------progress----------------------*/
+.progress li {
+	text-align: center;
+	width: 33%;
+	float: left;
+	color: #999;
+	background-image: url(../images/progressLine.gif);
+	background-repeat: repeat-x;
+	background-position: left 38px;
+	position: relative;
+}
+/*-----------------------progress----------------------*/
+
+.progress li {
+	position: relative;
+	width: auto;
+	float: left;
+	margin-bottom: 10px;
+}
+.progress li p {
+	margin-bottom: 5px;
+	padding: 0 10px;
+	font-size: 13px;
+}
+.progress li div {
+	width: 100%;
+	height: 20px;
+	background: #ddd;
+}
+.progress li span {
+	position: absolute;
+	bottom: 0px;
+	right: -10px;
+	width: 20px;
+	height: 20px;
+	background: url(../images/progress.png) no-repeat;
+	z-index: 10
+}
+/*--------------- css table -----------------*/
+.mob-table {
+	display: block;
+	overflow-x: auto;
+	min-width: 100%;
+}
+.mob-table .th, .mob-table .td {
+	display: table-cell;
+	padding: 7px 10px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.tWarpper {
+	border-right: 1px solid #aaa;
+	position: relative;
+}
+.tWarpper h6 {
+	position: absolute;
+	right: -15px;
+	top: 50%;
+	width: 15px;
+	height: 15px;
+	margin-top: -7px;
+	background-image: url(../images/tableNext.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+}

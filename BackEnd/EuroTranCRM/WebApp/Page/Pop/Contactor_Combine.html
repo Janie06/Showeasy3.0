@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title></title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/quickQuery/jquery.autocompleter.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Pop.css" rel="stylesheet" />
+    <script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+    <script src="/Scripts/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/Scripts/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+    <script src="/Scripts/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="/Scripts/3rd/quickQuery/jquery.autocompleter.js"></script>
+    <script src="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.js"></script>
+    <script src="/Scripts/3rd/datetimepicker-addon/i18n/jquery-ui-timepicker-zh-TW.js"></script>
+    <script src="/Scripts/3rd/base64.min.js"></script>
+    <script src="/Scripts/lib/Util.min.js"></script>
+    <style>
+        .control-label {
+            padding-right: 0;
+        }
+		
+    </style>
+</head>
+<body>  
+	<div class="page-inner">
+		<div class="panel-body">
+			<form id="form_main" class="form-horizontal">
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_1_1" type="radio" class="radioClass_Call" name="rdbCall" value="1" checked="checked" />
+						<label for="radio_1_1" class="control-label w30p text-right"><span data-i18n="">稱呼</span>：</label>
+						<select class="form-control w60p" id="Call1" name="ddlCall1" placeholderid="" placeholder="">
+							<option value="1">Mr.</option>
+							<option value="2">Miss.</option>
+						</select>
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_1_2" type="radio" class="radioClass_Call" name="rdbCall" value="2"/>
+						<label for="radio_1_2" class="control-label w30p text-right"><span data-i18n="">稱呼</span>：</label>
+						<select class="form-control w60p" id="Call2" name="ddlCall2" placeholderid="" placeholder="" disabled>
+							<option value="1">Mr.</option>
+							<option value="2">Miss.</option>
+						</select>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_2_1" type="radio" class="radioClass_ContactorName" name="rdbContactorName" value="1" checked="checked" />
+						<label for="radio_2_1" class="control-label w30p text-right"><span data-i18n="">姓名</span>：</label>
+						<input type="text" class="form-control w60p" name="txtContactorName1" id="ContactorName1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_2_2" type="radio" class="radioClass_ContactorName" name="rdbContactorName" value="2" />
+						<label for="radio_2_2" class="control-label w30p text-right"><span data-i18n="">姓名</span>：</label>
+						<input type="text" class="form-control w60p" name="txtContactorName2" id="ContactorName2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_3_1" type="radio" class="radioClass_NickName" name="rdbNickName" value="1" checked="checked" />
+						<label for="radio_3_1" class="control-label w30p text-right"><span data-i18n="">暱稱</span>：</label>
+						<input type="text" class="form-control w60p" name="txtNickName1" id="NickName1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_3_2" type="radio" class="radioClass_NickName" name="rdbNickName" value="2" />
+						<label for="radio_3_2" class="control-label w30p text-right"><span data-i18n="">暱稱</span>：</label>
+						<input type="text" class="form-control w60p" name="txtNickName2" id="NickName2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_3_1" type="radio" class="radioClass_Birthday" name="rdbBirthday" value="1" checked="checked" />
+						<label for="radio_3_1" class="control-label w30p text-right"><span data-i18n="">生日</span>：</label>
+						<input type="text" class="form-control date-picker w60p" name="txtBirthday1" id="Birthday1" maxlength="10">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_3_2" type="radio" class="radioClass_Birthday" name="rdbBirthday" value="2" />
+						<label for="radio_3_2" class="control-label w30p text-right"><span data-i18n="">生日</span>：</label>
+						<input type="text" class="form-control date-picker w60p" name="txtBirthday2" id="Birthday2" maxlength="10" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_4_1" type="radio" class="radioClass_MaritalStatus" name="rdbMaritalStatus" value="1" checked="checked" />
+						<label for="radio_4_1" class="control-label w30p text-right"><span data-i18n="">婚姻狀況</span>：</label>
+						<select class="form-control w60p" id="MaritalStatus1" name="ddlMaritalStatus1" placeholderid="" placeholder="">
+							<option value="1">未婚</option>
+							<option value="2">已婚</option>
+						</select>
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_4_2" type="radio" class="radioClass_MaritalStatus" name="rdbMaritalStatus" value="2" />
+						<label for="radio_4_2" class="control-label w30p text-right"><span data-i18n="">婚姻狀況</span>：</label>
+						<select class="form-control w60p" id="MaritalStatus2" name="ddlMaritalStatus2" placeholderid="" placeholder="" disabled>
+							<option value="1">未婚</option>
+							<option value="2">已婚</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_5_1" type="radio" class="radioClass_PersonalMobilePhone" name="rdbPersonalMobilePhone" value="1" checked="checked" />
+						<label for="radio_5_1" class="control-label w30p text-right"><span data-i18n="">私人行動電話</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPersonalMobilePhone1" id="PersonalMobilePhone1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_5_2" type="radio" class="radioClass_PersonalMobilePhone" name="rdbPersonalMobilePhone" value="2" />
+						<label for="radio_5_2" class="control-label w30p text-right"><span data-i18n="">私人行動電話</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPersonalMobilePhone2" id="PersonalMobilePhone2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_6_1" type="radio" class="radioClass_PersonalEmail" name="rdbPersonalEmail" value="1" checked="checked" />
+						<label for="radio_6_1" class="control-label w30p text-right"><span data-i18n="">私人郵件</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPersonalEmail1" id="PersonalEmail1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_6_2" type="radio" class="radioClass_PersonalEmail" name="rdbPersonalEmail" value="2" />
+						<label for="radio_6_2" class="control-label w30p text-right"><span data-i18n="">私人郵件</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPersonalEmail2" id="PersonalEmail2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_7_1" type="radio" class="radioClass_LINE" name="rdbLINE" value="1" checked="checked" />
+						<label for="radio_7_1" class="control-label w30p text-right"><span data-i18n="">LINE</span>：</label>
+						<input type="text" class="form-control w60p" name="txtLINE1" id="LINE1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_7_2" type="radio" class="radioClass_LINE" name="rdbLINE" value="2" />
+						<label for="radio_7_2" class="control-label w30p text-right"><span data-i18n="">LINE</span>：</label>
+						<input type="text" class="form-control w60p" name="txtLINE2" id="LINE2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_8_1" type="radio" class="radioClass_WECHAT" name="rdbWECHAT" value="1" checked="checked" />
+						<label for="radio_8_1" class="control-label w30p text-right"><span data-i18n="">WECHAT</span>：</label>
+						<input type="text" class="form-control w60p" name="txtWECHAT1" id="WECHAT1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_8_2" type="radio" class="radioClass_WECHAT" name="rdbWECHAT" value="2" />
+						<label for="radio_8_2" class="control-label w30p text-right"><span data-i18n="">WECHAT</span>：</label>
+						<input type="text" class="form-control w60p" name="txtWECHAT2" id="WECHAT2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_9_1" type="radio" class="radioClass_Personality" name="rdbPersonality" value="1" checked="checked" />
+						<label for="radio_9_1" class="control-label w30p text-right"><span data-i18n="">個性</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPersonality1" id="Personality1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_9_2" type="radio" class="radioClass_Personality" name="rdbPersonality" value="2" />
+						<label for="radio_9_2" class="control-label w30p text-right"><span data-i18n="">個性</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPersonality2" id="Personality2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_10_1" type="radio" class="radioClass_Preferences" name="rdbPreferences" value="1" checked="checked" />
+						<label for="radio_10_1" class="control-label w30p text-right"><span data-i18n="">喜好</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPreferences1" id="Preferences1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_10_2" type="radio" class="radioClass_Preferences" name="rdbPreferences" value="2" />
+						<label for="radio_10_2" class="control-label w30p text-right"><span data-i18n="">喜好</span>：</label>
+						<input type="text" class="form-control w60p" name="txtPreferences2" id="Preferences2" disabled>
+					</div>
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_11_1" type="radio" class="radioClass_PersonalAddress" name="rdbPersonalAddress" value="1" checked="checked" />
+						<label for="radio_11_1" class="control-label w30p text-right"><span data-i18n="">私人地址</span>：</label>
+						<textarea name="txtPersonalAddress1" id="PersonalAddress1" class="form-control w60p" rows="3"></textarea>
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_11_2" type="radio" class="radioClass_PersonalAddress" name="rdbPersonalAddress" value="2" />
+						<label for="radio_11_2" class="control-label w30p text-right"><span data-i18n="">私人地址</span>：</label>
+						<textarea name="txtPersonalAddress2" id="PersonalAddress2" class="form-control w60p" rows="3" disabled></textarea>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_12_1" type="radio" class="radioClass_Memo" name="rdbMemo" value="1" checked="checked" />
+						<label for="radio_12_1" class="control-label w30p text-right"><span data-i18n="">備註</span>：</label>
+						<textarea name="txtMemo1" id="Memo1" class="form-control w60p" rows="3"></textarea>
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_12_2" type="radio" class="radioClass_Memo" name="rdbMemo" value="2" />
+						<label for="radio_12_2" class="control-label w30p text-right"><span data-i18n="">備註</span>：</label>
+						<textarea name="txtMemo2" id="Memo2" class="form-control w60p" rows="3" disabled></textarea>
+					</div>	
+				</div>
+				<hr/>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_13_1" type="radio" class="radioClass_CustomerCName" name="rdbCustomerCName" value="1" checked="checked" />
+						<label for="radio_13_1" class="control-label w30p text-right"><span data-i18n="">客戶名稱</span>：</label>
+						<input type="text" class="form-control w60p" name="txtCustomerCName1" id="CustomerCName1" disabled>
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_13_2" type="radio" class="radioClass_CustomerCName" name="rdbCustomerCName" value="2" />
+						<label for="radio_13_2" class="control-label w30p text-right"><span data-i18n="">客戶名稱</span>：</label>
+						<input type="text" class="form-control w60p" name="txtCustomerCName2" id="CustomerCName2" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_14_1" type="radio" class="radioClass_JobTitle" name="rdbJobTitle" value="1" checked="checked" />
+						<label for="radio_14_1" class="control-label w30p text-right"><span data-i18n="">職稱</span>：</label>
+						<input type="text" class="form-control w60p" name="txtJobTitle1" id="JobTitle1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_14_2" type="radio" class="radioClass_JobTitle" name="rdbJobTitle" value="2" />
+						<label for="radio_14_2" class="control-label w30p text-right"><span data-i18n="">職稱</span>：</label>
+						<input type="text" class="form-control w60p" name="txtJobTitle2" id="JobTitle2" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_15_1" type="radio" class="radioClass_Department" name="rdbDepartment" value="1" checked="checked" />
+						<label for="radio_15_1" class="control-label w30p text-right"><span data-i18n="">部門</span>：</label>
+						<input type="text" class="form-control w60p" name="txtDepartment1" id="Department1">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_15_2" type="radio" class="radioClass_Department" name="rdbDepartment" value="2" />
+						<label for="radio_15_2" class="control-label w30p text-right"><span data-i18n="">部門</span>：</label>
+						<input type="text" class="form-control w60p" name="txtDepartment2" id="Department2" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_16_1" type="radio" class="radioClass_ImmediateSupervisor" name="rdbImmediateSupervisor" value="1" checked="checked" />
+						<label for="radio_16_1" class="control-label w30p text-right"><span data-i18n="">直屬上司</span>：</label>
+						<select class="form-control w60p" data-type="select2" name="ddlImmediateSupervisor1" id="ImmediateSupervisor1"></select>
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_16_2" type="radio" class="radioClass_ImmediateSupervisor" name="rdbImmediateSupervisor" value="2" />
+						<label for="radio_16_2" class="control-label w30p text-right"><span data-i18n="">直屬上司</span>：</label>
+						<select class="form-control w60p" data-type="select2" name="ddlImmediateSupervisor2" id="ImmediateSupervisor2" disabled></select>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_17_1" type="radio" class="radioClass_Email1" name="rdbEmail1" value="1" checked="checked" />
+						<label for="radio_17_1" class="control-label w30p text-right"><span data-i18n="">電子郵件1</span>：</label>
+						<input type="text" class="form-control w60p" name="txtEmail11" id="Email11">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_17_2" type="radio" class="radioClass_Email1" name="rdbEmail1" value="2" />
+						<label for="radio_17_2" class="control-label w30p text-right"><span data-i18n="">電子郵件1</span>：</label>
+						<input type="text" class="form-control w60p" name="txtEmail12" id="Email12" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_18_1" type="radio" class="radioClass_Email2" name="rdbEmail2" value="1" checked="checked" />
+						<label for="radio_18_1" class="control-label w30p text-right"><span data-i18n="">電子郵件2</span>：</label>
+						<input type="text" class="form-control w60p" name="txtEmail21" id="Email21">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_18_2" type="radio" class="radioClass_Email2" name="rdbEmail2" value="2" />
+						<label for="radio_18_2" class="control-label w30p text-right"><span data-i18n="">電子郵件2</span>：</label>
+						<input type="text" class="form-control w60p" name="txtEmail22" id="Email22" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_19_1" type="radio" class="radioClass_Telephone1" name="rdbTelephone1" value="1" checked="checked" />
+						<label for="radio_19_1" class="control-label w30p text-right"><span data-i18n="">聯絡電話1</span>：</label>
+						<input type="text" class="form-control w60p" name="txtTelephone11" id="Telephone11">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_19_2" type="radio" class="radioClass_Telephone1" name="rdbTelephone1" value="2" />
+						<label for="radio_19_2" class="control-label w30p text-right"><span data-i18n="">聯絡電話1</span>：</label>
+						<input type="text" class="form-control w60p" name="txtTelephone12" id="Telephone12" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_20_1" type="radio" class="radioClass_Ext1" name="rdbExt1" value="1" checked="checked" />
+						<label for="radio_20_1" class="control-label w30p text-right"><span data-i18n="">分機1</span>：</label>
+						<input type="text" class="form-control w60p" name="txtExt11" id="Ext11">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_20_2" type="radio" class="radioClass_Ext1" name="rdbExt1" value="2" />
+						<label for="radio_20_2" class="control-label w30p text-right"><span data-i18n="">分機1</span>：</label>
+						<input type="text" class="form-control w60p" name="txtExt12" id="Ext12" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_21_1" type="radio" class="radioClass_Telephone2" name="rdbTelephone2" value="1" checked="checked" />
+						<label for="radio_21_1" class="control-label w30p text-right"><span data-i18n="">聯絡電話2</span>：</label>
+						<input type="text" class="form-control w60p" name="txtTelephone21" id="Telephone21">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_21_2" type="radio" class="radioClass_Telephone2" name="rdbTelephone2" value="2" />
+						<label for="radio_21_2" class="control-label w30p text-right"><span data-i18n="">聯絡電話2</span>：</label>
+						<input type="text" class="form-control w60p" name="txtTelephone22" id="Telephone22" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_22_1" type="radio" class="radioClass_Ext2" name="rdbExt2" value="1" checked="checked" />
+						<label for="radio_22_1" class="control-label w30p text-right"><span data-i18n="">分機2</span>：</label>
+						<input type="text" class="form-control w60p" name="txtExt21" id="Ext21">
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_22_2" type="radio" class="radioClass_Ext2" name="rdbExt2" value="2" />
+						<label for="radio_22_2" class="control-label w30p text-right"><span data-i18n="">分機2</span>：</label>
+						<input type="text" class="form-control w60p" name="txtExt22" id="Ext22" disabled>
+					</div>	
+				</div>
+				<div class="form-group form-inline row">
+					<div class="col-sm-5 col-sm-offset-1">
+						<input id="radio_23_1" type="radio" class="radioClass_ChoseReason" name="rdbChoseReason" value="1" checked="checked" />
+						<label for="radio_23_1" class="control-label w30p text-right"><span data-i18n="">選擇我們的原因</span>：</label>
+						<textarea name="txtChoseReason1" id="ChoseReason1" class="form-control w60p" rows="3"></textarea>
+					</div>
+					<div class="col-sm-5">
+						<input id="radio_23_2" type="radio" class="radioClass_ChoseReason" name="rdbChoseReason" value="2" />
+						<label for="radio_23_2" class="control-label w30p text-right"><span data-i18n="">選擇我們的原因</span>：</label>
+						<textarea name="txtChoseReason2" id="ChoseReason2" class="form-control w60p" rows="3" disabled></textarea>
+					</div>	
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+commonInit({});
+	$(function () {
+        var postArray = [];
+		//postArray.push(setStateDrop());
+		let array = [ 
+			'Call','ContactorName','NickName','Birthday','MaritalStatus',
+			'PersonalMobilePhone','PersonalEmail','LINE','WECHAT','Personality',
+			'Preferences','PersonalAddress','Memo','JobTitle',
+			'Department','ImmediateSupervisor','Email1','Email2','Telephone1',
+			'Ext1','Telephone2','Ext2','ChoseReason'
+			];
+		//postArray.push(setStateDrop());
+		//alert( index + ": " + value );
+		//alert($(".radioClass_CustomerNO:checked").val());
+		$.each(array, function( index, value ) {
+			$(".radioClass_" + value).on('click', function () {
+				let strUncheck = "1";
+				if($(".radioClass_" + value + ":checked").val() == "1"){
+					strUncheck = "2";
+				}
+				$("#" + value + strUncheck).attr('disabled', true);
+				$("#" + value + $(".radioClass_" + value + ":checked").val()).attr('disabled', false);
+			})
+		});
+		
+    });
+	
+</script>

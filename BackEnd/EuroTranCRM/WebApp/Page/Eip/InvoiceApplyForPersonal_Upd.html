@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.InvoiceApplyForCustomer_View">請款單（廠商）</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/file.theme.list.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+    <style>
+        .Applicant {
+            padding-top: 6px;
+        }
+
+        .file-list .jFiler-input-dragDrop {
+            margin-left: 0;
+            width: 60px;
+            height: 50px;
+            font-size: 23px;
+        }
+
+            .file-list .jFiler-input-dragDrop:hover {
+                margin-left: 0;
+                width: 60px;
+                height: 50px;
+                font-size: 23px;
+                border-color: #225067;
+                color: #225067;
+                cursor: pointer;
+            }
+
+        .jsgrid-cell {
+            padding: 0.5em 0.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <form id="form_main" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.SignedNumber">簽呈編號</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p" name="SignedNumber" id="SignedNumber" disabled maxlength="20" placeholderid="common.AutomaticCoding" placeholder="自動編碼">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.KeyNote">簽核主旨</span>：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control w100p" name="KeyNote" id="KeyNote" maxlength="200" required data-msg="common.KeyNote_required" datamsg="請輸入簽核主旨" placeholderid="common.Instruction_KeyNote" placeholder="簽核主旨">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.Important">重要性</span>：</label>
+                                <div class="col-sm-3">
+                                    <input id="Important_0" type="radio" name="Important" value="3" />
+                                    <label for="Important_0" data-i18n="common.Important_3">很重要</label>
+                                    <input id="Important_1" type="radio" name="Important" value="2" />
+                                    <label for="Important_1" data-i18n="common.Important_2">重要</label>
+                                    <input id="Important_2" type="radio" name="Important" value="1" checked="checked" />
+                                    <label for="Important_2" data-i18n="common.Important_1">普通</label>
+                                </div>
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.CrosssignTurn">轉呈</span>：</label>
+                                <div class="col-sm-3">
+                                    <input id="CrosssignTurn_1" type="radio" name="CrosssignTurn" value="Y" checked="checked" />
+                                    <label for="CrosssignTurn_1" data-i18n="common.CrosssignTurn_2">簽核者可直接轉呈給他人簽核</label>
+                                    <input id="CrosssignTurn_2" type="radio" name="CrosssignTurn" value="N" />
+                                    <label for="CrosssignTurn_2" data-i18n="common.CrosssignTurn_1">簽核者不可轉呈給他人簽核</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.Applicant">申請人</span>：</label>
+                                <div class="col-sm-3 Applicant">
+                                </div>
+                                <input type="hidden" id="Applicant" name="Applicant">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.FileUpload">附件上傳</span>：</label>
+                                <div class="col-sm-8 file-list">
+                                    <input type="file" class="displayNone" name="files[]" id="fileInput" multiple>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.Payee">受款人</span>：</label>
+                                <div class="col-sm-2">
+                                    <select class="form-control w100p" id="Payee" name="Payee" data-type="select2" required data-msg="common.Payee_required" datamsg="請選擇受款人"></select>
+                                </div>
+                                <label class="col-sm-1 control-label wright" for="input-Default"><span data-i18n="common.PaymentWay">付款方式</span>：</label>
+                                <div class="col-sm-2">
+                                    <input id="PaymentWay_1" type="radio" name="PaymentWay" value="F" checked="checked" />
+                                    <label for="PaymentWay_1" data-i18n="common.WithPay">隨薪資發放</label>
+                                    <input id="PaymentWay_2" type="radio" name="PaymentWay" value="G" />
+                                    <label for="PaymentWay_2" data-i18n="common.SpentCash">零用金</label>
+                                </div>
+                                <label class="col-sm-1 control-label wright" for="input-Default"><span data-i18n="common.PaymentTime">支付時間</span>：</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control w100p date-picker" name="PaymentTime" id="PaymentTime" maxlength="10" required data-msg="common.EffectTime_required" datamsg="請輸入生效時間">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.FeeItems">費用項目</span>：</label>
+                                <div class="col-sm-8">
+                                    <div id="jsGrid1"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-10">
+                                    <div class="form-group">
+                                        <label class="col-sm-8 control-label wright" for="input-Default"><span data-i18n="common.InvoiceApplyTotal">請款總金額</span>：</label>
+                                        <div class="col-sm-1">
+                                            <select class="form-control w100p" name="RemittanceInformation[TotalCurrencyTW]" id="RemittanceInformation_TotalCurrencyTW" disabled></select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control w100p wright" disabled name="RemittanceInformation[InvoiceApplyTotalTW]" id="RemittanceInformation_InvoiceApplyTotalTW" maxlength="50">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-8 control-label wright" for="input-Default"><span data-i18n="common.InvoiceApplyTotal">請款總金額</span>：</label>
+                                        <div class="col-sm-1">
+                                            <select class="form-control w100p" name="RemittanceInformation[TotalCurrency]" id="RemittanceInformation_TotalCurrency" disabled></select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control w100p wright" disabled name="RemittanceInformation[InvoiceApplyTotal]" id="RemittanceInformation_InvoiceApplyTotal" maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.CheckOrder">簽核順序</span>：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control w100p" name="FlowId" id="FlowId" required data-msg="common.CheckFlows_required" datamsg="請選則簽核流程"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span></span></label>
+                                <div class="col-sm-8">
+                                    <div>
+                                        <div id="jsGrid"></div>
+                                    </div>
+                                    <br />
+                                    <div class="col-md-12 checkordertoolbox" hidden>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 wright" for="input-Default"><span data-i18n="common.Toolbar_Add">新增</span>：</label>
+                                            <div class="col-sm-1">
+                                                <span><img src="../../images/flow1.gif" align="middle"><a href="javascript:void(0)" id="flow1" class="flowlink" data-i18n="common.flow1">串簽</a></span>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <span><img src="../../images/flow2.gif" align="middle"><a href="javascript:void(0)" id="flow2" class="flowlink" data-i18n="common.flow2">會辦</a></span>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <span><img src="../../images/flow3.gif" align="middle"><a href="javascript:void(0)" id="flow3" class="flowlink" data-i18n="common.flow3">擇辦</a></span>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <span><img src="../../images/flow4.gif" align="middle"><a href="javascript:void(0)" id="flow4" class="flowlink" data-i18n="common.flow4">通知</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.Handle_Person">經辦人</span>：</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control w100p" name="Handle_DeptID" id="Handle_DeptID" data-msg="common.Handle_DeptID_required" datamsg="請選擇經辦部門"></select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="form-control w100p" name="Handle_Person" id="Handle_Person" required data-msg="common.Handle_Person_required" datamsg="請選擇經辦人"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.Memo">備註</span>：</label>
+                                <div class="col-sm-8">
+                                    <textarea name="Memo" id="Memo" class="form-control" rows="5" cols="20"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="CreateUser" id="CreateUser" data-source="members.MemberID.MemberName"></div>
+                                </div>
+                                <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="ModifyUser" id="ModifyUser" data-source="members.MemberID.MemberName"></div>
+                                </div>
+                                <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/pages/Eip/InvoiceApplyForPersonal_Upd.js?v=20180801"></script>

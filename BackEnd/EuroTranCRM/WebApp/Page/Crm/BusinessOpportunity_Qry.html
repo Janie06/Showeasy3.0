@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="">客訴管理</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/custom.min.css" rel="stylesheet" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <!--主作業區 Start-->
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <div class="table-responsive project-stats">
+                            <!--查詢條件區開始-->
+                            <div id="searchbar">
+                                <form id="form_main" class="form-horizontal">
+                                    <div class="row">
+                                        <label class="col-sm-1 control-label ismobile" for="input-Default">
+                                            <span data-i18n="">公司名稱</span><span>：</span>
+                                        </label>
+                                        <div class="col-sm-2 ismobile">
+                                            <input type="text" name="CustomerName" id="CustomerName" maxlength="50" class="form-control w100p" />
+                                        </div>
+                                        <label class="col-sm-1 control-label ismobile" for="input-Default">
+                                            <span data-i18n="">展覽名稱</span><span>：</span>
+                                        </label>
+                                        <div class="col-sm-2 ismobile">
+                                            <input type="text" name="ExhibitionName" id="ExhibitionName" maxlength="50" class="form-control w100p" />
+                                        </div>
+                                        <label class="col-sm-1 control-label ismobile" for="input-Default">
+                                            <span data-i18n="common.Date">日期</span><span>：</span>
+                                        </label>
+                                        <div class="col-sm-1">
+                                            <select class="form-control w100p" id="DateType" name="DateType">
+                                                <option value="1">展覽區間</option>
+                                                <option value="2">創建區間</option>
+                                                <option value="3">最近修改時間</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-1 specialcol_r ismobile">
+                                            <input type="text" class="form-control w100p date-picker" name="DateStart" id="DateStart" maxlength="10">
+                                        </div>
+                                        <span class="col-sm-1 connector ismobile">~</span>
+                                        <div class="col-sm-1 specialcol_l ismobile">
+                                            <input type="text" class="form-control w100p date-picker" name="DateEnd" id="DateEnd" maxlength="10">
+                                        </div>
+                                        <div class="col-sm-2 ismobile">
+                                            <span data-i18n="">創建人</span><span>：</span>
+                                            <select name="CreateUser" id="CreateUser" class="form-control w70p" data-type="select2"></select>
+                                        </div>
+                                    </div>
+									<div class="row">
+										<label class="col-sm-1 control-label ismobile" for="input-Default">
+                                            <span data-i18n="">聯絡人姓名</span><span>：</span>
+                                        </label>
+                                        <div class="col-sm-2 ismobile">
+                                            <input type="text" class="form-control w100p" name="ContactorName" id="ContactorName" maxlength="10">
+                                        </div>
+										<label class="col-sm-1 control-label ismobile" for="input-Default">
+                                            <span data-i18n="">產業別</span><span>：</span>
+                                        </label>
+                                        <div class="col-sm-2 ismobile">
+                                            <select name="Industry" id="Industry" class="form-control w100p" data-type="select2"></select>
+                                        </div>
+										<label class="col-sm-1 control-label ismobile" for="input-Default">
+                                            <span data-i18n="">國家</span><span>：</span>
+                                        </label>
+                                        <div class="col-sm-2 ismobile">
+                                            <select name="State" id="State" class="form-control w100p" data-type="select2"></select>
+                                        </div>
+										<label class="col-sm-1 control-label ismobile" for="input-Default">
+                                            <span data-i18n="狀態">狀態</span><span>：</span>
+                                        </label>
+                                        <div class="col-sm-2 ismobile">
+                                            <input id="Effective_0" type="radio" name="Effective" value="" checked="checked" />
+                                            <label for="Effective_0" data-i18n="common.All">全部</label>
+											<input id="Effective_3" type="radio" name="Effective" value="1" />
+                                            <label for="Effective_3" data-i18n="已處理">已處理</label>
+                                            <input id="Effective_2" type="radio" name="Effective" value="2" />
+                                            <label for="Effective_2" data-i18n="未處理">未處理</label>
+
+                                        </div>
+									</div>
+                                </form>
+                            </div>
+                            <!--查詢條件區結束-->
+                            <div id="content-box-view">
+                                <div id="content-box-info-nostyle" class="shadowbox">
+                                    <div>
+                                        <div id="jsGrid"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--主作業區 End-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/pages/Crm/BusinessOpportunity_Qry.js"></script>
