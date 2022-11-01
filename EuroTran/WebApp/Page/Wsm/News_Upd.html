@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.News_Upd">官網焦點訊息編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" />
+    <link href="/Content/themes/red.css" rel="stylesheet" />
+    <link href="/Content/style2.0.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <form id="form_main" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="News_Upd.News_Type">新聞類別</span>：</label>
+                                <div class="col-sm-3">
+                                    <select name="News_Type" id="News_Type" class="form-control w100p" required data-msg="News_Upd.News_Type_required" datamsg="請選擇新聞類別"></select>
+                                </div>
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="News_Upd.News_LanguageType">語言</span>：</label>
+                                <div class="col-sm-3">
+                                    <select name="News_LanguageType" id="News_LanguageType" class="form-control w100p" required data-msg="News_Upd.News_LanguageType_required" datamsg="請選擇語言"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="News_Upd.News_Title">新聞標題</span>：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control w100p" name="News_Title" id="News_Title" maxlength="500" required data-msg="News_Upd.News_Title_required" datamsg="請輸入新聞標題" placeholderid="News_Upd.Instruction_News_Title" placeholder="新聞標題...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="News_Upd.News_StartDete">開始日期</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p date-picker" name="News_StartDete" id="News_StartDete" maxlength="10" required data-msg="News_Upd.News_StartDete_required" datamsg="請輸入開始日期" placeholderid="News_Upd.Instruction_News_StartDete" placeholder="開始日期...">
+                                </div>
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="News_Upd.News_EndDete">結束日期</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p date-picker" name="News_EndDete" id="News_EndDete" data-msg="News_Upd.News_EndDete_required" datamsg="請輸入結束日期" data-msg-compardate="common.ComparDate" datamsgcompardate="請輸入結束日期" data-rule-compardate="compardate" maxlength="10" placeholderid="News_Upd.Instruction_News_EndDete" placeholder="結束日期...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.Status">狀態</span>：</label>
+                                <div class="col-sm-3">
+                                    <input id="News_Show_0" type="radio" name="News_Show" value="Y" checked="checked" />
+                                    <label for="News_Show_0" data-i18n="common.Effective">有效</label>
+                                    <input id="News_Show_1" type="radio" name="News_Show" value="N" />
+                                    <label for="News_Show_1" data-i18n="common.Invalid">無效</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="input-Default"><span data-i18n="common.OrderByValue">排序</span>：</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control w100p" id="OrderByValue" name="OrderByValue" required data-msg="common.OrderByValue_required" datamsg="請選擇排序欄位"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.CoverPic">封面圖片</span>：</label>
+                                <div class="col-sm-8">
+                                    <input type="file" class="displayNone" name="files[]" id="fileInput" multiple>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="News_Upd.News_Content">新聞內容</span>：</label>
+                                <div class="col-sm-8">
+                                    <script type="text/plain" id="News_Content" style="height:300px">
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="form-group picshowid" hidden>
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="News_Upd.PicShowId">圖片上傳</span>：</label>
+                                <div class="col-sm-8 file-list">
+                                    <input type="file" class="displayNone" name="files[]" id="fileInput_show" data-file="show" multiple>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.Memo">備註</span>：</label>
+                                <div class="col-sm-8">
+                                    <textarea name="Memo" id="Memo" class="form-control" rows="5" cols="20"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="CreateUser" id="CreateUser" data-source="members.MemberID.MemberName"></div>
+                                </div>
+                                <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="ModifyUser" id="ModifyUser" data-source="members.MemberID.MemberName"></div>
+                                </div>
+                                <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Ueditor/ueditor.config.js"></script>
+<script src="/Ueditor/ueditor.all.js"></script>
+<script src="/Ueditor/lang/zh-tw/zh-tw.js"></script>
+<script src="/Scripts/pages/Wsm/News_Upd.js?v=20180801"></script>

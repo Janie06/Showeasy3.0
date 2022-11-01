@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.MembersMaintain_Upd">人員帳號編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/Spectrum/spectrum.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page-inner">
+        <!--程式名稱及Toobar區 Start -->
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <!--程式名稱及Toobar區 End -->
+        <div id="main-wrapper">
+            <div class="row">
+                <!-- 頁面內容區域 Start -->
+                <div class="panel-body">
+                    <form id="form_main" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.HeadPortrait">頭像</span>：</label>
+                            <div class="col-sm-8">
+                                <input type="file" class="displayNone" name="files[]" id="fileInput" multiple>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="MembersMaintain_Upd.MemberID">帳號</span>：</label>
+                            <div class="col-sm-3">
+                                <input id="MemberID" name="MemberID" type="text" class="form-control w100p" maxlength="20" data-keymemberid="Y" required data-msg="MembersMaintain_Upd.MemberID_required" datamsg="請選擇人員" />
+                            </div>
+
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.MemberName">姓名</span>：</label>
+                            <div class="col-sm-3">
+                                <input id="MemberName" name="MemberName" type="text" class="form-control w100p" maxlength="50" required data-msg="MembersMaintain_Upd.MemberName_required" datamsg="請輸入姓名" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="MembersMaintain_Upd.Email">Email</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="Email" id="Email" maxlength="200">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.NickName">暱稱</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="NickName" id="NickName" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.ArriveDate">到職日期</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p date-picker" name="ArriveDate" id="ArriveDate" maxlength="10">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.LeaveDate">離職日期</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p date-picker" name="LeaveDate" id="LeaveDate" data-msg-compardate="common.ComparDate" datamsgcompardate="日期訖不能小於日期起" data-rule-compardate="compardate" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.Department">部門</span>：</label>
+                            <div class="col-sm-3">
+                                <select class="form-control w100p" id="DepartmentID" name="DepartmentID" required data-msg="common.DeptID_required" datamsg="請選擇部門"></select>
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.JobTitle">職稱</span>：</label>
+                            <div class="col-sm-3">
+                                <select class="form-control w100p" id="JobTitle" name="JobTitle" required data-msg="MembersMaintain_Upd.JobtitleID_required" datamsg="請選擇職稱"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="MembersMaintain_Upd.ServiceCode">業務碼</span>：</label>
+                            <div class="col-sm-3">
+                                <input id="ServiceCode" name="ServiceCode" type="text" class="form-control w100p" maxlength="10" required data-msg="MembersMaintain_Upd.ServiceCode_required" datamsg="請輸入業務碼" />
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.ImmediateSupervisor">直屬主管</span>：</label>
+                            <div class="col-sm-3">
+                                <select class="form-control w100p" id="ImmediateSupervisor" name="ImmediateSupervisor"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.JobClass">工作類別</span>：</label>
+                            <div class="col-sm-3">
+                                <select class="form-control w100p" id="JobClass" name="JobClass"></select>
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.ContectTEL">聯絡電話</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ContectTEL" id="ContectTEL" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.ContectExt">分機</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ContectExt" id="ContectExt" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.ContectCell">聯絡手機</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ContectCell" id="ContectCell" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.ContectFax">聯絡傳真</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ContectFax" id="ContectFax" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.BirthDate">生日</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p date-picker" name="BirthDate" id="BirthDate" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.OutlookAccount">Outlook帳號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="OutlookAccount" id="OutlookAccount" maxlength="200">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.GoogleAccount">Google帳號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="GoogleAccount" id="GoogleAccount" maxlength="200">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.Skype">Skype帳號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="Skype" id="Skype" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.Line">Line帳號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="Line" id="Line" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.Wechat">Wechat帳號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="Wechat" id="Wechat" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.QQ">QQ帳號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="QQ" id="QQ" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.Address">聯繫地址</span>：</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control w100p" name="Address" id="Address" maxlength="500">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.EmergencyContect">緊急聯絡人</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="EmergencyContect" id="EmergencyContect" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.EmergencyTEL">緊急聯絡電話</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="EmergencyTEL" id="EmergencyTEL" data-keytelno="Y" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.EmergencyExt">緊急聯絡分機</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="EmergencyExt" id="EmergencyExt" data-keytelno="Y" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.EmergencyFax">緊急聯絡傳真</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="EmergencyFax" id="EmergencyFax" data-keytelno="Y" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.EmergencyCell">緊急聯絡手機</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="EmergencyCell" id="EmergencyCell" data-keytelno="Y" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.EmergencyEMail">緊急聯絡E-Mail</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="EmergencyEMail" id="EmergencyEMail" data-msg="message.IncorrectEmail" datamsg="郵箱格式不正確" maxlength="200">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.RuleNamesSetting">授權角色設定</span>：</label>
+                            <div class="col-sm-8">
+                                <select class="form-control w100p" id="Roles" name="Roles" multiple="multiple" style="display:none;"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="MembersMaintain_Upd.CalColor">行事曆顯示顏色</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control color-picker" name="CalColor" id="CalColor" value="#000000" placeholder="請選擇行事曆顏色" required data-msg="MembersMaintain_Upd.CalColor_required" datamsg="請輸入行事曆顏色">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="Language_Set.Country">國別</span>：</label>
+                            <div class="col-sm-3">
+                                <select name="Country" id="Country" class="form-control w100p" required data-msg="MembersMaintain_Upd.Country_required" datamsg="請選擇語言"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="MembersMaintain_Upd.WenZhongAcount">員工代碼</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="WenZhongAcount" id="WenZhongAcount" required data-msg="MembersMaintain_Upd.WenZhongAcount_required" datamsg="請輸入文中代碼" maxlength="50">
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red CardId" hidden>*</b><span data-i18n="MembersMaintain_Upd.CardId">考勤號碼</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="CardId" id="CardId" data-msg="MembersMaintain_Upd.CardId_required" datamsg="請輸入考勤號碼" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="MembersMaintain_Upd.NetworkLogin">外網登錄</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="NetworkLogin" name="NetworkLogin">
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="col-sm-1 control-label wright"><span data-i18n="MembersMaintain_Upd.IsAttendance">是否考勤</span>：</label>
+                            <div class="col-sm-2">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="IsAttendance" name="IsAttendance">
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="col-sm-1 control-label wright"><span data-i18n="common.Status">狀態</span>：</label>
+                            <div class="col-sm-2">
+                                <input id="Effective_0" type="radio" name="Effective" value="Y" checked="checked" />
+                                <label for="Effective_0" data-i18n="common.Effective">有效</label>
+                                <input id="Effective_1" type="radio" name="Effective" value="N" />
+                                <label for="Effective_1" data-i18n="common.Invalid">無效</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                            <div class="col-sm-8">
+                                <textarea name="Memo" id="Memo" class="form-control" rows="5" cols="20"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="CreateUserName" id="CreateUserName"></div>
+                            </div>
+                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="ModifyUserName" id="ModifyUserName"></div>
+                            </div>
+                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- 頁面內容區域 End -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/pages/Sys/MembersMaintain_Upd.js?v=20180801"></script>

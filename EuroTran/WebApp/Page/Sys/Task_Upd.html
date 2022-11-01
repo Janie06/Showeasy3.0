@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.Task_Upd">	待辦事項編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/datetimepicker-addon/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/file.theme.list.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <!--主作業區 Start-->
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <form id="form_main" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><b class="t-red">*</b><span data-i18n="Task_Upd.EventName">待辦事項主旨</span>：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control w100p" name="EventName" id="EventName" maxlength="100" required data-msg="Task_Upd.EventName_required" datamsg="請輸入待辦事項主旨">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.StartDate">工作起始時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p date-picker" readonly name="StartDate" id="StartDate" maxlength="16">
+                                </div>
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.EndDate">工作起始時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p date-picker" readonly name="EndDate" id="EndDate" maxlength="16" data-msg-compardate="common.ComparDate" datamsgcompardate="日期訖不能小於日期起" data-rule-compardate="compardate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="common.Important">重要性</span>：</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control w100p" id="Important" name="Important">
+                                        <option value="M" title="普通">普通</option>
+                                        <option value="H" title="緊急">緊急</option>
+                                    </select>
+                                </div>
+                                <label class="col-sm-2 control-label wright"><span data-i18n="common.Status">狀態</span>：</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control w100p" id="Status" name="Status">
+                                        <option value="U" title="未開始">未開始</option>
+                                        <option value="G" title="進行中">進行中</option>
+                                        <option value="D" title="普通">已完成（待確認）</option>
+                                        <option value="O" title="緊急">已確認</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.Progress">完成度(%)</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p" name="Progress" id="Progress" maxlength="3">
+                                </div>
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.AlertTime">提醒時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control w100p datetime-picker" name="AlertTime" id="AlertTime" maxlength="16">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.CreateUser">事件指派人</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="CreateUser" id="CreateUser" data-source="members.MemberID.MemberName"></div>
+                                </div>
+                                <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Task_Upd.Owner">事件所有人</span>：</label>
+                                <div class="col-sm-3">
+                                    <select class="form-control w100p" data-type="select2" id="Owner" name="Owner" required data-msg="Task_Upd.Owner_required" datamsg="請選擇事件所有人"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.TaskDescription">待辦說明</span>：</label>
+                                <div class="col-sm-8">
+                                    <script type="text/plain" id="UE_TaskDescription">
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.TaskReward">工作回報</span>：</label>
+                                <div class="col-sm-8">
+                                    <script type="text/plain" id="UE_TaskReward">
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="Task_Upd.ReplyData">工作回報紀錄</span>：</label>
+                                <div class="col-sm-8">
+                                    <div id="ReplyData" style="overflow: scroll; overflow: scroll; overflow-x: hidden; overflow: auto; height: auto;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="common.FileUpload">附件上傳</span>：</label>
+                                <div class="col-sm-8 file-list">
+                                    <input type="file" class="displayNone" name="files[]" id="fileInput" multiple>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"></label>
+                                <div class="col-sm-8">
+                                    <div id="ShowFileDetail" style="overflow: scroll; overflow: scroll; overflow-x: hidden; overflow: auto; height: auto;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label wright"><span data-i18n="common.Memo">備註</span>：</label>
+                                <div class="col-sm-8">
+                                    <textarea name="Memo" id="Memo" class="form-control" rows="5" cols="20"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="CreateUserName" id="CreateUserName"></div>
+                                </div>
+                                <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="ModifyUserName" id="ModifyUserName"></div>
+                                </div>
+                                <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                                <div class="col-sm-3">
+                                    <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--主作業區 End-->
+        </div>
+    </div>
+
+    <script id="Task_temp" type="text/x-jsrender">
+        <table class="display table dataTable">
+            <tr>
+                <th>
+                    項次
+                </th>
+                <th>
+                    回覆人
+                </th>
+                <th>
+                    回覆內容
+                </th>
+                <th>
+                    回覆狀態
+                </th>
+                <th>
+                    回覆時間
+                </th>
+            </tr>
+            {{for List}}
+            <tr>
+                <td align="center">
+                    {{:RowIndex}}
+                </td>
+                <td align="center">
+                    {{:ReplyUser}}
+                </td>
+                <td align="left">
+                    {{:ReplyContent}}
+                </td>
+                <td align="center">
+                    {{:ReplyStatus}}
+                </td>
+                <td align="center">
+                    {{:ReplyDate}}
+                </td>
+            </tr>
+            {{/for}}
+        </table>
+    </script>
+
+    <script id="File_Detail" type="text/x-jsrender">
+        <table class="display table dataTable">
+            <tr>
+                <th>
+                    項次
+                </th>
+                <th>
+                    檔案名稱
+                </th>
+                <th>
+                    檔案類型
+                </th>
+                <th>
+                    檔案大小
+                </th>
+                <th>
+                    上傳時間
+                </th>
+                <th>
+                    下載
+                </th>
+                <th>
+                    刪除
+                </th>
+            </tr>
+            {{for List}}
+            <tr>
+                <td align="center">
+                    {{:RowIndex}}
+                </td>
+                <td align="left">
+                    {{:FileName}}
+                </td>
+                <td align="center">
+                    {{:SubFileName}}
+                </td>
+                <td align="center">
+                    {{:FileSizeName}}
+                </td>
+                <td align="center">
+                    {{:CreateDate}}
+                </td>
+                <td align="center">
+                    <button type="button" data-i18n="common.Toolbar_Download" class="btn-custom green downloadfile" data-path="{{:FilePath}}" value="附件下載">附件下載</button>
+                </td>
+                <td align="center">
+                    <button type="button" data-i18n="common.Toolbar_FileDel" class="btn-custom red deletefile" data-fileid="{{:FileID}}" value="附件刪除">附件刪除</button>
+                </td>
+            </tr>
+            {{/for}}
+        </table>
+    </script>
+</body>
+</html>
+
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Ueditor/ueditor.config.js"></script>
+<script src="/Ueditor/ueditor.all.js"></script>
+<script src="/Ueditor/lang/zh-tw/zh-tw.js"></script>
+<script src="/Scripts/pages/Sys/Task_Upd.js?v=20180801"></script>

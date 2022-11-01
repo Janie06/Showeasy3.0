@@ -1,0 +1,116 @@
+[
+  {
+    "outputFileName": "Scripts/i18next.min.js",
+    "inputFiles": [
+      "Scripts/i18next.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/ConvertLang.min.js",
+    "inputFiles": [
+      "Scripts/ConvertLang.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.fancybox.min.js",
+    "inputFiles": [
+      "Scripts/jquery.fancybox.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.serialize-object.min.min.js",
+    "inputFiles": [
+      "Scripts/jquery.serialize-object.min.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/ekko-lightbox.min.js",
+    "inputFiles": [
+      "Scripts/ekko-lightbox.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/linq.min.js",
+    "inputFiles": [
+      "Scripts/linq.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/lib/Util.min.js",
+    "inputFiles": [
+      "Scripts/lib/Util.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/wow.min.js",
+    "inputFiles": [
+      "Scripts/wow.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/bootstrap.min.js",
+    "inputFiles": [
+      "Scripts/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "TE/js/ekko-lightbox.min.js",
+    "inputFiles": [
+      "TE/js/ekko-lightbox.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery-ui.min.js",
+    "inputFiles": [
+      "Scripts/jquery-ui.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery-ui-1.12.1.min.js",
+    "inputFiles": [
+      "Scripts/jquery-ui-1.12.1.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/3rd/fancybox/jquery.fancybox.min.js",
+    "inputFiles": [
+      "Scripts/3rd/fancybox/jquery.fancybox.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/3rd/swiper-4.2.6/css/swiper.min.css",
+    "inputFiles": [
+      "Scripts/3rd/swiper-4.2.6/css/swiper.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/3rd/swiper-4.2.6/js/swiper.min.js",
+    "inputFiles": [
+      "Scripts/3rd/swiper-4.2.6/js/swiper.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery.indexeddb.min.js",
+    "inputFiles": [
+      "Scripts/jquery.indexeddb.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.js",
+    "inputFiles": [
+      "Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.css",
+    "inputFiles": [
+      "Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/format-number.min.js",
+    "inputFiles": [
+      "Scripts/format-number.js"
+    ]
+  }
+]

@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.Exhibition_Upd">展覽管理編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/line-icons/simple-line-icons.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/daterangepicker/css/daterangepicker.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jquery.filer/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" />
+    <link href="/Content/themes/red.css" rel="stylesheet" />
+    <link href="/Content/style2.0.css" rel="stylesheet" />
+    <style>
+        .jFiler-input-dragDrop {
+            margin-left: 0;
+            width: 150px;
+            height: 100px;
+            font-size: 56px;
+        }
+
+            .jFiler-input-dragDrop:hover {
+                margin-left: 0;
+                width: 150px;
+                height: 100px;
+                font-size: 56px;
+                border-color: #225067;
+                color: #225067;
+                cursor: pointer;
+            }
+
+        #TransferResult {
+            font-size: large;
+            font-weight: 900;
+        }
+
+        .edit {
+            color: #1d2ef9 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-inner">
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <div id="main-wrapper">
+            <!--主作業區 Start-->
+            <div class="row">
+                <div class="panel-info">
+                    <div class="panel-body">
+                        <form id="form_main" class="form-horizontal">
+                            <div role="tabpanel" id="tabs">
+                                <!-- 頁籖按鈕 Start-->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" id="litab1" class="active">
+                                        <a href="#tab1" role="tab" data-toggle="tab" data-i18n="common.BasicInformation">基本資料</a>
+                                    </li>
+                                    <li role="presentation" id="litab2">
+                                        <a href="#tab2" role="tab" data-toggle="tab" data-i18n="ExhibitionExport_Upd.ExhibitorsList">參與客戶列表</a>
+                                    </li>
+                                    <li role="presentation" id="litab3">
+                                        <a href="#tab3" role="tab" data-toggle="tab" data-i18n="ExhibitionExport_Upd.ImportExhibitors">匯入參展商</a>
+                                    </li>
+                                </ul>
+                                <!-- 頁籖按鈕 End-->
+                                <!-- 頁籖內容 Tab panes Start -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                                        <div class="form-group TransferResult" hidden>
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.Transfer_Status">拋轉狀態</span>：</label>
+                                            <div class="col-sm-8 t-red">
+                                                <div id="TransferResult"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.ExhibitionCode">專案代號</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="ExhibitionCode" id="ExhibitionCode" disabled maxlength="10" placeholderid="common.AutomaticCoding" placeholder="自動編碼">
+                                            </div>
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.ExhibitioShotName_TW">活動/展覽簡稱</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p" name="ExhibitioShotName_TW" id="ExhibitioShotName_TW" _maxlength="20" required data-msg="Exhibition_Upd.ExhibitioShotName_TW_required" datamsg="請輸入活動/展覽簡稱" data-rule-cusmaxlegth="cusmaxlegth" data-msg-cusmaxlegth="Customers_Upd.ExhibitioShotName_TW_MaxLegth" datamsgcusmaxlegth="簡稱長度不可大於20" placeholderid="Exhibition_Upd.Instruction_ExhibitioShotName_TW" placeholder="範例 :2017TIMTOS (限填20個字元,可不空格)">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.Exhibitioname_TW">展覽名稱</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control w100p" name="Exhibitioname_TW" id="Exhibitioname_TW" maxlength="100" required data-msg="Exhibition_Upd.Exhibitioname_TW_required" datamsg="請輸入活動/展覽名稱" placeholderid="Exhibition_Upd.Instruction_Exhibitioname_TW" placeholder="範例 :2017TIMTOS (限填20個字元,可不空格)">
+                                            </div>
+                                        </div>
+                                        <div class="form-group simp-box">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.Exhibitioname_CN">簡體名稱</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control w100p" name="Exhibitioname_CN" id="Exhibitioname_CN" maxlength="100" required data-msg="Exhibition_Upd.ExhibitionCName_required" datamsg="請輸入活動/展覽名稱" placeholderid="Exhibition_Upd.Instruction_Exhibitioname_CN" placeholder="系統自動帶出(如發現明顯錯誤,可自行修正)">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.Exhibitioname_EN">英文展名</span>：</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control w100p" name="Exhibitioname_EN" id="Exhibitioname_EN" maxlength="500" required data-msg="Exhibition_Upd.ExhibitionEName_required" datamsg="請輸入英文展名" placeholderid="Exhibition_Upd.Instruction_Exhibitioname_EN" placeholder="範例: 2017 TIMTOS (年份+展名, 中間空一格)">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.ExhibitionDateRange">展覽期間</span>：</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control w100p daterange-picker" name="ExhibitionDate" id="ExhibitionDate" maxlength="23" data-msg="Exhibition_Upd.ExhibitionDate_required" datamsg="請選擇展覽日期" placeholderid="Exhibition_Upd.Instruction_ExhibitionDateRange" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.Industry">產業別</span>：</label>
+                                                <div class="col-sm-3">
+                                                    <select class="form-control w100p" data-type="select2" id="Industry" name="Industry" data-msg="Exhibition_Upd.Industry_required" datamsg="請選擇產業別"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.State">國家</span>：</label>
+                                                <div class="col-sm-3">
+                                                    <select class="form-control w100p" id="State" name="State" data-type="select2" data-msg="Exhibition_Upd.State_required" datamsg="請選擇國家"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="notte" hidden>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label"><span data-i18n="Exhibition_Upd.IsShowWebSite">是否顯示於網站</span>：</label>
+                                                <div class="col-sm-4">
+                                                    <input id="IsShowWebSite_0" type="radio" name="IsShowWebSite" value="Y" checked="checked" />
+                                                    <label for="IsShowWebSite_0" data-i18n="common.Yes">是</label>
+                                                    <input id="IsShowWebSite_1" type="radio" name="IsShowWebSite" value="N" />
+                                                    <label for="IsShowWebSite_1" data-i18n="common.No">否</label>
+                                                </div>
+                                            </div>
+                                            <div class="showwebsite">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label"><b class="t-red">*</b><span data-i18n="Exhibition_Upd.ExhibitionAddress">展出地點(展館)</span>：</label>
+                                                    <div class="col-sm-2">
+                                                        <select class="form-control w100p" id="ExhibitionAddress" name="ExhibitionAddress" data-msg="Exhibition_Upd.ExhibitionAddress_required" datamsg="請選擇展覽地點（展館）"></select>
+                                                    </div>
+                                                    <label class="col-sm-1 control-label simp-box"><span data-i18n="common.SimplifiedName">簡體名稱</span>：</label>
+                                                    <div class="col-sm-2 simp-box">
+                                                        <div class="form-control-static" id="ExhibitionAddress_CN"></div>
+                                                    </div>
+                                                    <label class="col-sm-1 control-label"><span data-i18n="common.EnglishName">英文名稱</span>：</label>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-control-static" id="ExhibitionAddress_EN"></div>
+                                                    </div>
+                                                </div>
+                                                <div id="sub_box1" hidden>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label"><span data-i18n="Exhibition_Upd.IsShowWebSim">是否同時顯示精簡版</span>：</label>
+                                                        <div class="col-sm-4">
+                                                            <input id="IsShowWebSim_0" type="radio" name="IsShowWebSim" value="Y" />
+                                                            <label for="IsShowWebSim_0" data-i18n="common.Yes">是</label>
+                                                            <input id="IsShowWebSim_1" type="radio" name="IsShowWebSim" value="N" checked="checked" />
+                                                            <label for="IsShowWebSim_1" data-i18n="common.No">否</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="sub_box2">
+                                                        <label class="col-sm-2 control-label"><span data-i18n="Exhibition_Upd.ShelfTime_Home">國內展下架時間</span>：</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control date-picker w100p" name="ShelfTime_Home" id="ShelfTime_Home" maxlength="10">
+                                                        </div>
+                                                        <label class="col-sm-1 control-label"><span data-i18n="Exhibition_Upd.ShelfTime_Abroad">國外展下架時間</span>：</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control date-picker w100p" name="ShelfTime_Abroad" id="ShelfTime_Abroad" maxlength="10">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.CoverPic">封面圖片</span>：</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="file" class="displayNone" name="files[]" id="fileInput" multiple>
+                                                        <input type="hidden" name="file_hidden" id="file_hidden" data-msg="Exhibition_Upd.CoverPic_required" datamsg="請選擇封面圖片" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label costrules"><b class="t-red">*</b><span data-i18n="common.CostRules">費用規則</span>：</label>
+                                                    <div class="col-sm-2 costrules">
+                                                        <select class="form-control w100p" id="CostRulesId" name="CostRulesId" data-msg="Exhibition_Upd.CostRulesId_required" datamsg="請選擇費用報價規則"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label wright"><span data-i18n="common.Status">狀態</span>：</label>
+                                            <div class="col-sm-2">
+                                                <input id="radio_0" type="radio" name="Effective" value="Y" checked="checked" />
+                                                <label for="radio_0" data-i18n="common.Effective">有效</label>
+                                                <input id="radio_1" type="radio" name="Effective" value="N" />
+                                                <label for="radio_1" data-i18n="common.Invalid">無效</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="Memo" id="Memo" class="form-control" rows="6" cols="20"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="CreateUser" id="CreateUser" data-source="members.MemberID.MemberName"></div>
+                                            </div>
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="ModifyUser" id="ModifyUser" data-source="members.MemberID.MemberName"></div>
+                                            </div>
+                                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                                            <div class="col-sm-3">
+                                                <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="tab2">
+                                        <div class="row form-group wright export" hidden>
+                                            <button type="button" class="btn-custom blue" id="Export_CusList" title="匯出" data-i18n="common.Toolbar_Exp">匯出</button>
+                                        </div>
+                                        <div class="row">
+                                            <div id="jsGrid"></div>
+                                        </div>
+                                    </div>
+
+                                    <div role="tabpanel" class="tab-pane" id="tab3">
+                                        <div class="row">
+                                            <div id="jsGrid1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 頁籖內容 Tab panes End -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <input type="file" class="import-file hidden" name="file" id="importfile" />
+                <!--主作業區 End-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/lib/OutlookUtil.min.js?v=20180801"></script>
+<script src="/Scripts/pages/Opm/Exhibition_Upd.js?v=20180801"></script>

@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title data-i18n="common.ProgramMaintain_Upd">系統程式編輯</title>
+    <link href="/Content/googleapis.css" rel="stylesheet" type='text/css' />
+    <link href="/Scripts/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/plugins/uniform/css/uniform.default.min.css" rel="stylesheet" />
+    <link href="/Scripts/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/3rd/Spectrum/spectrum.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid.min.css" rel="stylesheet" />
+    <link href="/Scripts/3rd/jGrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="/Content/modern.min.css" rel="stylesheet" />
+    <link href="/Content/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/red.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/style2.0.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .divModule {
+            width: 300px;
+            height: auto;
+            border: 1px solid #e1dede;
+            min-height: 30px;
+            float: left;
+        }
+
+        .ModuleList li {
+            list-style: none; /* 将默认的列表符号去掉 */
+            padding: 0; /* 将默认的内边距去掉 */
+            margin: 0px 0px 0px -25px; /* 将默认的外边距去掉 */
+            /*float: left;*/ /* 往左浮动 */
+            text-align: left;
+        }
+
+        .btn-xs {
+            padding: 1px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-inner">
+        <!--程式名稱及Toobar區 Start -->
+        <div class="page-title">
+        </div>
+        <div id="Toolbar">
+        </div>
+        <!--程式名稱及Toobar區 End -->
+        <div id="main-wrapper">
+            <div class="row">
+                <!-- 頁面內容區域 Start -->
+                <div class="panel-body">
+                    <form id="form_main" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.ProgramID">程式編號</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ProgramID" id="ProgramID" maxlength="100" required data-msg="ProgramMaintain_Upd.ProgramID_required" datamsg="請輸入程式編號">
+                                <p>
+                                    <span class="help-block" data-i18n="ProgramMaintain_Upd.HelpBlock">程式檔名不包含檔案副檔名(abc.html--&gt;abc)</span>
+                                </p>
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><b class="t-red">*</b><span data-i18n="common.ModuleName">模組名稱</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="divModule w100p">
+                                    <ul class="ModuleList"></ul>
+                                </div>
+                                <input id="ModuleID" name="ModuleID" type="hidden" required data-msg="ProgramMaintain_Upd.ModuleID_required" datamsg="請選擇模組" />
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" class="btn btn-success" id="btnData"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><b class="t-red">*</b><span data-i18n="common.ProgramName">程式名稱</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="ProgramName" id="ProgramName" maxlength="100" required data-msg="ProgramMaintain_Upd.ProgramName_required" datamsg="請輸入程式名稱">
+                            </div>
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.MainTableName">主要表格</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" name="MainTableName" id="MainTableName" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.FilePath">檔案路徑</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control w100p" id="FilePath" name="FilePath" maxlength="500" />
+                            </div>
+                            <label class="col-sm-2 control-label wright" for="input-Default"><span data-i18n="ProgramMaintain_Upd.BackgroundCSS">項目顏色</span>：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control color-picker" name="BackgroundCSS" id="BackgroundCSS" value="#000000">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ProgramoFauthority">程式可用權限</span>：</label>
+                            <div class="col-sm-8">
+                                <table style="width: 30%">
+                                    <tr>
+                                        <td class="w50p">
+                                            <select size="10" name="lstLeft" id="lstLeft" class="form-control w100p" multiple></select>
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <button type="button" id="btnToRight" class="btn-custom btn-xs"><i class="fa fa-chevron-right"></i></button>
+                                            </p>
+                                            <p>
+                                                <button type="button" id="btnToLeft" class="btn-custom btn-xs"><i class="fa fa-chevron-left"></i></button>
+                                            </p>
+                                        </td>
+                                        <td class="w50p">
+                                            <select size="10" name="lstRight" id="lstRight" class="form-control w100p" multiple></select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ProgramType">程式類別</span>：</label>
+                            <div class="col-sm-3">
+                                <input id="ProgramType_0" type="radio" name="ProgramType" value="P" checked="checked" />
+                                <label for="ProgramType_0" data-i18n="ProgramMaintain_Upd.listitemvalueprogram">程式</label>
+                                <input id="ProgramType_1" type="radio" name="ProgramType" value="R" />
+                                <label for="ProgramType_1" data-i18n="ProgramMaintain_Upd.listitemvaluereport">報表</label>
+                                <input id="ProgramType_2" type="radio" name="ProgramType" value="S" />
+                                <label for="ProgramType_2" data-i18n="ProgramMaintain_Upd.listitemvaluesub">子程式</label>
+                            </div>
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.Effective">程式狀態</span>：</label>
+                            <div class="col-sm-3">
+                                <input id="Effective_0" type="radio" name="Effective" value="Y" checked="checked" />
+                                <label for="Effective_0" data-i18n="common.Enable">啟用</label>
+                                <input id="Effective_1" type="radio" name="Effective" value="N" />
+                                <label for="Effective_1" data-i18n="common.Disable">停用</label>
+                                <input id="Effective_2" type="radio" name="Effective" value="W" />
+                                <label for="Effective_2" data-i18n="common.InMaintenance">維修中</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ShowInList">顯示於選單</span>：</label>
+                            <div class="col-sm-3">
+                                <input id="ShowInList_0" type="radio" name="ShowInList" value="Y" checked="checked" />
+                                <label for="ShowInList_0" data-i18n="ProgramMaintain_Upd.listitemvalueyes">顯示</label>
+                                <input id="ShowInList_1" type="radio" name="ShowInList" value="N" />
+                                <label for="ShowInList_1" data-i18n="ProgramMaintain_Upd.listitemvalueno">不顯示</label>
+                            </div>
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ShowInHome">顯示於首頁</span>：</label>
+                            <div class="col-sm-3">
+                                <input id="ShowInHome_0" type="radio" name="ShowInHome" value="Y" checked="checked" />
+                                <label for="ShowInHome_0" data-i18n="ProgramMaintain_Upd.listitemvalueyes">顯示</label>
+                                <input id="ShowInHome_1" type="radio" name="ShowInHome" value="N" />
+                                <label for="ShowInHome_1" data-i18n="ProgramMaintain_Upd.listitemvalueno">不顯示</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label wright"><span data-i18n="ProgramMaintain_Upd.ShowTop">是否顯示於頂層</span>：</label>
+                            <div class="col-sm-8">
+                                <input type="checkbox" id="ShowTop" name="ShowTop">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.Memo">備註</span>：</label>
+                            <div class="col-sm-8">
+                                <textarea name="Memo" id="Memo" class="form-control" rows="5" cols="20"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateUser">創建人</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="CreateUserName" id="CreateUserName"></div>
+                            </div>
+                            <label class="col-sm-2 control-label"><span data-i18n="common.CreateDate">創建時間</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="CreateDate" id="CreateDate"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyUser">最新修改人</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="ModifyUserName" id="ModifyUserName"></div>
+                            </div>
+                            <label class="col-sm-2 control-label"><span data-i18n="common.ModifyDate">最新修改時間</span>：</label>
+                            <div class="col-sm-3">
+                                <div class="form-control-static" name="ModifyDate" id="ModifyDate"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- 頁面內容區域 End -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="/Scripts/loadjs.min.js"></script>
+<script src="/Scripts/JSLoader.js?v=20180801"></script>
+<script src="/Scripts/3rd/jquery-2.1.3.min.js"></script>
+<script src="/Scripts/3rd/layer/layui/layui.all.min.js"></script>
+<script src="/Scripts/pages/Sys/ProgramMaintain_Upd.js?v=20180801"></script>

@@ -1,0 +1,65 @@
+﻿body {
+}
+
+.btn-xs {
+    padding: 1px 5px;
+}
+
+hr {
+    height: 1px;
+    margin-left: 7px;
+    border: none;
+    border-top: 1pt dashed #DF5F09;
+    background-color: white !important;
+}
+
+.panel-info {
+    padding-bottom: 70px;
+}
+
+.signeddecision {
+    margin: 0 10px 20px 20px;
+}
+
+.file-list .jFiler-input-dragDrop {
+    margin-left: 0;
+    width: 60px;
+    height: 50px;
+    font-size: 23px;
+}
+
+    .file-list .jFiler-input-dragDrop:hover {
+        margin-left: 0;
+        width: 60px;
+        height: 50px;
+        font-size: 23px;
+        border-color: #225067;
+        color: #225067;
+        cursor: pointer;
+    }
+
+.jsgrid {
+    font-size: 0.7em;
+}
+
+.plustemplkey {
+    padding: 0 5px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+fieldset {
+    border: 2px groove threedface !important;
+    width: 90%;
+    margin: 0 5% !important;
+    padding: 0 10px 0px 0px !important;
+}
+.control-label{
+    font-size: 11pt;
+    font-weight: bold;
+}
+#table_box tr td span{
+    font-size: 10pt;
+}

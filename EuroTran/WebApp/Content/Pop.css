@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.control-label {
+    text-align: right;
+}
+.checkboxcol {
+    width: 3%;
+}
+
+.aftercol {
+    width: 24%;
+}
+
+.form-group {
+    margin-bottom: 15px !important;
+}
+
+legend {
+    border-bottom: 0;
+}

@@ -1,0 +1,32 @@
+body{
+    background-color: darkturquoise;
+}
+h3{
+    text-align: center;
+}
+#content,#result,#check{
+    border-style: dashed;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 10px;
+}
+#result{
+    border-style: none;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#check{
+    border-style: none;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+table{
+    border-top:1px solid #999;
+    border-left:1px solid #999;
+    border-spacing:0;
+}
+table td{
+    border-bottom:1px solid #999;
+    border-right:1px solid #999;
+}

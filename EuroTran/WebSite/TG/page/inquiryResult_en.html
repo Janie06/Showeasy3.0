@@ -1,0 +1,252 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Online Booking - G-Yi Logistics</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link href="../../Scripts/3rd/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../../Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.css" rel="stylesheet" />
+    <link href="../../Content/toastr.min.css" rel="stylesheet" />
+    <link href="../../Content/font-awesome.css" rel="stylesheet" />
+    <link href="../css/main.css?v=20180730" rel="stylesheet">
+    <link href="../css/inquiry.css" rel="stylesheet">
+    <style>
+        body, td {
+            font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            line-height: 24px;
+        }
+
+        .serviceinfo tr th {
+            background-color: #cccccc;
+            border: 1px double #ededed;
+            font-weight: bold;
+        }
+
+        .serviceinfo tr td {
+            background-color: #ededed;
+            border: 1px double #fff;
+        }
+
+        #ServiceInstruction {
+            padding: 20px 0px 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div id="headerWrapper">
+            <h1><a href="index_en.html">G-YI</a></h1>
+            <ul id="language">
+                <!--<li class="cn"><a href="#">简</a></li>-->
+                <li class="en"><a href="inquiryResult.html">中</a></li>
+            </ul>
+            <h4>Menu</h4>
+            <ul id="menu">
+                <li id="index"><a href="index_en.html">Home</a></li>
+                <li id="about"><a href="about_en.html">About G-Yi</a></li>
+                <li id="service"><a href="service_en.html">Our Services</a></li>
+                <li id="inquiry"><a href="inquiry_en.html">Get a Quote</a></li>
+                <li id="contact"><a href="contact_en.html">Contact Us</a></li>
+                <li id="download"><a href="download_en.html">Downloads</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- header end -->
+    <!--------------------- article --------------------->
+    <div class="article">
+        <h1 class="addBG">Online Booking</h1>
+        <p>&nbsp;</p>
+        <div id="Result">
+            <h3 style="text-align:center"><strong>Booking Results</strong></h3>
+            <p>&nbsp;</p>
+            <table width="65%" border="0" align="center" cellpadding="0" cellspacing="0" style="border-top:5px solid #F26529;border-right:1px solid #F26529;border-left:1px solid #F26529;">
+                <tbody>
+                    <tr>
+                        <td style="padding:20px;"><a href="http://www.g-yi.com/" target="_blank"><img src="../images/logo.png" width="240" style="vertical-align:middle" /></a></td>
+                        <td align="right" nowrap style="padding:20px; border-bottom:1px solid #ddd; color:#F26529; font-size:19px;">Online Booking</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><img src="../images/mail1.jpg" width="850" style="vertical-align:middle" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding:20px;">
+                            Dear Mr./Ms.&nbsp;&nbsp;<span id="AppointUser"></span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you for using G-Yi’s online booking service. Your booking information is as follows：
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="color:#F26529; font-size:19px; font-weight:bold; border-bottom:1px solid #F26529">Contact Information</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody id="contactInfo"></tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="color:#F26529; font-size:19px; font-weight:bold; border-bottom:1px solid #F26529">Services Required</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="1" cellpadding="5" class="serviceinfo">
+                                <tbody id="Servicebox">
+                                    <tr>
+                                        <th align="center" nowrap bgcolor="#cccccc">Packaging</th>
+                                        <th align="center" nowrap bgcolor="#cccccc">Dimensions(CM)</th>
+                                        <th align="center" nowrap bgcolor="#cccccc">Weight(KG)</th>
+                                        <th align="center" nowrap bgcolor="#cccccc">Quantity</th>
+                                        <th align="center" nowrap bgcolor="#cccccc">Services Required</th>
+                                        <th align="center" nowrap bgcolor="#cccccc">Cost</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td align="right"><strong>Total (In NT$, Tax Included)：$</strong><strong id="Total">0</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                                <tbody>
+                                    <tr>
+                                        <td align="center" style="color:#F26529; font-size:19px; font-weight:bold; border-bottom:1px solid #F26529">Notes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="ServiceInstruction"></div>
+                            <strong>If you have any questions, please contact us：</strong><br>
+                            Tel: 02-2785-7900 <br>
+                            Email: <a href="mailto:info@g-yi.com">info@g-yi.com</a><br>
+                            Service hours: Monday-Friday  09:00-17:30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center" bgcolor="#E9471E" style="padding:10px; font-size:14px; color:#fff;">G-YI INTERNATIONAL LOGISTICS CO., LTD.  &nbsp; | &nbsp; <a href="http://www.g-yi.com/" target="_blank" style="color:#fff;">www.g-yi.com</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&nbsp;</p>
+        </div>
+        <p class="align_c">
+            <a href="javascript:void(0);" class="btn btnStyle print">Print</a>
+        </p>
+        <div class="clear"></div>
+    </div>
+    <!--------------------- article end --------------------->
+    <!--------------------- footer --------------------->
+    <footer>
+        <div id="footer">
+            <img src="../images/logoFooter.png">
+            <ul>
+                <li>10F., No.457, Chongyang Rd., Nangang Dist., Taipei, Taiwan</li>
+                <li>+886-2-2785-7900</li>
+                <li><a href="mailto:info@g-yi.com">info@g-yi.com</a></li>
+            </ul>
+            <p>Copyright &copy; G-YI INT'L LOGISTICS CO., LTD.</p>
+        </div>
+    </footer>
+    <div id="toTop">TOP</div>
+    <div id="money" class="NoShowInMobile"><a href="inquiry_en.html"></a></div>
+    <!--------------------- footer end --------------------->
+    <script id="temp_service" type="text/x-jsrender">
+        <tr>
+            <td align="center" class="border" width="15%">{{:~setExpoType(ExpoType)}}</td>
+            <td class="border" width="18%">{{:~setMoney(ExpoLen)}}*{{:~setMoney(ExpoWidth)}}*{{:~setMoney(ExpoHeight)}}</td>
+            <td align="right" class="border" width="10%">{{:~setMoney(ExpoWeight)}}</td>
+            <td align="center" class="border" width="10%">{{:ExpoNumber}}</td>
+            <td class="border" width="30%">{{:~setService(ExpoStack,ExpoSplit,ExpoPack,ExpoFeed,ExpoStorage,ExpoDays)}}</td>
+            <td align="right" class="border" width="15%">NT${{:~setMoney(SubTotal)}}</td>
+        </tr>
+    </script>
+    <script id="temp_contact" type="text/x-jsrender">
+        <strong>Booking No.：</strong>{{:AppointNO}}
+        <br>
+        <strong>Company Name：</strong>{{:CompName}}
+        <br>
+        <strong>Exhibition Name：</strong>{{:ExpoName}}
+        <br>
+        <strong>Booth Number：</strong>{{:MuseumMumber}}
+        <br>
+        <strong>Customer Name：</strong>{{:AppointUser}}
+        <br>
+        <strong>Customer Phone Number：</strong>{{:AppointTel}}
+        <br>
+        <strong>Customer Email：</strong>{{:AppointEmail}}
+        <br>
+        <strong>Move-in Time：</strong>{{:~setDate(ApproachTime)}}
+        <br>
+        <strong>Move-out Time：</strong>{{:~setDate(ExitTime)}}
+        <br>
+        <strong>On-site Contact Person：</strong> {{:Contactor}}
+        <br>
+        <strong>On-site Contact Person Mobile Number：</strong> {{:ContactTel}}
+    </script>
+</body>
+</html>
+<script src="../../Scripts/jquery-1.11.3.min.js"></script>
+<script src="../../Scripts/3rd/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../Scripts/i18next.min.js"></script>
+<script src="../../Scripts/jquery.blockUI.js"></script>
+<script src="../../Scripts/jquery.validate.min.js"></script>
+<script src="../../Scripts/3rd/fancybox/fancybox-3/jquery.fancybox.min.js"></script>
+<script src="../../Scripts/jquery.jqprint-0.3.js"></script>
+<script src="../../Scripts/jquery.serialize-object.min.js"></script>
+<script src="../../Scripts/toastr.min.js"></script>
+<script src="../../Scripts/jsrender.min.js"></script>
+<script src="../../Scripts/lib/base64.js"></script>
+<script src="../../Scripts/lib/Util.min.js?v=20180730"></script>
+<script src="../js/menu.js?v=20180730"></script>
+<script src="../js/inquiryResult.js?v=20180730"></script>
+<!--Global site tag(gtag.js) - Google Analytics-->
+<script>
+    if ('www.g-yi.com'.indexOf(window.location.hostname) > -1) {
+        document.write('<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120713824-1"><\x2Fscript><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "UA-120713824-1");<\x2Fscript>');
+    }
+</script>

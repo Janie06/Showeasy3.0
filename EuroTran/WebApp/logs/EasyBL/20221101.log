@@ -1,0 +1,19 @@
+2022-11-01 10:24:07,559 ERROR 7 EasyBL.LogService - QueryOneQueryOne Error:已添加了具有相同键的项。Param（Type：Params：{
+  "organization": {
+    "OrgID": "TG"
+  }
+}）
+
+System.Exception: 已添加了具有相同键的项。 ---> System.ArgumentException: 已添加了具有相同键的项。
+   在 System.ThrowHelper.ThrowArgumentException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Insert(TKey key, TValue value, Boolean add)
+   在 System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   在 EasyNet.Common.DbKeywords.InitMSSQL() 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\EasyNet\Common\DbKeywords.cs:行号 25
+   在 EasyNet.Common.DbKeywords.FormatColumnName(String colounName) 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\EasyNet\Common\DbKeywords.cs:行号 37
+   在 EasyNet.Common.DbEntityUtils.GetQueryByObjSql(TableInfo tableInfo, Dictionary`2& wh, Dictionary`2 sort) 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\EasyNet\Common\DbEntityUtils.cs:行号 341
+   在 EasyNet.Manager.DbManager.QueryOne(String sql, Object obj) 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\EasyNet\Manager\DbManager.cs:行号 537
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 EasyNet.Manager.DbManager.QueryOne(String sql, Object obj) 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\EasyNet\Manager\DbManager.cs:行号 565
+   在 EasyNet.DBUtility.DBHelper.QueryOne(String sSql, Object obj) 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\EasyNet\DBUtility\DbHelper.cs:行号 81
+   在 EasyBL.EntityBL.QueryOne(String sType, Object oParam) 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\EasyBL\EntityBL.cs:行号 18
+   在 WebApp.WS.ComWebService.QueryOne(String Type, Object Params) 位置 D:\Project\Git\ShowEasy\BackEnd\EuroTran\WebApp\WS\ComWebService.asmx.cs:行号 116

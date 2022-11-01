@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .ekko-lightbox-nav-overlay {
+            display: block !important;
+        }
+
+        .glyphicon-chevron-left, .glyphicon-chevron-right {
+            font: normal normal normal 14px/1 FontAwesome;
+        }
+
+            .glyphicon-chevron-left:before {
+                content: "\f053";
+            }
+
+            .glyphicon-chevron-right:before {
+                content: "\f054";
+                right: 20px;
+            }
+
+        .popup-detail {
+            background: #FFF;
+        }
+        /*.ng-scope-list{
+            width: 100%;
+            padding: 0;
+            border: none;
+            background: transparent;}
+        .notebook_ul{
+            overflow: auto;
+            zoom: 1;
+            margin:5px 0 50px 30px
+            }*/
+        .ng-scope {
+            /*float: left;
+            clear: left;*/
+            width: 100%;
+            margin: 0.2em 0;
+            padding: 0.5em 0.8em;
+            list-style: none;
+            background-color: #ffebdd;
+            border-left: 5px solid #ec681e;
+            cursor: pointer;
+            color: #333;
+            position: relative;
+            z-index: 2;
+            font-size: 15px;
+            text-align: left;
+            border-radius: 0 5px 5px 0;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+            .ng-scope span {
+                width: 100%;
+                display: inline-block;
+                padding-left: 2%;
+                font-size: 14px;
+                font-weight: normal;
+            }
+
+                .ng-scope span span {
+                    color: #888;
+                    margin-left: 5px;
+                }
+
+        @media (max-width: 600px) {
+            .ng-scope span {
+                width: 100%;
+            }
+        }
+
+        .experience {
+            position: absolute;
+            left: -70px;
+            font-size: 20px;
+            text-align: right;
+            top: 2em;
+            color: #ababab;
+            font-weight: bold;
+            font-family: 'Maven Pro', sans-serif,'微軟正黑體';
+            transform: rotate(-90deg);
+            z-index: 1;
+            transform: rotate(0deg);
+            left: 0;
+            top: 0;
+            position: relative;
+            text-align: left;
+            margin-bottom: 0px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="popup-page">
+            <div class="popup-banner">
+                <div class="popup-title">
+                    <div class="container">
+                        <div class="row">
+                            <div class="title">
+                                <h2>食品展會</h2>
+                                <h5>經典案例</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="../img/case08.jpg" /> <img class="white-clip-path" src="../img/white-clip-path.png" />
+            </div>
+            <div class="container popup-detail">
+                <div class="row">
+                    <div class="col-xs-12" style="position:relative">
+                        <p class="experience">參展經驗 Experience.</p>
+                        <div class="ng-scope">
+                            <span>台北國際食品展<span>FOOD TAIPEI</span></span>
+                            <span>東京國際食品展<span>FOODEX JAPAN</span></span>
+                            <span>新加坡國際食品展<span>FOOD ASIA</span></span>
+                            <span>泰國國際食品展<span>THAIFEX</span></span>
+                            <span>中國國際食品飲料展<span>SIAL CHINA</span></span>
+                            <span>印尼國際食品飲料展<span>SIAL InterFOOD Indonesia</span></span>
+                            <span>菲律賓國際食品展<span>WORLD FOOD EXPO</span></span>
+                            <span>巴黎國際食品展<span>SIAL Paris</span></span>
+                            <span>阿布達比國際食品展<span>SIAL Middle East</span></span>
+                            <span>香港國際食品展<span>HOFEX</span></span>
+                        </div>
+                        <p>掌握國內外各大食品展食品產業趨勢，參展的專業貿易商涵蓋了從食品進出口商、經銷商、批發與零售商、超市與綜合賣場，到酒店、餐飲業等食品與飲料採購的各個領域，為全球食品貿易帶來了眾多的商機以及合作交流的機遇。</p>
+                        <p>鑒於食品安全問題，各國對於食品產業的展覽管控嚴格，奕達在前期的溝通，提供詳實的證照相關資訊，如各項產品成分、製造過程是否符合各展會的規範，並可協助客戶代辦申請各項的認證，一條龍式的流程服務，讓客戶可全然安心託付。</p>
+                        <p>食品類的展品特殊性高，海關的各類文件及抽驗時程較長，收貨時間較一般展品大多較為提早，奕達優秀的時程控管能力，讓運輸流程更為精確不誤點；而食品均有一定時間的保質期，客戶於裝箱運輸前，須因應不同類型進行打包，如保冰箱、保冷劑等等，奕達提供完整包裝資訊協助，以保持展品新鮮的狀態，安全無虞運送至展會現場。  </p>
+                        <figure>
+                            <img style="width:100%" src="../img/case8-2-1.jpg" />
+                            <figcaption>食品展會</figcaption>
+                        </figure>
+                        <figure>
+                            <img style="width:100%" src="../img/case8-2-2.jpg" />
+                            <figcaption>食品展會</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">CL<i class="fa fa-times-circle-o" aria-hidden="true"></i>SE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

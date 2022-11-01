@@ -1,0 +1,154 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*-----------------------progress----------------------*/
+#progress {
+	overflow: auto;
+}
+#progress li {
+	text-align: center;
+	width: 16.6%;
+	float: left;
+	color: #999;
+	background-image: url(../images/progressLine.gif);
+	background-repeat: repeat-x;
+	background-position: left 60px;
+}
+#progress li span {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 31px;
+	border-radius: 40px;
+	background: #ddd;
+	color: #fff;
+}
+#progress li.active {
+	background-image: url(../images/progressLineAct.gif);
+}
+#progress li.active span {
+	background: #f26529;
+	color: #fff;
+}
+#progress li p {
+	font-size: 19px;
+}
+#progress li.active p {
+	color: #f26529;
+}
+/*-----------------------for PC-----------------------*/
+@media screen and (min-width:801px) {
+/*-----------------------progress----------------------*/
+#progress {
+	overflow: auto;
+}
+#progress li {
+	text-align: center;
+	width: 16.6%;
+	float: left;
+	color: #999;
+	background-image: url(../images/progressLine.gif);
+	background-repeat: repeat-x;
+	background-position: left 60px;
+}
+#progress li span {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	line-height: 60px;
+	font-size: 31px;
+	border-radius: 40px;
+	background: #ddd;
+	color: #fff;
+}
+#progress li.active {
+	background-image: url(../images/progressLineAct.gif);
+}
+#progress li.active span {
+	background: #f26529;
+	color: #fff;
+}
+#progress li p {
+	font-size: 19px;
+}
+#progress li.active p {
+	color: #f26529;
+}
+/*-----------------------trackBtn----------------------*/
+#trackBtn {
+	text-align: center;
+}
+#trackBtn li {
+	display: inline-block;
+	margin-right: 10px;
+}
+#trackBtn li:last-child {
+	margin-right: 0;
+}
+/*-----------------------trackInfo----------------------*/
+#trackInfo{
+	padding:20px;
+	background:#f9f9f9;
+	overflow:auto;
+}
+#trackInfo li{
+	width:49%;
+	border-bottom:1px dotted #ccc;
+	float:left;
+	padding:5px 0;
+	display:block;
+	margin-right:2%;
+	}
+#trackInfo li:nth-child(even){margin:0;}
+}
+
+/*------------------for mobile------------------------*/
+@media screen and (max-width:800px) {
+/*-----------------------progress----------------------*/
+#progress li {
+	text-align: center;
+	width: 33%;
+	float: left;
+	color: #999;
+	background-image: url(../images/progressLine.gif);
+	background-repeat: repeat-x;
+	background-position: left 35px;
+}
+#progress li span {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 21px;
+	border-radius: 30px;
+	background: #ddd;
+	color: #fff;
+}
+#progress li p {
+	font-size:15px;
+}
+#progress li:nth-child(n+4):nth-child(-n+6){ margin-top:10px;}
+/*-----------------------trackBtn----------------------*/
+#trackBtn {
+}
+#trackBtn li {
+	width:100%;
+	margin-bottom: 10px;
+}
+#trackBtn li:last-child {
+	margin-bottom: 0;
+}
+/*-----------------------trackInfo----------------------*/
+#trackInfo{
+	padding:5px 10px;
+	background:#f9f9f9;
+}
+#trackInfo li{
+	border-bottom:1px dotted #ccc;
+	padding:5px 0;
+	display:block;
+}
+#trackInfo li:last-child {
+	border-bottom:none;
+}
+}
