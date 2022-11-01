@@ -1,9 +1,0 @@
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\bin\Debug\CalcAnnualLeave.dll
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\bin\Debug\CalcAnnualLeave.pdb
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\bin\Debug\TimingTaskBase.dll
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\bin\Debug\TimingTaskBase.pdb
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\obj\Debug\CalcAnnualLeave.csprojResolveAssemblyReference.cache
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\obj\Debug\CalcAnnualLeave.csproj.CoreCompileInputs.cache
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\obj\Debug\CalcAnnualLeave.csproj.CopyComplete
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\obj\Debug\CalcAnnualLeave.dll
-D:\Projects\eurotran\03-程式設計階段\Eurotran\CalcAnnualLeave\obj\Debug\CalcAnnualLeave.pdb

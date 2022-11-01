@@ -1,4 +1,0 @@
-{"RESULT":1,"STATUSCODE":200,"MSG":null,"PROJECT":"Eurotran","PROJECTVER":"Origtek","MODULE":null,"TYPE":"QueryPage","DATA":{"rel":{"PageIndex":1,"PageSize":50,"Total":2,"DataList":[
-{"RowIndex":"1","SN": "1","CompareDB": "N","CustomerName": "TestCustomer","FillerName": "1234","Phone": "09090909","Email": "123@123.cc","Feild01": "5"},
-{"RowIndex":"2","SN": "2","CompareDB": "Y","CustomerName": "TestCustomer2","FillerName": "12345","Phone": "0909090934","Email": "125@125.cc","Feild01": "4"}
-]}}}

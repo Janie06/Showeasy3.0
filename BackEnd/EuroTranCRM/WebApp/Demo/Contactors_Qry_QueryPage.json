@@ -1,5 +1,0 @@
-{"RESULT":1,"STATUSCODE":200,"MSG":null,"PROJECT":"Eurotran","PROJECTVER":"Origtek","MODULE":null,"TYPE":"QueryPage","DATA":{"rel":{"PageIndex":1,"PageSize":50,"Total":2,"DataList":[
-{"guid": "5fdd5efd-bfb0-44c5-96a1-2701ef954953","ContactorName": "黃小姐","Telephone1": "12345678","Telephone2": "","FAX": "","Email1": "123@123.cc","Memo": ""},
-{"guid": "1fdd5efd-bfb0-44c5-96a1-2701ef954951","ContactorName": "陳小姐","Telephone1": "897654321","Telephone2": "","FAX": "","Email1": "567@567.bb","Memo": ""},
-{"guid": "2fdd5efd-bfb0-44c5-96a1-2701ef954952","ContactorName": "王先生","Telephone1": "565656565","Telephone2": "","FAX": "","Email1": "7878@787.dd","Memo": ""}
-]}}}

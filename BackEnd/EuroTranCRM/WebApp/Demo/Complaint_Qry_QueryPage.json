@@ -1,3 +1,0 @@
-{"RESULT":1,"STATUSCODE":200,"MSG":null,"PROJECT":"Eurotran","PROJECTVER":"Origtek","MODULE":null,"TYPE":"QueryPage","DATA":{"rel":{"PageIndex":1,"PageSize":50,"Total":1,"DataList":[
-{"RowIndex":"1","ComplaintNumber": "1111","ComplaintTitle": "2020 台北汽車展抱怨","ComplaintType": "延誤","ExhibitioShotName_TW": "2020 台北車展","CustomerCName": "AABBC","Complainant": "王小姐","CreateUser":"陳先生","CreateDate":"","ModifyDate":"","Status":"A","Applicant":"apadmin"}
-]}}}

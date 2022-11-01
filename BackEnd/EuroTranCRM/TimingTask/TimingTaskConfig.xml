@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--說明：任務類型 W:按週執行 M:按月執行  P:週期執行  D:按天執行-->
-<Tasks Period="1000" ConnectionString ="data source=CAIWU-YIN\BINGHUO;Initial Catalog=test;Integrated Security=True;" LogPath="C:">
-  <Task ID ="1" Name="Annual Leave" TaskType="M" Period="0" IsEnabled ="Y" BeginTime="11 5 30" EndTime="11 18 30" LastCompleteTime="" connString ="data source=ITTEST;Initial Catalog=shareidea_trial;uid=sa;pwd=sa;" ClassName="CalcAnnualleave.AnnualLeave" AssemblyName="CalcAnnualleave.dll">
-  </Task>
-  <Task ID ="2" Name="Annual Leave" TaskType="M" Period="0" IsEnabled ="N" BeginTime="11 5 30" EndTime="11 18 30" LastCompleteTime="" connString ="data source=ITTEST;Initial Catalog=shareidea_trial;uid=sa;pwd=sa;" ClassName="CalcAnnualleave.AnnualLeave" AssemblyName="CalcAnnualleave.dll">
-  </Task>
-</Tasks>

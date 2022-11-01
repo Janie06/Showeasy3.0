@@ -1,6 +1,0 @@
-[{ "MODULE":"Exhibition_Qry","TYPE":"QueryPageA","Demo":"N" },
-{ "MODULE":"Contactors_Qry","TYPE":"QueryPage","Demo":"N" },
-{ "MODULE":"SatisfactionCase_Qry","TYPE":"QueryPage","Demo":"N" },
-{ "MODULE":"SatisfactionCase_Upd","TYPE":"GetSatisfactionList","Demo":"N" },
-{ "MODULE":"Complaint_Qry","TYPE":"QueryPage","Demo":"N" }
-]
